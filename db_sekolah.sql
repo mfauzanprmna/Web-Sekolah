@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2021 at 07:31 AM
+-- Generation Time: Sep 22, 2021 at 03:45 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -72,17 +72,17 @@ CREATE TABLE `data_rows` (
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
-(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, NULL, 3),
-(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, NULL, 4),
-(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, NULL, 5),
-(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, NULL, 6),
-(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, NULL, 8),
-(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}', 10),
+(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
+(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '{}', 3),
+(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, '{}', 4),
+(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '{}', 5),
+(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 6),
+(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '{}', 8),
+(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
 (10, 1, 'user_belongstomany_role_relationship', 'relationship', 'voyager::seeders.data_rows.roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
-(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, NULL, 12),
+(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '{}', 12),
 (12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
 (14, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
@@ -92,7 +92,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (18, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
 (19, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
 (20, 3, 'display_name', 'text', 'Display Name', 1, 1, 1, 1, 1, 1, NULL, 5),
-(21, 1, 'role_id', 'text', 'Role', 1, 1, 1, 1, 1, 1, NULL, 9),
+(21, 1, 'role_id', 'text', 'Role', 0, 1, 1, 1, 1, 1, '{}', 9),
 (22, 4, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (23, 4, 'parent_id', 'select_dropdown', 'Parent', 0, 0, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
 (24, 4, 'order', 'text', 'Order', 1, 1, 1, 1, 1, 1, '{\"default\":1}', 3),
@@ -128,37 +128,43 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11),
 (55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12),
 (56, 7, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(57, 7, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 2),
-(58, 7, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 3),
-(59, 7, 'password', 'text', 'Password', 0, 1, 1, 1, 1, 1, '{}', 4),
-(60, 7, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 5),
-(61, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(57, 7, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 3),
+(58, 7, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 4),
+(59, 7, 'password', 'password', 'Password', 0, 0, 1, 1, 1, 1, '{}', 5),
+(60, 7, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(61, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
 (62, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(63, 8, 'nisn', 'text', 'Nisn', 0, 1, 1, 1, 1, 1, '{}', 2),
-(64, 8, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 3),
-(66, 8, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 6),
-(67, 8, 'password', 'text', 'Password', 0, 1, 1, 1, 1, 1, '{}', 7),
-(68, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 8),
-(69, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(64, 8, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 4),
+(66, 8, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 7),
+(67, 8, 'password', 'password', 'Password', 0, 0, 1, 1, 1, 1, '{}', 8),
+(68, 8, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(69, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 11),
 (70, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(71, 9, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 2),
-(72, 9, 'jabatan', 'text', 'Jabatan', 0, 1, 1, 1, 1, 1, '{\"default\":\"Kepala Program\",\"options\":{\"Kepala Sekolah\":\"Kepala Sekolah\",\"Kepala Program\":\"Kepala Program\"}}', 3),
-(73, 9, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 4),
-(74, 9, 'password', 'text', 'Password', 0, 1, 1, 1, 1, 1, '{}', 5),
-(75, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 6),
-(76, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(71, 9, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 3),
+(72, 9, 'jabatan', 'select_dropdown', 'Jabatan', 0, 1, 1, 1, 1, 1, '{\"default\":\"Kepala Program\",\"options\":{\"Kepala Sekolah\":\"Kepala Sekolah\",\"Kepala Program\":\"Kepala Program\"}}', 4),
+(73, 9, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 5),
+(74, 9, 'password', 'password', 'Password', 0, 0, 1, 1, 1, 1, '{}', 6),
+(75, 9, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(76, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
 (77, 5, 'post_belongsto_manager_relationship', 'relationship', 'managers', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Manager\",\"table\":\"managers\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 16),
 (78, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(79, 10, 'kelas', 'text', 'Kelas', 0, 1, 1, 1, 1, 1, '{\"default\":\"X\",\"options\":{\"X\":\"X\",\"XI\":\"XI\",\"XII\":\"XII\"}}', 2),
+(79, 10, 'kelas', 'select_dropdown', 'Kelas', 0, 1, 1, 1, 1, 1, '{\"default\":\"X\",\"options\":{\"X\":\"X\",\"XI\":\"XI\",\"XII\":\"XII\"}}', 2),
 (80, 10, 'nama_kelas', 'text', 'Nama Kelas', 0, 1, 1, 1, 1, 1, '{}', 4),
 (81, 10, 'tahun_ajaran', 'text', 'Tahun Ajaran', 0, 1, 1, 1, 1, 1, '{}', 5),
 (82, 10, 'wali_kelas', 'text', 'Wali Kelas', 0, 1, 1, 1, 1, 1, '{}', 6),
 (83, 10, 'status', 'text', 'Status', 0, 1, 1, 1, 1, 1, '{}', 7),
 (84, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 8),
 (85, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
-(86, 8, 'siswa_belongsto_kela_relationship', 'relationship', 'kelas', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Kela\",\"table\":\"kelas\",\"type\":\"belongsTo\",\"column\":\"kelas_id\",\"key\":\"id\",\"label\":\"nama_kelas\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
-(87, 8, 'kelas_id', 'text', 'Kelas Id', 0, 1, 1, 1, 1, 1, '{}', 5),
-(88, 10, 'jurusan', 'text', 'Jurusan', 0, 1, 1, 1, 1, 1, '{\"default\":\"RPL\",\"options\":{\"TKJ\":\"TKJ\",\"MM\":\"MM\",\"RPL\":\"RPL\",\"BC\":\"BC\",\"TEI\":\"TEI\"}}', 3);
+(86, 8, 'siswa_belongsto_kela_relationship', 'relationship', 'kelas', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Kela\",\"table\":\"kelas\",\"type\":\"belongsTo\",\"column\":\"kelas_id\",\"key\":\"id\",\"label\":\"nama_kelas\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5),
+(87, 8, 'kelas_id', 'text', 'Kelas Id', 0, 1, 1, 1, 1, 1, '{}', 6),
+(88, 10, 'jurusan', 'select_dropdown', 'Jurusan', 0, 1, 1, 1, 1, 1, '{\"default\":\"RPL\",\"options\":{\"TKJ\":\"TKJ\",\"MM\":\"MM\",\"RPL\":\"RPL\",\"BC\":\"BC\",\"TEI\":\"TEI\"}}', 3),
+(91, 8, 'nipd', 'text', 'Nipd', 0, 1, 1, 1, 1, 1, '{}', 3),
+(92, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 1, 1, 1, 1, 1, '{}', 6),
+(93, 8, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '{}', 10),
+(94, 9, 'nik', 'text', 'Nik', 0, 1, 1, 1, 1, 1, '{}', 2),
+(95, 7, 'nik', 'text', 'Nik', 0, 1, 1, 1, 1, 1, '{}', 2),
+(96, 7, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '{}', 8),
+(97, 9, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '{}', 9);
 
 -- --------------------------------------------------------
 
@@ -189,16 +195,16 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2021-09-21 07:32:51', '2021-09-21 07:32:51'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 07:32:51', '2021-09-22 06:10:53'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2021-09-21 07:32:51', '2021-09-21 07:32:51'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2021-09-21 07:32:52', '2021-09-21 07:32:52'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2021-09-21 07:33:09', '2021-09-21 07:33:09'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 07:33:11', '2021-09-21 20:25:02'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2021-09-21 07:33:12', '2021-09-21 07:33:12'),
-(7, 'gurus', 'gurus', 'Guru', 'Gurus', NULL, 'App\\Models\\Guru', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-21 20:11:32', '2021-09-21 20:11:32'),
-(8, 'siswas', 'siswas', 'Siswa', 'Siswas', NULL, 'App\\Models\\Siswa', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:12:14', '2021-09-21 20:44:17'),
-(9, 'managers', 'managers', 'Manager', 'Managers', NULL, 'App\\Models\\Manager', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-21 20:20:00', '2021-09-21 20:20:00'),
-(10, 'kelas', 'kelas', 'Kela', 'Kelas', NULL, 'App\\Models\\Kela', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:32:15', '2021-09-21 21:11:08');
+(7, 'gurus', 'gurus', 'Guru', 'Gurus', NULL, 'App\\Models\\Guru', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:11:32', '2021-09-22 06:10:12'),
+(8, 'siswas', 'siswas', 'Siswa', 'Siswas', NULL, 'App\\Models\\Siswa', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:12:14', '2021-09-22 06:08:24'),
+(9, 'managers', 'managers', 'Manager', 'Managers', NULL, 'App\\Models\\Manager', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:20:00', '2021-09-22 06:42:27'),
+(10, 'kelas', 'kelas', 'Kela', 'Kelas', NULL, 'App\\Models\\Kela', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:32:15', '2021-09-22 06:42:10');
 
 -- --------------------------------------------------------
 
@@ -228,8 +234,17 @@ CREATE TABLE `gurus` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nik` int(11) DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gurus`
+--
+
+INSERT INTO `gurus` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`, `nik`, `remember_token`) VALUES
+(1, 'Pak Dwi', 'dwi@gmail.com', '$2y$10$kVsqhx9OS9ZgoVeDzs85ReWIjBg9LCBBT76ZNplP8uViDn1suRfbS', '2021-09-22 06:44:25', '2021-09-22 06:44:25', 312314, NULL);
 
 -- --------------------------------------------------------
 
@@ -249,6 +264,13 @@ CREATE TABLE `kelas` (
   `jurusan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id`, `kelas`, `nama_kelas`, `tahun_ajaran`, `wali_kelas`, `status`, `created_at`, `updated_at`, `jurusan`) VALUES
+(1, 'XII', 'XII RPL 3', '2021/2022', 'Pak Dwi', 'Aktif', '2021-09-22 06:43:06', '2021-09-22 06:43:06', 'RPL');
+
 -- --------------------------------------------------------
 
 --
@@ -262,15 +284,17 @@ CREATE TABLE `managers` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nik` int(11) DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `managers`
 --
 
-INSERT INTO `managers` (`id`, `name`, `jabatan`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Pak Puguh', 'Kepala Program', 'puguh@gmail.com', '1234567', '2021-09-21 21:47:28', '2021-09-21 21:47:28');
+INSERT INTO `managers` (`id`, `name`, `jabatan`, `email`, `password`, `created_at`, `updated_at`, `nik`, `remember_token`) VALUES
+(3, 'Pak Puguh', 'Kepala Program', 'puguh@gmail.com', '$2y$10$VadtaG5F/Q/AMbbt/qjRNe4BlF9rSgtoAAhyGNIu7X5k.CMB6F2AS', '2021-09-22 06:11:45', '2021-09-22 06:11:45', 1230913, NULL);
 
 -- --------------------------------------------------------
 
@@ -695,14 +719,22 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 
 CREATE TABLE `siswas` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nisn` int(11) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kelas_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nipd` int(11) DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `siswas`
+--
+
+INSERT INTO `siswas` (`id`, `name`, `kelas_id`, `email`, `password`, `created_at`, `updated_at`, `nipd`, `remember_token`) VALUES
+(1, 'Kukuh Pradypta', '1', 'kukuh@gmail.com', '$2y$10$EJg3EZjiyke6MA26ywAoLe.cwYI8zc6417Ow1gUT448SDQJmLDpRG', '2021-09-22 06:43:59', '2021-09-22 06:43:59', 1920100325, NULL);
 
 -- --------------------------------------------------------
 
@@ -782,7 +814,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$191wQju0mnLP.6QT9KNsoOFamRu2El4FNMoALByTIgBzwYYHeHZ9O', 'StqSFnMbVMVAnHT8H3WGIlb2YfqvMdVrek1YUDCTVDwY1CvC70FhbKj5SRjp', NULL, '2021-09-21 07:33:10', '2021-09-21 07:33:10');
+(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$191wQju0mnLP.6QT9KNsoOFamRu2El4FNMoALByTIgBzwYYHeHZ9O', 'ffgvEzRlhe4mmFJUMJ8jVFovr9ppXwUHywidlOJy4ZmTAWLiD8psi0sNSyvv', NULL, '2021-09-21 07:33:10', '2021-09-21 07:33:10');
 
 -- --------------------------------------------------------
 
@@ -967,7 +999,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `data_types`
@@ -985,19 +1017,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `gurus`
 --
 ALTER TABLE `gurus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `managers`
 --
 ALTER TABLE `managers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -1057,7 +1089,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `siswas`
 --
 ALTER TABLE `siswas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `translations`
