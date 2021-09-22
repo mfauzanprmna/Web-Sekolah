@@ -26,14 +26,16 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
+    public function store(Request $request)
     {
-        if ( Auth::guard('manager')->attempt(['email' => $request->email, 'password' => $request->password]) ) {
-            return redirect('dashboard');
-        } elseif ( Auth::guard('guru')->attempt(['email' => $request->email, 'password' => $request->password]) ) {
-            return redirect('dashboard');
-        } elseif ( Auth::guard('siswa')->attempt(['email' => $request->email, 'password' => $request->password]) ) {
-            return redirect('dashboard');
+        if ( Auth::guard('manager')->attempt(['nik' => $request->username, 'password' => $request->password]) ) {
+            dd(Auth::guard('manager')->user());
+        } elseif ( Auth::guard('guru')->attempt(['nik' => $request->username, 'password' => $request->password]) ) {
+            return redirect('/guru');
+        } elseif ( Auth::guard('siswa')->attempt(['nipd' => $request->username, 'password' => $request->password]) ) {
+            return redirect('/siswa');
+        } elseif ( Auth::guard('web')->attempt(['email' => $request->username, 'password' => $request->password]) ) {
+            dd(Auth::guard('web')->user());
         }
 
         return redirect('/login');

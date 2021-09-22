@@ -13,10 +13,20 @@ class Siswa extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'nisn',
+        'nipd',
         'name',
         'kelas_id',
         'email',
         'password'
+    ];
+
+        /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
     ];
 }
