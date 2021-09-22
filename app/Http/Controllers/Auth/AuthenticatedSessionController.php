@@ -29,13 +29,13 @@ class AuthenticatedSessionController extends Controller
     public function store(Request $request)
     {
         if ( Auth::guard('manager')->attempt(['nik' => $request->username, 'password' => $request->password]) ) {
-            dd(Auth::guard('manager')->user());
+            return redirect('/guru');
         } elseif ( Auth::guard('guru')->attempt(['nik' => $request->username, 'password' => $request->password]) ) {
             return redirect('/guru');
         } elseif ( Auth::guard('siswa')->attempt(['nipd' => $request->username, 'password' => $request->password]) ) {
             return redirect('/siswa');
         } elseif ( Auth::guard('web')->attempt(['email' => $request->username, 'password' => $request->password]) ) {
-            dd(Auth::guard('web')->user());
+            return redirect('admin');
         }
 
         return redirect('/login');
