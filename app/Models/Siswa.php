@@ -29,4 +29,9 @@ class Siswa extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kela::class);
+    }
 }

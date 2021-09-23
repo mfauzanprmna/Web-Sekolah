@@ -17,4 +17,9 @@ class Kela extends Model
         'wali_kelas',
         'status'
     ];
+
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class);
+    }
 }
