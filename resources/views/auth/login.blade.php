@@ -49,7 +49,8 @@
                     <h4 class="text-dark font-weight-normal text-center mb-4 mt-5"><span class="font-weight-bold">Sign
                             in</span>
                     </h4>
-                    <form method="POST" action="#" novalidate="">
+                    <form method="POST" action="{{ route('login') }}" novalidate="">
+                        @csrf
                         <div class="form-group">
                             <input id="username" type="text" class="form-control mb-4" placeholder="USERNAME"
                                 name="username" tabindex="1" required autofocus>
