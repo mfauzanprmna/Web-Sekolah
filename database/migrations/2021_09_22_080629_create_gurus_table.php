@@ -17,6 +17,7 @@ class CreateGurusTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
+            $table->enum('jabatan', ['admin', 'litbang', 'tu', 'bkk', 'hubin', 'kurikulum', 'kesiswaan', 'sarpras', 'kejuruan', 'pembimbing']);
             $table->string('email');
             $table->string('password');
             $table->rememberToken();

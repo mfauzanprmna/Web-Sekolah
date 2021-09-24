@@ -18,6 +18,8 @@ class CreateSiswasTable extends Migration
             $table->string('nisn');
             $table->string('name');
             $table->foreignId('kelas_id');
+            $table->string('tempat_lahir');
+            $table->string('tanggal_lahir');
             $table->string('nipd');
             $table->string('email');
             $table->string('password');
