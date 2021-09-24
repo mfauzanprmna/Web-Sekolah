@@ -23,4 +23,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/manager', function () {
+    return view('dashboard.manager');
+})->name('manager');
+
+Route::get('/guru', function () {
+    return view('dashboard.guru');
+})->name('guru');
+
+Route::get('/siswa', function () {
+    return view('dashboard.siswa');
+})->name('siswa');
+
 require __DIR__.'/auth.php';
