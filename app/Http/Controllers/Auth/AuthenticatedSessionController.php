@@ -29,11 +29,11 @@ class AuthenticatedSessionController extends Controller
     public function store(Request $request)
     {
         if ( Auth::guard('manager')->attempt(['nik' => $request->username, 'password' => $request->password]) ) {
-            return redirect('/manager');
+            return redirect('Manager/dashboard');
         } elseif ( Auth::guard('guru')->attempt(['nik' => $request->username, 'password' => $request->password]) ) {
-            return redirect('/guru');
+            return redirect('Guru/dashboard');
         } elseif ( Auth::guard('siswa')->attempt(['nipd' => $request->username, 'password' => $request->password]) ) {
-            return redirect('/siswa');
+            return redirect('Siswa/dashboard');
         } elseif ( Auth::guard('web')->attempt(['email' => $request->username, 'password' => $request->password]) ) {
             return redirect('/admin');
         }
@@ -49,10 +49,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
+        Auth::guard('guru')->logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect('/login');

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,16 +24,34 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/manager', function () {
-    return view('dashboard.manager');
-})->name('manager');
 
-Route::get('/guru', function () {
-    return view('dashboard.guru');
-})->name('guru');
 
-Route::get('/siswa', function () {
-    return view('dashboard.siswa');
-})->name('siswa');
+
+// Manager
+Route::group(['prefix'=>'Manager','middleware'=>['auth:manager']], function() {
+    Route::get('/Article/index',[ArticleController::class,'index'])->name('article.index');
+    Route::get('/dashboard', function () {
+        return view('dashboard.manager');
+    })->name('dashboard.manager');
+    
+});
+// Guru
+Route::group(['prefix'=>'Guru','middleware'=>['auth:guru']], function() {
+    Route::get('/Article/index',[ArticleController::class,'index'])->name('article.index');
+
+    Route::get('/dashboard', function () {
+        return view('dashboard.guru');
+    })->name('dashboard.guru');
+});
+
+// Siswa
+Route::group(['prefix'=>'Siswa','middleware'=>['auth:siswa']], function() {
+    Route::get('/dashboard', function () {
+        return view('dashboard.siswa');
+    })->name('dashboard.siswa');
+});
+
+
+
 
 require __DIR__.'/auth.php';
