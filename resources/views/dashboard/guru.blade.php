@@ -12,22 +12,11 @@
                             <div class="row align-items-center">
                                 {{-- {{dd(auth()->user())}} --}}
                                 <div class="col">
-                                    @if (Auth::guard('manager')->check())
-                                        <span class="font-weight-bold h4">{{ Auth::guard('manager')->user()->name }}</span>
-                                        <p class="small text-muted mb-0">{{ Auth::guard('manager')->user()->email }}</p>
-                                        <span class="badge badge-pill badge-success">Manager SMK Taruna Bhakti</span>
-
-                                    @elseif(Auth::guard('guru')->check())
+                                    
                                         <span class="font-weight-bold h4">{{ Auth::guard('guru')->user()->name }}</span>
                                         <p class="small text-muted mb-0">{{ Auth::guard('guru')->user()->email }}</p>
                                         <span class="badge badge-pill badge-success">Guru SMK Taruna Bhakti</span>
-                                    @elseif(Auth::guard('siswa')->check())
-                                        <span class="font-weight-bold h4">{{ Auth::guard('siswa')->user()->name }}</span>
-                                        <p class="small text-muted mb-0">{{ Auth::guard('siswa')->user()->email }}</p>
-                                        <span class="badge badge-pill badge-success">Siswa SMK Taruna Bhakti</span>
-
-                                    @endif
-                                </div>
+                                  
                                 <div class="col-auto">
                                     <span class="fe fe-32 fe-shopping-bag text-muted mb-0"></span>
                                 </div>
