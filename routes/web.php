@@ -28,16 +28,15 @@ Route::get('/dashboard', function () {
 
 
 // Manager
-Route::group(['prefix'=>'Manager','middleware'=>['auth:manager']], function() {
-    Route::get('/Article/index',[ArticleController::class,'index'])->name('article.index');
+Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
+    Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
     Route::get('/dashboard', function () {
         return view('dashboard.manager');
     })->name('dashboard.manager');
-    
 });
 // Guru
-Route::group(['prefix'=>'Guru','middleware'=>['auth:guru']], function() {
-    Route::get('/Article/index',[ArticleController::class,'index'])->name('article.index');
+Route::group(['prefix' => 'guru', 'middleware' => ['auth:guru']], function () {
+    Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
 
     Route::get('/dashboard', function () {
         return view('dashboard.guru');
@@ -45,7 +44,7 @@ Route::group(['prefix'=>'Guru','middleware'=>['auth:guru']], function() {
 });
 
 // Siswa
-Route::group(['prefix'=>'Siswa','middleware'=>['auth:siswa']], function() {
+Route::group(['prefix' => 'siswa', 'middleware' => ['auth:siswa']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard.siswa');
     })->name('dashboard.siswa');
@@ -54,4 +53,4 @@ Route::group(['prefix'=>'Siswa','middleware'=>['auth:siswa']], function() {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
