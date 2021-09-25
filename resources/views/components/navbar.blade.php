@@ -1,6 +1,6 @@
-<nav class="topnav navbar navbar-light">
+<nav class="topnav navbar navbar-light mx-3">
     <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
-        <i class="fe fe-menu navbar-toggler-icon"></i>
+        
     </button>
 
     <ul class="nav">
@@ -18,12 +18,22 @@
 
                 @if (Auth::guard('manager')->check())
                   <span class="font-weight-bold h4">{{Auth::guard('manager')->user()->name}}</span>
-                    
-                @elseif(Auth::guard('guru')->check())
+                @endif
+                @if (Auth::guard('guru')->check())
+                  <span class="font-weight-bold h4">{{Auth::guard('guru')->user()->name}}</span>
+                @endif
+
+                @if (Auth::guard('siswa')->check())
+                  <span class="font-weight-bold h4">{{Auth::guard('siswa')->user()->name}}</span>
+                @endif
+                
+                {{-- @elseif(Auth::guard('guru')->check())
                 <span class="font-weight-bold h4">{{Auth::guard('guru')->user()->name}}</span>
                 @elseif(Auth::guard('siswa')->check())
                 <span class="font-weight-bold h4">{{Auth::guard('siswa')->user()->name}}</span>
-            @endif
+                @else 
+                <span class="font-weight-bold h4">Admin</span>
+                @endif --}}
                 {{-- @elseif(Auth::guard('client')->check()) --}}
 
             </a>

@@ -35,7 +35,7 @@
         <div class="row ">
             <div class="col-lg-8 col-md-1 mt-3 fw-bold pt-5 text-white sp">
                 <span class="display-2 fw-bold" style="text-shadow: rgba(0, 0, 0, 0.288) 5px 5px 5px;">
-                    Wellcome to,
+                    Welcome to,
                 </span>
                 <p class="fs-4"
                     style="text-shadow: rgba(0, 0, 0, 0.288) 5px 5px 5px; word-spacing: 5px; font-weight: 400;">
@@ -72,18 +72,16 @@
                             <!-- <a href="auth-forgot-password.html" class="float-left mt-3">
                   Forgot Password?
                 </a> -->
-                            <button type="submit" class="mb-4 btn btn-primary d-inline form-control">
+                            <button type="submit" class="mb-4 btn-primary d-inline form-control">
                                 Login
                             </button>
                         </div>
-
                         <div class="form-group mb-5">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="stay" class="custom-control-input" id="remember-me">
                                 <label class="custom-control-label" for="remember-me">Stay signed in</label>
                             </div>
                         </div>
-
                         <div class="mt-5 text-center pt-3">
                             CAN'T SIGN IN?
                             <br>

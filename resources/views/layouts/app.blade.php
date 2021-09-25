@@ -83,11 +83,11 @@
    
 </head>
 
-<body class="vertical light">
+<body class="light">
     <div class="wrapper">
         @include('components.navbar')
-        @include('components.sidebar')
-        <main role="main" class="main-content">
+        {{-- @include('components.sidebar') --}}
+        <main role="main" class="main-content container-fluid">
             <div class="container-fluid">
                 @yield('main')
             </div> <!-- .container-fluid -->
