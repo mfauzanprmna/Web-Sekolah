@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/manager', function () {
+Route::get('/managers', function () {
     return view('dashboard.manager');
 })->name('manager');
 
