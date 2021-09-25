@@ -14,7 +14,9 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', 'WebController@index');
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
