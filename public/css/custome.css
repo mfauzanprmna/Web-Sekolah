@@ -1,6 +1,6 @@
 .card {
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 5px;
     border: none;
     position: relative;
     margin-bottom: 30px;
@@ -64,4 +64,46 @@
 .l-bg-cyan {
     background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
     color: #fff;
+}
+
+
+
+
+.background-navbar-dashboard{
+    background: #5fb2f2;
+    color: rgb(28, 26, 26);
+
+
+
+}
+.bg-welcome-dashboard{
+    background: linear-gradient(110deg, #65bcff, #ca2cff,#43e794,#84c0ec) !important;
+    color: rgb(255, 255, 255);
+
+
+}
+
+.center-welcome{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+
+
+.bg-notif{
+    background-color: rgb(1, 255, 65);
+  box-shadow:
+    0 0 1px 1px rgb(30, 255, 0),  /* inner white */
+    0 0 1px 1px rgb(80, 255, 74), /* middle magenta */
+    0 0 1px 1px rgb(94, 255, 107); /* outer cyan */
+
+}
+
+
+.border-radius{
+    border-radius: 5px;
+    border: none;
 }

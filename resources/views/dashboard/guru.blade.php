@@ -3,10 +3,32 @@
 @section('main')
     <div>
         {{-- <div class="container-fluid"> --}}
-
+            
         <div class="row">
+ 
+
             <div class="col-12 ">
-                <div class="row mt-5 align-items-center ">
+                {{-- <center> --}}
+                    {{-- //ini buat welcome nya smeisal make welcome --}}
+                    {{-- //WELCOME --}}
+                    <div class="d-flex justify-content-center">
+                            <div class="container mx-5 mr-5">
+                                <div class="card mt-5 bg-welcome-dashboard " >
+                                    <div class="card-body">
+                                        <h2 class="card-title justify-content-start">Selamat Datang!</h2>
+                                        <h3 class="card-text" style="color: white">{{ Auth::guard('guru')->user()->name }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    {{-- //WELCOME --}}
+
+                {{-- </center> --}}
+
+                {{-- // ini pake profile semisal pen make profile --}}
+
+                {{-- Profile  --}}
+                {{-- <div class="row mt-5 align-items-center ">
                     <div class="col-md-3 text-center mx-5">
                         <div class="avatar avatar-xl">
                             <img src="{{ asset('img/default.png') }}" alt="..." class="avatar-img rounded-circle">
@@ -33,7 +55,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+                {{-- Profile  --}}
+
             </div>
             <div class="container">
                 <div class="col-12 mr-5 ">
@@ -42,7 +66,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-blue-dark">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-chalkboard-teacher"></i>
@@ -51,22 +75,23 @@
                                                 <h5 class="card-title mb-0">Portal SMK Taruna Bhakti</h5>
                                             </div>
                                             <div class="row align-items-center mb-2 d-flex">
-
-                                                <a href="#" class=" stretched-link" style="color: transparent"></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <div class="col-12 " style="margin-top: -25px;">
+                                        <div class="col-12 " style="margin-top: -30px;">
                                             <p class="d-flex align-items-center mb-0 text-dark">
                                                 Portal pembelajaran
                                             </p>
                                         </div>
                                     </div>
+                                    <div class="card-footer" style="border: none; ">
+                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-cherry">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-briefcase"></i></div>
@@ -75,22 +100,24 @@
                                             </div>
                                             <div class="row align-items-center mb-2 d-flex">
 
-                                                <a href="#" class=" stretched-link" style="color: transparent"></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="col-12 " style="margin-top: -25px;">
-                                            <p class="d-flex align-items-center mb-0 text-dark">
+                                    <div class="card-body ">
+                                        <div class="col-12 " style="margin-top: -30px;">
+                                            <p class="d-flex align-items-center mb-0 text-dark ">
                                                 Sistem Tatakelola Surat Menyurat Sekolah / Prakerin
                                             </p>
-
                                         </div>
                                     </div>
+                                    <div class="card-footer" style="border: none; ">
+                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                    </div>  
+                                    
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-green">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-clipboard-list"></i>
@@ -100,22 +127,25 @@
                                             </div>
                                             <div class="row align-items-center mb-2 d-flex">
 
-                                                <a href="#" class=" stretched-link" style="color: transparent"></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="col-12 " style="margin-top: -25px;">
+                                    <div class="card-body ">
+                                        <div class="col-12 " style="margin-top: -30px;">
                                             <p class="d-flex align-items-center mb-0 text-dark">
                                                 Presensi Absensi  SMK Taruna Bhakti
                                             </p>
+                                                  
+                                      </div>
+                                    </div>
+                                    <div class="card-footer" style="border: none; ">
+                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
 
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-blue">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-building"></i>
@@ -125,17 +155,19 @@
                                             </div>
                                             <div class="row align-items-center mb-2 d-flex">
 
-                                                <a href="#" class=" stretched-link" style="color: transparent"></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="col-12 " style="margin-top: -25px;">
+                                    <div class="card-body ">
+                                        <div class="col-12 " style="margin-top: -30px;">
                                             <p class="d-flex align-items-center mb-0 text-dark">
                                                 Company Profile tentang SMK Taruna Bhakti
                                             </p>
+                                      </div>
+                                    </div>
+                                    <div class="card-footer" style="border: none; ">
+                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
 
-                                        </div>
                                     </div>
                                 </div>
                             </div>
