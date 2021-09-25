@@ -26,72 +26,42 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="side-left position-absolute h-100 col-lg-12">
-
-        </div>
-    </div>
-    <div id="app" class="container">
-        <div class="row ">
-            <div class="col-lg-8 col-md-1 mt-3 fw-bold pt-5 text-white sp">
-                <span class="display-2 fw-bold" style="text-shadow: rgba(0, 0, 0, 0.288) 5px 5px 5px;">
-                    Welcome to,
-                </span>
-                <p class="fs-4"
-                    style="text-shadow: rgba(0, 0, 0, 0.288) 5px 5px 5px; word-spacing: 5px; font-weight: 400;">
-                    SMK Taruna Bhakti
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-12 bg-white pt-3">
-                <div class="p-4 m-3 pt-3">
-                    <img src="{{ asset('img/logo-starbhak.png') }}" alt="logo" width="80" class="" style="
-                        margin-left: 35%;">
-                    <h4 class="text-dark font-weight-normal text-center mb-4 mt-5"><span class="font-weight-bold">Sign
-                            in</span>
-                    </h4>
-                    <form method="POST" action="{{ route('login') }}" novalidate="">
-                        @csrf
-                        <div class="form-group">
-                            <input id="username" type="text" class="form-control mb-4" placeholder="USERNAME"
-                                name="username" tabindex="1" required autofocus>
-                            <div class="invalid-feedback">
-                                Please fill in your username
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input id="password" type="password" placeholder="PASSWORD" class="form-control mb-4"
-                                name="password" tabindex="2" required>
-                            <div class="invalid-feedback">
-                                please fill in your password
-                            </div>
-                        </div>
-
-
-                        <div class="form-group text-center">
-                            <!-- <a href="auth-forgot-password.html" class="float-left mt-3">
-                  Forgot Password?
-                </a> -->
-                            <button type="submit" class="mb-4 btn-primary d-inline form-control">
-                                Login
-                            </button>
-                        </div>
-                        <div class="form-group mb-5">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="stay" class="custom-control-input" id="remember-me">
-                                <label class="custom-control-label" for="remember-me">Stay signed in</label>
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center pt-3">
-                            CAN'T SIGN IN?
-                            <br>
-                            <a href="/register">CREATE ACCOUNT</a>
-                        </div>
-                    </form>
+    <section class="vh-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="{{ asset('img/bg-tb.png') }}" alt="Login image" class="w-100 vh-100"
+                        style="object-fit: cover; object-position: left;">
                 </div>
+                <div class="col-sm-6 text-black">
+                    <div class="px-5 ms-xl-4 me-3 pt-5 mt-xl-4">
+                        <img src="{{ asset('img/logo-starbhak.png') }}" alt="logo" style="width: 100px">
+                    </div>
+                    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                        <form style="width: 23rem;" method="POST" action="{{ route('login') }}" novalidate="">
+                            @csrf
+                            <h3 class="fw-bold mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+                            <div class="form-outline mb-4">
+                                <input type="email" id="username" name="username"
+                                    class="form-control form-control-lg" />
+                                <label class="form-label">Username</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="password" id="password" name="password"
+                                    class="form-control form-control-lg" />
+                                <label class="form-label">Password</label>
+                            </div>
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                            </div>
+                            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="">Forgot password?</a></p>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- General JS Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
