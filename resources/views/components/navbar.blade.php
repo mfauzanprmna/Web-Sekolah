@@ -1,5 +1,5 @@
-<div style="background-color: #1e88d7">
-    <nav class="topnav navbar navbar-light mx-3">
+<div class="navbar-bg">
+    <nav class="topnav navbar navbar-light mx-3 d-flex items-center">
         <div class="">
             <img src=" {{ asset('img/logo.svg') }}" alt="">
         </div>
