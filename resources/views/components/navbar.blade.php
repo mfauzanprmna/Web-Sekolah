@@ -20,14 +20,14 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     @if (Auth::guard('manager')->check())
-                        <span class="font-weight-bold h4">{{ Auth::guard('manager')->user()->name }}</span>
+                        <span class="font-weight-bold h5">{{ Auth::guard('manager')->user()->name }}</span>
                     @endif
                     @if (Auth::guard('guru')->check())
-                        <span class="font-weight-bold h4">{{ Auth::guard('guru')->user()->name }}</span>
+                        <span class="font-weight-bold h5">{{ Auth::guard('guru')->user()->name }}</span>
                     @endif
 
                     @if (Auth::guard('siswa')->check())
-                        <span class="font-weight-bold h4">{{ Auth::guard('siswa')->user()->name }}</span>
+                        <span class="font-weight-bold h5">{{ Auth::guard('siswa')->user()->name }}</span>
                     @endif
 
                     {{-- @elseif(Auth::guard('guru')->check())
