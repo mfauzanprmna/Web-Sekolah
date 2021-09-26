@@ -42,7 +42,7 @@
                             @csrf
                             <h3 class="fw-bold mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
                             <div class="form-outline mb-4">
-                                <input type="email" id="username" name="username"
+                                <input type="text" id="username" name="username"
                                     class="form-control form-control-lg" />
                                 <label class="form-label">Username</label>
                             </div>

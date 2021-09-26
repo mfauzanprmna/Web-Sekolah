@@ -3,31 +3,32 @@
 @section('main')
     <div>
         {{-- <div class="container-fluid"> --}}
-            
+
         <div class="row">
- 
+
 
             <div class="col-12 ">
                 {{-- <center> --}}
-                    {{-- //ini buat welcome nya smeisal make welcome --}}
-                    {{-- //WELCOME --}}
-                    <div class="d-flex justify-content-center">
-                            <div class="container mx-5 mr-5">
-                                <div class="card mt-5 bg-welcome-dashboard " >
-                                    <div class="card-body">
-                                        <h2 class="card-title justify-content-start">Selamat Datang!</h2>
-                                        <h3 class="card-text" style="color: white">{{ Auth::guard('guru')->user()->name }}</h3>
-                                    </div>
-                                </div>
+                {{-- //ini buat welcome nya smeisal make welcome --}}
+                {{-- //WELCOME --}}
+                <div class="d-flex justify-content-center">
+                    <div class="container mx-5 mr-5">
+                        <div class="card mt-5 bg-welcome-dashboard ">
+                            <div class="card-body">
+                                <h2 class="card-title justify-content-start">Selamat Datang!</h2>
+                                <h3 class="card-text" style="color: white">{{ Auth::guard('guru')->user()->name }}
+                                </h3>
                             </div>
+                        </div>
                     </div>
-                    {{-- //WELCOME --}}
+                </div>
+                {{-- //WELCOME --}}
 
                 {{-- </center> --}}
 
                 {{-- // ini pake profile semisal pen make profile --}}
 
-                {{-- Profile  --}}
+                {{-- Profile --}}
                 {{-- <div class="row mt-5 align-items-center ">
                     <div class="col-md-3 text-center mx-5">
                         <div class="avatar avatar-xl">
@@ -56,7 +57,7 @@
                         </div>
                     </div>
                 </div> --}}
-                {{-- Profile  --}}
+                {{-- Profile --}}
 
             </div>
             <div class="container">
@@ -66,7 +67,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;" >
+                                <div class="card" style="width: 18rem;">
                                     <div class="card l-bg-blue-dark">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-chalkboard-teacher"></i>
@@ -86,12 +87,13 @@
                                         </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                        <a href="#" class="btn btn-outline-primary">Go Somewhere &nbsp;<i
+                                                class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;" >
+                                <div class="card" style="width: 18rem;">
                                     <div class="card l-bg-cherry">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-briefcase"></i></div>
@@ -111,13 +113,14 @@
                                         </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
-                                    </div>  
-                                    
+                                        <a href="#" class="btn btn-outline-primary">Go Somewhere &nbsp;<i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;" >
+                                <div class="card" style="width: 18rem;">
                                     <div class="card l-bg-green">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-clipboard-list"></i>
@@ -133,19 +136,20 @@
                                     <div class="card-body ">
                                         <div class="col-12 " style="margin-top: -30px;">
                                             <p class="d-flex align-items-center mb-0 text-dark">
-                                                Presensi Absensi  SMK Taruna Bhakti
+                                                Presensi Absensi SMK Taruna Bhakti
                                             </p>
-                                                  
-                                      </div>
+
+                                        </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                        <a href="#" class="btn btn-outline-primary">Go Somewhere &nbsp;<i
+                                                class="fas fa-arrow-right"></i></a>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 d-flex">
-                                <div class="card" style="width: 18rem;" >
+                                <div class="card" style="width: 18rem;">
                                     <div class="card l-bg-blue">
                                         <div class="card-statistic-3 p-4">
                                             <div class="card-icon card-icon-large"><i class="fas fa-building"></i>
@@ -163,10 +167,11 @@
                                             <p class="d-flex align-items-center mb-0 text-dark">
                                                 Company Profile tentang SMK Taruna Bhakti
                                             </p>
-                                      </div>
+                                        </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                        <a href="#" class="btn btn-outline-primary">Go Somewhere &nbsp;<i
+                                                class="fas fa-arrow-right"></i></a>
 
                                     </div>
                                 </div>
@@ -176,73 +181,77 @@
                     </div>
                     <h2 class="h5 mt-4 mb-3 ">Artikel Anda</h2>
                     <p>
-                    
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                          Tambah Artikel
+
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Tambah Artikel
                         </button>
-                      </p>
-                      <div class="collapse" id="collapseExample">
+                    </p>
+                    <div class="collapse" id="collapseExample">
                         <div class="card card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                  <div class="card shadow mb-4">
-                                    <div class="card-header">
-                                      <strong class="card-title">Form row</strong>
-                                    </div>
-                                    <div class="card-body">
-                                      <form action="" method="POST">
-                                        <div class="form-row">
-                                          <div class="form-group col-md-6">
-                                            <label for="categories">Categories</label>
-                                            <select name="" id="categories" class="form-control">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                            </select>
-                                          </div>
-                                          <div class="form-group col-md-6">
-                                            <label for="judul">Judul</label>
-                                            <input type="text" class="form-control" id="judul">
-                                          </div>
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header">
+                                            <strong class="card-title">Form row</strong>
                                         </div>
-                                        <div class="form-group">
-                                          <label for="inputAddress">Address</label>
-                                          <input type="text" class="form-control" id="inputAddress5" placeholder="1234 Main St">
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputAddress2">Address 2</label>
-                                          <input type="text" class="form-control" id="inputAddress6" placeholder="Apartment, studio, or floor">
-                                        </div>
-                                        <div class="form-row">
-                                          <div class="form-group col-md-6">
-                                            <label for="inputCity">City</label>
-                                            <input type="text" class="form-control" id="inputCity5">
-                                          </div>
-                                          <div class="form-group col-md-4">
-                                            <label for="inputState">State</label>
-                                            <select id="inputState5" class="form-control">
-                                              <option selected>Choose...</option>
-                                              <option>...</option>
-                                            </select>
-                                          </div>
-                                          <div class="form-group col-md-2">
-                                            <label for="inputZip">Zip</label>
-                                            <input type="text" class="form-control" id="inputZip5">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck5">
-                                            <label class="form-check-label" for="gridCheck5"> Check me out </label>
-                                          </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
-                                      </form>
-                                    </div> <!-- /. card-body -->
-                                  </div> <!-- /. card -->
+                                        <div class="card-body">
+                                            <form action="" method="POST">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="categories">Categories</label>
+                                                        <select name="" id="categories" class="form-control">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="judul">Judul</label>
+                                                        <input type="text" class="form-control" id="judul">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputAddress">Address</label>
+                                                    <input type="text" class="form-control" id="inputAddress5"
+                                                        placeholder="1234 Main St">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputAddress2">Address 2</label>
+                                                    <input type="text" class="form-control" id="inputAddress6"
+                                                        placeholder="Apartment, studio, or floor">
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputCity">City</label>
+                                                        <input type="text" class="form-control" id="inputCity5">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="inputState">State</label>
+                                                        <select id="inputState5" class="form-control">
+                                                            <option selected>Choose...</option>
+                                                            <option>...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-2">
+                                                        <label for="inputZip">Zip</label>
+                                                        <input type="text" class="form-control" id="inputZip5">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="gridCheck5">
+                                                        <label class="form-check-label" for="gridCheck5"> Check me out
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                            </form>
+                                        </div> <!-- /. card-body -->
+                                    </div> <!-- /. card -->
                                 </div> <!-- /. col -->
-                              </div> <!-- /. end-section -->
+                            </div> <!-- /. end-section -->
                         </div>
-                      </div>
+                    </div>
                     <div class="row">
                         <!-- Log -->
                         <div class="col-md-12 mb-4">
@@ -264,7 +273,8 @@
                                                     <div class="mb-2 text-muted small">Lorem ipsum dolor sit amet,
                                                         <strong>consectetur adipiscing</strong> elit. Integer dignissim
                                                         nulla eu quam cursus placerat. Vivamus non odio ullamcorper, lacinia
-                                                        ante nec, blandit leo. </div>
+                                                        ante nec, blandit leo.
+                                                    </div>
                                                     <span class="badge badge-pill badge-warning">Security</span>
                                                 </div>
                                                 <div class="col-auto pr-0">
