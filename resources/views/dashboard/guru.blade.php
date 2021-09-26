@@ -15,7 +15,7 @@
                     <div class="col">
                         <div class="row align-items-center">
                             <div class="col-md-7">
-                                <h4 class="mb-1">{{ Auth::guard('guru')->user()->name }}</h4>
+                                {{-- <h4 class="mb-1">{{ Auth::guard('guru')->user()->name }}</h4> --}}
                                 <p class="small mb-3"><span class="badge badge-pill badge-success">Guru SMK Taruna
                                         Bhakti</span></p>
                             </div>
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col">
                                 <p class="small mb-0 text-muted"></p>
-                                <p class="small mb-0 text-muted">{{ Auth::guard('guru')->user()->email }}</p>
+                                {{-- <p class="small mb-0 text-muted">{{ Auth::guard('guru')->user()->email }}</p> --}}
                                 <p class="small mb-0 text-muted">(537) 315-1481</p>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="row align-items-center mb-2 d-flex">
 
-                                                <a href="#" class=" stretched-link" style="color: transparent"></a>
+                                                <a href="#" class=" stretched-link" id="portal" style="color: transparent"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                     </div>
                     <h2 class="h5 mt-4 mb-3 ">Artikel Anda</h2>
                     <p>
-                    
+
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                           Tambah Artikel
                         </button>
@@ -327,4 +327,36 @@
 
 
     </div>
+<span class="d-none" data-token="token"></span>
 @endsection
+@push('js')
+<script>
+$(document).ready(function(){
+    $('#portal').click(function (e) {
+        e.preventDefault();
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
+        token = $('#token').data('token');
+        axios.get('/api/me', {headers: {"Authorization" : `Bearer ${token}`}).then(response => {
+                let axiosConfig = {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        'Content-Type': 'application/json;charset=UTF-8',
+                        "Content-Type" : "application/x-www-form-urlencoded"
+                    }
+                };
+                axios.post('http://localhost/moddle/moodle/login/index.php', response.token,{ crossOrigin: null}, axiosConfig).then(
+                    response => {
+                        console.log(true);
+                        window.location.href = "http://localhost/moddle/moodle/my/";
+                    }).catch(erorr => {
+
+                });
+        }).catch(error => {
+
+        })
+    })
+})
+</script>
+
+
+@endpush

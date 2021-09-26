@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-
+use App\Models\Kela AS Kelas;
+use Firebase\JWT\JWT;
+use Illuminate\Support\Facades\Cookie;
 class AuthenticatedSessionController extends Controller
 {
     public function __construct()
@@ -55,6 +57,9 @@ class AuthenticatedSessionController extends Controller
             'username' => 'required',
             'password' => 'required|string',
         ]);
+        $data =  ["username" => $request->username, "password" => $request->password];
+        $jwt = JWT::encode($data, "1342423424324324234"); // set cookie
+        Cookie::make('user_data',$jwt, 2880); // set cookir
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
@@ -113,7 +118,32 @@ class AuthenticatedSessionController extends Controller
      */
     public function userProfile()
     {
-        return response()->json(auth($this->guardName())->user(), 200);
+        // $userdata = JWT::decode(Cookie::get("user_data"),"1342423424324324234", array('HS256')); // take user & password
+        // $auth_token =
+
+        //hapus ini jika cookies::get("user_dasata) sudah ada isinya
+        $encode_cookies = JWT::encode(["username" => "1920100259" ,"password" =>"password"], "1342423424324324234"); // take user & password
+        $userdata = JWT::decode($encode_cookies,"1342423424324324234", array('HS256')); // take user & password
+
+        // $auth_token = // need token here
+        if($this->guardName() == "apiSiswa"){
+            $kelas = Kelas::where('id', auth($this->guardName())->user()["kelas_id"])->first();
+            $token= [
+                "auth"=>$userdata,
+                "user_data"=>auth($this->guardName())->user(),
+                "role" => $this->guardName(),
+                "kelas" => $kelas
+            ];
+            $jwt = JWT::encode($token,"1342423424324324234");
+            return response()->json(["token" => $jwt], 200);
+        }
+        $token =[
+            "auth" => $userdata,
+            "user_data"=>auth($this->guardName())->user(),
+            "role"=>$this->guardName(),
+        ];
+        $jwt = JWT::encode($token, "1342423424324324234");
+        return response()->json(["token" => $jwt], 200);
     }
 
     /**
