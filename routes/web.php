@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +12,7 @@ use App\Http\Controllers\ArticleController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('auth.login');
@@ -26,33 +26,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-
-
 // Manager
-Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
+Route::group(['prefix' => 'manager', 'middleware' => ['jwt.auth'], 'as' => 'manager.'], function () {
     Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
-    Route::get('/dashboard', function () {
-        return view('dashboard.manager');
-    })->name('dashboard.manager');
+
+    Route::view('/dashboard', 'dashboard.manager')->name('dashboard');
 });
 // Guru
-Route::group(['prefix' => 'guru', 'middleware' => ['auth:guru']], function () {
+Route::group(['prefix' => 'guru', 'middleware' => ['jwt.auth'], 'as' => 'guru.'], function () {
     Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard.guru');
-    })->name('dashboard.guru');
+    Route::view('/dashboard', 'dashboard.guru')->name('dashboard');
 });
 
 // Siswa
-Route::group(['prefix' => 'siswa', 'middleware' => ['auth:siswa']], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.siswa');
-    })->name('dashboard.siswa');
+Route::group(['prefix' => 'siswa', 'middleware' => ['jwt.auth'], 'as' => 'siswa.'], function () {
+    Route::view('/dashboard', 'dashboard.siswa')->name('dashboard');
 });
-
-
-
 
 require __DIR__ . '/auth.php';

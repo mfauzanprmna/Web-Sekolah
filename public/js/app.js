@@ -4016,11 +4016,41 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+
+ // document.getElementById('frmlogout').addEventListener('click', async () => {
+//     await axios.get()
+// })
+// var token = null;
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("frmlogin")) {
+    document.getElementById("frmlogin").addEventListener("submit", function () {
+      var bodyFormData = new FormData();
+      bodyFormData.append("username", document.getElementById("username").value);
+      bodyFormData.append("password", document.getElementById("password").value);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat("http://localhost:8000", "/api/login"), bodyFormData).then(function (res) {
+        // XXX: BAGAI MANA CARANYA HILANGIN TOKEN DI GET?
+        window.location.href = "".concat(res.data.redirect, "?token=").concat(res.data[0].original.access_token);
+      })["catch"](function (err) {
+        if (err.response) {
+          console.log(err.response.data);
+          document.getElementById("info").innerHTML = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">\n                            <strong>Opps!</strong> Something went wrong...\n                                ".concat(Object.values(err.response.data).map(function (e) {
+            return "<li>".concat(e, "</li>");
+          }).join(""), "\n                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"\n                                aria-label=\"Close\"></button>\n                        </div>");
+        }
+      });
+    });
+  }
+});
 
 /***/ }),
 
@@ -21547,6 +21577,30 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	
