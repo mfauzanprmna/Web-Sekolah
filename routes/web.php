@@ -23,6 +23,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/profile', function () {
+    return view('profile');
+});
+Route::get('/kurikulum', function () {
+    return view('kurikulum');
+});
+Route::get('/kontakkami', function () {
+    return view('kontakkami');
+});
+Route::get('/hubin', function () {
+    return view('hubin');
+});
+
 
 
 

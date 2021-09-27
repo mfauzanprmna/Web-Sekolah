@@ -13,12 +13,11 @@
                                 <div class="row align-items-center">
                                     {{-- {{dd(auth()->user())}} --}}
                                     <div class="col">
-                                      
-                                            <span
-                                                class="font-weight-bold h4">{{ Auth::guard('siswa')->user()->name }}</span>
-                                            <p class="small text-muted mb-0">{{ Auth::guard('siswa')->user()->email }}</p>
-                                            <span
-                                                class="badge badge-pill badge-success">{{ Auth::guard('siswa')->user()->kelas_id }}</span>
+
+                                        <span class="font-weight-bold h4">{{ Auth::guard('siswa')->user()->name }}</span>
+                                        <p class="small text-muted mb-0">{{ Auth::guard('siswa')->user()->email }}</p>
+                                        <span
+                                            class="badge badge-pill badge-success">{{ Auth::guard('siswa')->user()->kelas->nama_kelas }}</span>
 
                                     </div>
                                     <div class="col-auto">
