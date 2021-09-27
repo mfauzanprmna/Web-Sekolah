@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                        <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                        <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a>
                                     </div>  
                                     
                                 </div>
@@ -139,8 +139,7 @@
                                       </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
-
+                                        {{-- <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +165,7 @@
                                       </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        <a href="#" class="btn btn-outline-primary" >Go Somewhere  &nbsp;<i class="fas fa-arrow-right"></i></a>
+                                        <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a>
 
                                     </div>
                                 </div>
@@ -177,11 +176,11 @@
                     <h2 class="h5 mt-4 mb-3 ">Artikel Anda</h2>
                     <p>
                     
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        {{-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                           Tambah Artikel
-                        </button>
+                        </button> --}}
                       </p>
-                      <div class="collapse" id="collapseExample">
+                      {{-- <div class="collapse" id="collapseExample">
                         <div class="card card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -242,7 +241,7 @@
                                 </div> <!-- /. col -->
                               </div> <!-- /. end-section -->
                         </div>
-                      </div>
+                      </div> --}}
                     <div class="row">
                         <!-- Log -->
                         <div class="col-md-12 mb-4">
