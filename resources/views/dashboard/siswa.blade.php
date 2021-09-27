@@ -12,7 +12,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        @dump(JWTAuth::getToken())
+                                        {{-- //@dump(JWTAuth::getToken()) --}}
                                         {{-- <span
                                                 class="font-weight-bold h4">{{ Auth::guard('siswa')->user()->name }}</span>
                                             <p class="small text-muted mb-0">{{ Auth::guard('siswa')->user()->email }}</p> --}}

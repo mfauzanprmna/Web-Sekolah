@@ -1,8 +1,6 @@
 <?php
-
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +33,6 @@ Route::group(['prefix' =>'manager', 'as' => 'manager.'], function () {
 // Guru
 Route::group(['prefix' =>'guru', 'as' => 'guru.'], function () {
     Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
-
     Route::view('/dashboard', 'dashboard.guru')->name('dashboard');
 });
 
