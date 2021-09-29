@@ -77,7 +77,9 @@
 
 }
 .bg-welcome-dashboard{
-    background: linear-gradient(110deg, #65bcff, #ca2cff,#43e794,#84c0ec) !important;
+    /* background: linear-gradient(110deg, #65bcff, #ca2cff,#43e794,#84c0ec) !important; */
+    background: #5fb2f2;
+
     color: rgb(255, 255, 255);
 
 

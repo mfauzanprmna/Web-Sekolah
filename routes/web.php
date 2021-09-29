@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\WebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,7 @@ use App\Http\Controllers\ArticleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'WebController@index');
+Route::get('/',[WebController::class,'index']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -41,9 +42,12 @@ Route::get('/hubin', function () {
 
 // Manager
 Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
-    Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
+    // Route::get('/Article/index', [ArticleController::class, 'index'])-all>name('article.index');
+    Route::post('/Article/post', [ArticleController::class, 'store'])->name('article.store');
     Route::get('/dashboard', function () {
-        return view('dashboard.manager');
+        $categories = App\Models\Category::all();
+        $article = App\Models\Post::where('author_id',Auth::guard('manager')->id())->get();
+        return view('dashboard.manager',compact('categories','article'));
     })->name('dashboard.manager');
 });
 // Guru

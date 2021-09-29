@@ -78,6 +78,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app-light.css') }}" id="lightTheme">
     <link rel="stylesheet" href="{{ asset('assets/css/app-dark.css') }}" id="darkTheme" disabled>
     @stack('css')
+
+    @yield('css')
     <link rel="stylesheet" href="{{asset('css/custome.css')}}" >
 
    
@@ -171,8 +173,10 @@
     <script src="{{ asset('assets/js/tinycolor-min.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
     <script src="{{ asset('assets/js/apps.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
 
-    @stack('js')
+      
+    @yield('script')
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
 
 </body>

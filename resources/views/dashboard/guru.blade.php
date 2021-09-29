@@ -15,8 +15,47 @@
                             <div class="container mx-5 mr-5">
                                 <div class="card mt-5 bg-welcome-dashboard " >
                                     <div class="card-body">
-                                        <h2 class="card-title justify-content-start">Selamat Datang!</h2>
-                                        <h3 class="card-text" style="color: white">{{ Auth::guard('guru')->user()->name }}</h3>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <h2 class="card-title justify-content-start">Selamat Datang!</h2>
+                                                <h3 class="card-text" style="color: white">{{ Auth::guard('guru')->user()->name }}</h3>
+                                            </div>
+                                            <div class="col-4">
+                                             
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <ul class="list-group text-dark font-weight-bold" style="list-style-type: none;">
+                                                            <li class="" style="text-dark">Jabatan </li>
+                                                            <li class="" style="text-dark">Nik     </li>
+                                                            <li class="" style="text-dark">Email   </li>
+                                                          </ul>
+                                                    </div>
+                                                    <div class="col-1 mr-5">
+                                                        <ul class="list-group text-dark font-weight-bold" style="list-style-type: none;">
+                                                            <li class="" style="text-dark"> : </li>
+                                                            <li class="" style="text-dark"> : </li>
+                                                            <li class="" style="text-dark"> : </li>
+                                                          </ul>
+                                                    </div>
+                                                    <div class="col-4" style="margin-left: -60px;">
+                                                        <ul class="list-group text-dark font-weight-bold" style="list-style-type: none;">
+                                                            <li class="" style="text-dark">  
+                                                                <span class="badge badge badge-success font-weight-bold text-white" ><small>{{Auth::guard('guru')->user()->jabatan}}</small></span>
+                                                            </li>
+                                                            <li class="" style="text-dark"> 
+                                                                <span class="badge badge  font-weight-bold text-white" ><small>{{Auth::guard('guru')->user()->nik}}</small></span>
+                                                            </li>
+                                                            <li class="" style="text-dark"> 
+                                                                <span class="badge badge  font-weight-bold text-white" ><small>{{Auth::guard('guru')->user()->email}}</small></span>
+                                                            </li>
+                                                          </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +178,7 @@
                                       </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        {{-- <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a> --}}
+                                        <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>

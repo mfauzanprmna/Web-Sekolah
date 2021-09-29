@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Ini Halaman Managaer ada di dashboard/manager.blade.php</h1>
-</body>
-
-</html>
 @extends('layouts.app')
 @section('title', 'Dashboard')
+@section('css')
+    <style>
+        .ck-editor__editable {
+    min-height: 100px;
+}
+        </style>
+@endsection
+
 @section('main')
     <div>
         {{-- <div class="container-fluid"> --}}
@@ -30,8 +23,46 @@
                             <div class="container mx-5 mr-5">
                                 <div class="card mt-5 bg-welcome-dashboard " >
                                     <div class="card-body">
-                                        <h2 class="card-title justify-content-start">Selamat Datang!</h2>
-                                        <h3 class="card-text" style="color: white">{{ Auth::guard('manager')->user()->name }}</h3>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <h2 class="card-title justify-content-start">Selamat Datang!</h2>
+                                                <h3 class="card-text" style="color: white">{{ Auth::guard('manager')->user()->name }}</h3>
+                                            </div>
+                                            <div class="col-4">
+                                             
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <ul class="list-group text-dark font-weight-bold" style="list-style-type: none;">
+                                                            <li class="" style="text-dark">Jabatan </li>
+                                                            <li class="" style="text-dark">Nik     </li>
+                                                            <li class="" style="text-dark">Email   </li>
+                                                          </ul>
+                                                    </div>
+                                                    <div class="col-1 mr-5">
+                                                        <ul class="list-group text-dark font-weight-bold" style="list-style-type: none;">
+                                                            <li class="" style="text-dark"> : </li>
+                                                            <li class="" style="text-dark"> : </li>
+                                                            <li class="" style="text-dark"> : </li>
+                                                          </ul>
+                                                    </div>
+                                                    <div class="col-4" style="margin-left: -60px;">
+                                                        <ul class="list-group text-dark font-weight-bold" style="list-style-type: none;">
+                                                            <li class="" style="text-dark">  
+                                                                <span class="badge badge badge-success font-weight-bold text-white" ><small>{{Auth::guard('manager')->user()->jabatan}}</small></span>
+                                                            </li>
+                                                            <li class="" style="text-dark"> 
+                                                                <span class="badge badge  font-weight-bold text-white" ><small>{{Auth::guard('manager')->user()->nik}}</small></span>
+                                                            </li>
+                                                            <li class="" style="text-dark"> 
+                                                                <span class="badge badge  font-weight-bold text-white" ><small>{{Auth::guard('manager')->user()->email}}</small></span>
+                                                            </li>
+                                                          </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +83,7 @@
                     <div class="col">
                         <div class="row align-items-center">
                             <div class="col-md-7">
-                                <h4 class="mb-1">{{ Auth::guard('guru')->user()->name }}</h4>
+                                <h4 class="mb-1">{{ Auth::guard('manager')->user()->name }}</h4>
                                 <p class="small mb-3"><span class="badge badge-pill badge-success">Guru SMK Taruna
                                         Bhakti</span></p>
                             </div>
@@ -65,7 +96,7 @@
                             </div>
                             <div class="col">
                                 <p class="small mb-0 text-muted"></p>
-                                <p class="small mb-0 text-muted">{{ Auth::guard('guru')->user()->email }}</p>
+                                <p class="small mb-0 text-muted">{{ Auth::guard('manager')->user()->email }}</p>
                                 <p class="small mb-0 text-muted">(537) 315-1481</p>
                             </div>
                         </div>
@@ -154,7 +185,7 @@
                                       </div>
                                     </div>
                                     <div class="card-footer" style="border: none; ">
-                                        {{-- <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a> --}}
+                                        <a href="#" class="btn btn-outline-primary" >Go To Here  &nbsp;<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -194,62 +225,78 @@
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                           Tambah Artikel
                         </button>
+                        @if (session('pesan'))
+                        <div id="alertt">
+                            <div class="alert alert-success d-flex align-items-center "
+                                style="background-color: rgb(50, 255, 32);" role="alert">
+                                <i class="icon-checkmark4" style="color: white;"></i> &nbsp;
+                                <div class="text-dark" style="color: black;">
+                                    <b>
+                                        {{ session('pesan') }}
+  
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                       </p>
                       <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            <div class="row">
+                          <div class="card card-body">
+                              <div class="row">
                                 <div class="col-md-12">
                                   <div class="card shadow mb-4">
                                     <div class="card-header">
-                                      <strong class="card-title">Form row</strong>
+                                      <strong class="card-title">Form Article</strong>
                                     </div>
                                     <div class="card-body">
-                                      <form action="" method="POST">
+                                      <form action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="form-row">
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label for="categories">Categories</label>
+                                                <select name="category" id="categories" class="form-control">
+                                                          @foreach ($categories as $item)
+                                                              <option value="{{$item->id}}">{{$item->name}}</option>
+                                                          @endforeach
+                                                </select>
+                                              </div>
                                           <div class="form-group col-md-6">
-                                            <label for="categories">Categories</label>
-                                            <select name="" id="categories" class="form-control">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                            </select>
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" id="title" name="title">
                                           </div>
-                                          <div class="form-group col-md-6">
-                                            <label for="judul">Judul</label>
-                                            <input type="text" class="form-control" id="judul">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputAddress">Address</label>
-                                          <input type="text" class="form-control" id="inputAddress5" placeholder="1234 Main St">
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputAddress2">Address 2</label>
-                                          <input type="text" class="form-control" id="inputAddress6" placeholder="Apartment, studio, or floor">
                                         </div>
                                         <div class="form-row">
-                                          <div class="form-group col-md-6">
-                                            <label for="inputCity">City</label>
-                                            <input type="text" class="form-control" id="inputCity5">
-                                          </div>
-                                          <div class="form-group col-md-4">
-                                            <label for="inputState">State</label>
-                                            <select id="inputState5" class="form-control">
-                                              <option selected>Choose...</option>
-                                              <option>...</option>
-                                            </select>
-                                          </div>
-                                          <div class="form-group col-md-2">
-                                            <label for="inputZip">Zip</label>
-                                            <input type="text" class="form-control" id="inputZip5">
-                                          </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="seo">seo Title</label>
+                                                <input type="text" class="form-control" id="seo" name="seo_title">
+                                              </div>
+                                              <div class="form-group col-md-6">
+                                                <label for="seo">Image</label>
+
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="customFile" name="image" accept="image/*" >
+                                                    <label class="custom-file-label" for="customFile">Add image file</label>
+                                                  </div>
+                                              </div>
+                                             
                                         </div>
                                         <div class="form-group">
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck5">
-                                            <label class="form-check-label" for="gridCheck5"> Check me out </label>
-                                          </div>
+                                           <label for="task-textarea">Deskripsi</label> 
+                                           <textarea type="text" name="description" class="form-control ck-editor__editable" id="task-textarea" placeholder="Tulis Deskripsi" cols="100" rows="10"></textarea> 
+                                          {{-- <div class="card-body">
+                                            <h5 class="card-title">Editor</h5>
+                                            <p>Pages type scale includes a range of contrasting styles that support the needs of your product and its content.</p>
+                                            <!-- Create the editor container -->
+                                            <div id="editor" style="min-height:100px;">
+                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis convallis efficitur. Cras nisi felis, luctus nec nibh quis, consequat maximus velit. Ut iaculis at lacus sed pellentesque.</p>
+                                              <p>Maecenas luctus nisl quis leo porta, quis elementum mi tempus. Morbi blandit metus ut nulla scelerisque, sed ornare purus elementum. Vivamus sed augue in tortor commodo malesuada sed et nulla. Nullam cursus erat eget tellus maximus, ut placerat lorem fringilla.</p>
+                                            </div>
+                                          </div> --}}
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        
+                                       
+                                        <button type="submit" class="btn btn-primary">Buat</button>
                                       </form>
                                     </div> <!-- /. card-body -->
                                   </div> <!-- /. card -->
@@ -267,99 +314,46 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="list-group list-group-flush my-n3">
-                                        <div class="list-group-item">
+                                        @foreach ($article as $item)
+                                        <div class="list-group-item" style="background: rgb(255, 255, 255);">
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
-                                                    <span class="circle circle-sm bg-warning"><i
-                                                            class="fe fe-shield-off fe-16 text-white"></i></span>
+                                                    <img src="{{asset('article-img/'.$item->image)}}" style="width: 200px; height:200px;" alt="">
+                                                    {{-- <span class="circle circle-sm bg-warning"><i  class="fe fe-shield-off fe-16 text-white"></i></span> --}}
                                                 </div>
                                                 <div class="col">
-                                                    <small><strong>11:00 April 16, 2020</strong></small>
-                                                    <div class="mb-2 text-muted small">Lorem ipsum dolor sit amet,
-                                                        <strong>consectetur adipiscing</strong> elit. Integer dignissim
-                                                        nulla eu quam cursus placerat. Vivamus non odio ullamcorper, lacinia
-                                                        ante nec, blandit leo. </div>
-                                                    <span class="badge badge-pill badge-warning">Security</span>
+                                                    <small><strong> {{Carbon\Carbon::parse($item->created_at)->format('H:i')}} {{Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y')}}</strong></small>
+                                                    <div class="mb-2 text-muted small" >
+                                                        {{-- <textarea disabled  cols="100" rows="20"> --}}
+                                                      {!! $item->body !!}
+                                                        {{-- </textarea> --}}
+                                                    </div>
+                                                    <span class="badge badge-pill badge-success">{{$item->status}}</span>
                                                 </div>
-                                                <div class="col-auto pr-0">
+                                                <div class="col-auto pr-0 ">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-sm dropdown-toggle more-dropdown"
+                                                        <button class="btn btn-sm dropdown-toggle more-dropdown" 
                                                             type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
+                                                            aria-haspopup="true" aria-expanded="false" >
                                                             <span class="sr-only"></span>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right"
                                                             aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#"><small>Move</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Share</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Delete</small></a>
+                                                            
+                                                            {{-- <a class="dropdown-item" href="#"><i class="far fa-eye fa-lg mr-2" style="color: rgb(205, 203, 206)"></i>Show</a> --}}
+                                                            {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
+                                                            {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
+
+                                                            <a class="dropdown-item" href="#"><small>Show</small></a>
+                                                            <a class="dropdown-item" href="#"><small>Edit</small></a>
+                                                            <a class="dropdown-item" href="#"><small>Delete</small> </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div> <!-- / .row -->
                                         </div><!-- / .list-group-item -->
-                                        <div class="list-group-item">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span class="circle circle-sm bg-success"><i
-                                                            class="fe fe-database fe-16 text-white"></i></span>
-                                                </div>
-                                                <div class="col">
-                                                    <small><strong>17:00 April 15, 2020</strong></small>
-                                                    <div class="mb-2 text-muted small">Proin porta vel erat suscipit
-                                                        luctus. Cras rhoncus felis sed magna commodo, in <a
-                                                            href="#!">pretium</a> mauris faucibus. Cras rhoncus felis sed
-                                                        magna commodo, in pretium mauris faucibus.</div>
-                                                    <span class="badge badge-pill badge-success">System Update</span>
-                                                </div>
-                                                <div class="col-auto pr-0">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-sm dropdown-toggle more-dropdown"
-                                                            type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <span class="sr-only"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right"
-                                                            aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#"><small>Move</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Share</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Delete</small></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- / .row -->
-                                        </div><!-- / .list-group-item -->
-                                        <div class="list-group-item">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span class="circle circle-sm bg-secondary"><i
-                                                            class="fe fe-user-plus fe-16 text-white"></i></span>
-                                                </div>
-                                                <div class="col">
-                                                    <small><strong>17:00 April 10, 2020</strong></small>
-                                                    <div class="mb-2 text-muted small"> Morbi id arcu convallis, eleifend
-                                                        justo tristique, tincidunt nisl. Morbi euismod fermentum quam, at
-                                                        fringilla elit posuere a. <strong>Aliquam</strong> accumsan mi
-                                                        venenatis risus fermentum, at sagittis velit fermentum.</div>
-                                                    <span class="badge badge-pill badge-secondary">Users</span>
-                                                </div>
-                                                <div class="col-auto pr-0">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-sm dropdown-toggle more-dropdown"
-                                                            type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <span class="sr-only"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right"
-                                                            aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#"><small>Move</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Share</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Delete</small></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- / .row -->
-                                        </div><!-- / .list-group-item -->
+                                   
+                                        @endforeach
                                     </div> <!-- / .list-group -->
                                 </div> <!-- / .card-body -->
                             </div> <!-- / .card -->
@@ -373,4 +367,23 @@
 
 
     </div>
+@endsection
+{{-- @push('script') --}}
+
+
+@section('script')
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#task-textarea' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#task-textarea-edit' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+    
 @endsection
