@@ -1,3 +1,4 @@
+dashboard managaer
 @extends('layouts.app')
 @section('title', 'Dashboard')
 @section('css')
@@ -222,11 +223,11 @@
                         </div>
                     </div>
                     <h2 class="h5 mt-4 mb-3 ">Artikel Anda</h2>
-                    <p>
                     
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                          Tambah Artikel
-                        </button>
+                        {{-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> --}}
+                            <a class="btn btn-primary" href="{{route('article.tambah')}}" >
+                          Tambah Artikel <i class="far fa-plus-square fa-lg"></i>
+                        </a>
                         @if (session('pesan'))
                         <div id="alertt">
                             <div class="alert alert-success d-flex align-items-center "
@@ -255,71 +256,7 @@
                         </div>
                     </div>
                 @endif
-                      </p>
-                      <div class="collapse" id="collapseExample">
-                          <div class="card card-body">
-                              <div class="row">
-                                <div class="col-md-12">
-                                  <div class="card shadow mb-4">
-                                    <div class="card-header">
-                                      <strong class="card-title">Form Article</strong>
-                                    </div>
-                                    <div class="card-body">
-                                      <form action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-row">
-                                            
-                                            <div class="form-group col-md-6">
-                                                <label for="categories">Categories</label>
-                                                <select name="category" id="categories" class="form-control">
-                                                          @foreach ($categories as $item)
-                                                              <option value="{{$item->id}}">{{$item->name}}</option>
-                                                          @endforeach
-                                                </select>
-                                              </div>
-                                          <div class="form-group col-md-6">
-                                            <label for="title">Title</label>
-                                            <input type="text" class="form-control" id="title" name="title">
-                                          </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="seo">seo Title</label>
-                                                <input type="text" class="form-control" id="seo" name="seo_title">
-                                              </div>
-                                              <div class="form-group col-md-6">
-                                                <label for="seo">Image</label>
-
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="customFile" name="image" accept="image/*" >
-                                                    <label class="custom-file-label" for="customFile">Add image file</label>
-                                                  </div>
-                                              </div>
-                                             
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="task-textarea">Deskripsi</label> 
-                                           <textarea type="text" name="description" class="form-control ck-editor__editable" id="task-textarea" placeholder="Tulis Deskripsi" cols="100" rows="10"></textarea> 
-                                          {{-- <div class="card-body">
-                                            <h5 class="card-title">Editor</h5>
-                                            <p>Pages type scale includes a range of contrasting styles that support the needs of your product and its content.</p>
-                                            <!-- Create the editor container -->
-                                            <div id="editor" style="min-height:100px;">
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis convallis efficitur. Cras nisi felis, luctus nec nibh quis, consequat maximus velit. Ut iaculis at lacus sed pellentesque.</p>
-                                              <p>Maecenas luctus nisl quis leo porta, quis elementum mi tempus. Morbi blandit metus ut nulla scelerisque, sed ornare purus elementum. Vivamus sed augue in tortor commodo malesuada sed et nulla. Nullam cursus erat eget tellus maximus, ut placerat lorem fringilla.</p>
-                                            </div>
-                                          </div> --}}
-                                        </div>
-                                        
-                                       
-                                        <button type="submit" class="btn btn-primary">Buat</button>
-                                      </form>
-                                    </div> <!-- /. card-body -->
-                                  </div> <!-- /. card -->
-                                </div> <!-- /. col -->
-                              </div> <!-- /. end-section -->
-                        </div>
-                      </div>
+                  
                     <div class="row">
                         <!-- Log -->
                         <div class="col-md-12 mb-4">
@@ -352,7 +289,12 @@
                                                                 <small><strong> {{Carbon\Carbon::parse($item->created_at)->format('H:i')}} {{Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y')}}</strong></small>
                                                                 <div class="mb-2 text-muted small" >
                                                                     {{-- <textarea disabled  cols="100" rows="20"> --}}
-                                                                {!! $item->body !!}
+                                                                {!! 
+                                                                    $result = substr($item->body, 0, 100); //first 5 chars "Hello"
+                                                        // $pos=strpos($item->body,' ', 200);
+                                                        // substr($item->body,0,$pos); 
+                                                                    
+                                                                    !!}
                                                                     {{-- </textarea> --}}
                                                                 </div>
                                                                 <span class="badge badge-pill badge-success">{{$item->status}}</span>
@@ -370,7 +312,7 @@
                                                                         {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
                                                                         {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
                                                                         <a class="dropdown-item" href="#"><small>Show</small></a>
-                                                                        <a class="dropdown-item" href="#"><small>Edit</small></a>
+                                                                        <a class="dropdown-item" href="{{route('article.edit',$item->id)}}"><small>Edit</small></a>
                                                                         <form action="{{route('article.delete',$item->id)}}" method="POST">
                                                                             @method('delete')
                                                                             @csrf
@@ -415,11 +357,13 @@
         .catch( error => {
             console.error( error );
         } );
-    ClassicEditor
-        .create( document.querySelector( '#task-textarea-edit' ) )
+
+        ClassicEditor
+        .create( document.querySelector( '#task-' ) )
         .catch( error => {
             console.error( error );
         } );
+ 
 </script>
 
     
