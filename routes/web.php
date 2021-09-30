@@ -41,6 +41,18 @@ Route::get('/kontakkami', function () {
 Route::get('/hubin', function () {
     return view('hubin');
 });
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+Route::get('/fotoguru', function () {
+    return view('fotoguru');
+});
+Route::get('/sarpras', function () {
+    return view('sarpras');
+});
+Route::get('/kesiswaan', function () {
+    return view('kesiswaan');
+});
 
 
 
