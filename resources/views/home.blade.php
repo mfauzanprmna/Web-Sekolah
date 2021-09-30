@@ -115,7 +115,7 @@
       <section id="counts" class="counts section-bg" style="background: #e39b0d">
         <div class="container">
           <div class="text-center">
-            <a href="courses.html" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info Sekolah</a>
+            <a href="#" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info Sekolah</a>
           </div>
         </div>
       </section>
@@ -125,6 +125,7 @@
       <section id="popular-courses" class="courses">
         <div class="container" data-aos="fade-up">
           <div class="row" data-aos="zoom-in" data-aos-delay="100">
+<<<<<<< HEAD
             @foreach ($article as $item)
               <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="course-item">
@@ -139,10 +140,22 @@
                     <h3><a href="course-details.html">{{$item->title}}</a></h3>
                     <p>{{$item->meta_description}}
                     </p>
+=======
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="course-item">
+                <img src="{{asset('template/assets/img/course-1.jpg')}}" class="img-fluid" alt="..." />
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Artikel</h4>
+                    <!-- <p class="price">$169</p> -->
+>>>>>>> origin/main
                   </div>
+
+                  <h3><a href="/artikel">Website Design</a></h3>
+                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
-            @endforeach
+            </div>
             <!-- End Course Item-->
 {{-- 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
@@ -154,7 +167,7 @@
                     <!-- <p class="price">$250</p> -->
                   </div>
 
-                  <h3><a href="course-details.html">Search Engine Optimization</a></h3>
+                  <h3><a href="/artikel">Search Engine Optimization</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
@@ -170,7 +183,7 @@
                     <!-- <p class="price">$180</p> -->
                   </div>
 
-                  <h3><a href="course-details.html">Copy Writing</a></h3>
+                  <h3><a href="/artikel">Copy Writing</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
@@ -236,7 +249,7 @@
       </section>
       <!-- End Trainers Section -->
       {{-- <footer  class="counts section-bg" style="background-color: #095b90;"> --}}
-      @include('template.footer')
+@include('template.footer')
       {{-- </footer> --}}
     </main>
     <!-- End #main -->

@@ -12,7 +12,7 @@ class WebController extends Controller
     public function index()
     {
         $news = Newsslide::all();
-        return view('template.carousel', compact('news'));
+        return view('home', compact('news'));
     }
 
     public function page($id)

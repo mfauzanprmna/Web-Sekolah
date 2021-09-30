@@ -366,11 +366,9 @@
                                                                     </button>
                                                                     <div class="dropdown-menu dropdown-menu-right"
                                                                         aria-labelledby="dropdownMenuButton">
-                                                                        
                                                                         {{-- <a class="dropdown-item" href="#"><i class="far fa-eye fa-lg mr-2" style="color: rgb(205, 203, 206)"></i>Show</a> --}}
                                                                         {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
                                                                         {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
-
                                                                         <a class="dropdown-item" href="#"><small>Show</small></a>
                                                                         <a class="dropdown-item" href="#"><small>Edit</small></a>
                                                                         <form action="{{route('article.delete',$item->id)}}" method="POST">
