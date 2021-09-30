@@ -24,7 +24,10 @@ Route::group(['prefix' => 'admin'], function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::get('/', 'WebController@index');
+Route::get('/', function () {
+    
+    return view('home');
+});
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -53,33 +56,34 @@ Route::get('/kesiswaan', function () {
 
 
 
-
 // Manager
 Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
     // Route::get('/Article/index', [ArticleController::class, 'index'])-all>name('article.index');
+    Route::get('/Article/tambah', [ArticleController::class, 'tambah'])->name('article.tambah');
     Route::post('/Article/post', [ArticleController::class, 'store'])->name('article.store');
     Route::get('/Article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
     Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
+    Route::patch('/Article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
     Route::get('/dashboard', function () {
-        $categories = App\Models\Category::all();
-        $article = App\Models\Post::where('author_id', Auth::guard('manager')->id())->get();
+        $article = App\Models\Post::where('author_id',Auth::guard('manager')->id())->get();
         // dd($article);
-        return view('dashboard.dashboard', compact('categories', 'article'));
+        return view('dashboard.dashboard',compact('article'));
     })->name('dashboard.manager');
 });
+
 // Guru
 Route::group(['prefix' => 'guru', 'middleware' => ['auth:guru']], function () {
     Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
 
     Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
+        return view('dashboard.guru');
     })->name('dashboard.guru');
 });
 
 // Siswa
 Route::group(['prefix' => 'siswa', 'middleware' => ['auth:siswa']], function () {
     Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
+        return view('dashboard.siswa');
     })->name('dashboard.siswa');
 });
 
