@@ -125,22 +125,6 @@
       <section id="popular-courses" class="courses">
         <div class="container" data-aos="fade-up">
           <div class="row" data-aos="zoom-in" data-aos-delay="100">
-<<<<<<< HEAD
-            @foreach ($article as $item)
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                <div class="course-item">
-                  <img src="{{asset('article-img/'.$item->image)}}"  class="img-fluid" alt="...">
-                  {{-- <img src="{{asset('template/assets/img/course-1.jpg')}}"  /> --}}
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4>{{$item->meta_keywords}}</h4>
-                      <!-- <p class="price">$169</p> -->
-                    </div>
-
-                    <h3><a href="course-details.html">{{$item->title}}</a></h3>
-                    <p>{{$item->meta_description}}
-                    </p>
-=======
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
               <div class="course-item">
                 <img src="{{asset('template/assets/img/course-1.jpg')}}" class="img-fluid" alt="..." />
@@ -148,7 +132,6 @@
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4>Artikel</h4>
                     <!-- <p class="price">$169</p> -->
->>>>>>> origin/main
                   </div>
 
                   <h3><a href="/artikel">Website Design</a></h3>
