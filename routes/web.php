@@ -24,11 +24,7 @@ Route::group(['prefix' => 'admin'], function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::get('/', function () {
-    $article = App\Models\Post::all();
-    // dd($article);
-    return view('home',compact('article'));
-});
+Route::get('/', 'WebController@index');
 Route::get('/profile', function () {
     return view('profile');
 });

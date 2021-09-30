@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2021 at 06:09 AM
+-- Generation Time: Sep 30, 2021 at 08:59 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_sekolah`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumnis`
+--
+
+CREATE TABLE `alumnis` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tahun_lulus` int(11) DEFAULT NULL,
+  `nama_perusahaan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `posisi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tahun_kerja` int(11) DEFAULT NULL,
+  `penghasilan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -47,6 +65,19 @@ INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_a
 (5, NULL, 1, 'Kurikulum', 'kurikulum', '2021-09-24 05:20:53', '2021-09-24 05:20:53'),
 (6, NULL, 1, 'Sarana Prasarana', 'sarana-prasarana', '2021-09-24 05:21:06', '2021-09-24 05:21:06'),
 (7, NULL, 1, 'Profile', 'profile', '2021-09-25 17:24:45', '2021-09-25 17:24:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories_alumnis`
+--
+
+CREATE TABLE `categories_alumnis` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -175,7 +206,30 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (102, 12, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 4),
 (103, 12, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
 (104, 6, 'page_belongsto_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
-(105, 6, 'category_id', 'text', 'Category Id', 0, 1, 1, 1, 1, 1, '{}', 13);
+(105, 6, 'category_id', 'text', 'Category Id', 0, 1, 1, 1, 1, 1, '{}', 13),
+(106, 16, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(107, 16, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 2),
+(108, 16, 'tahun_lulus', 'text', 'Tahun Lulus', 0, 1, 1, 1, 1, 1, '{}', 3),
+(109, 16, 'nama_perusahaan', 'text', 'Nama Perusahaan', 0, 1, 1, 1, 1, 1, '{}', 4),
+(110, 16, 'posisi', 'text', 'Posisi', 0, 1, 1, 1, 1, 1, '{}', 5),
+(111, 16, 'tahun_kerja', 'text', 'Tahun Kerja', 0, 1, 1, 1, 1, 1, '{}', 6),
+(112, 16, 'penghasilan', 'text', 'Penghasilan', 0, 1, 1, 1, 1, 1, '{}', 7),
+(113, 16, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 8),
+(114, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(115, 17, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(118, 17, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 4),
+(119, 17, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(120, 19, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(121, 19, 'logo_perusahaan', 'text', 'Logo Perusahaan', 0, 1, 1, 1, 1, 1, '{}', 2),
+(122, 19, 'nama_perusahaan', 'text', 'Nama Perusahaan', 0, 1, 1, 1, 1, 1, '{}', 3),
+(123, 19, 'alamat_perusahaan', 'text', 'Alamat Perusahaan', 0, 1, 1, 1, 1, 1, '{}', 4),
+(124, 19, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 5),
+(125, 19, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(126, 17, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 2),
+(127, 20, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(128, 20, 'jurusan', 'text', 'Jurusan', 0, 1, 1, 1, 1, 1, '{}', 2),
+(129, 20, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 3),
+(130, 20, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 4);
 
 -- --------------------------------------------------------
 
@@ -216,7 +270,11 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (8, 'siswas', 'siswas', 'Siswa', 'Siswas', NULL, 'App\\Models\\Siswa', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:12:14', '2021-09-22 06:08:24'),
 (9, 'managers', 'managers', 'Manager', 'Managers', NULL, 'App\\Models\\Manager', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:20:00', '2021-09-23 20:59:38'),
 (10, 'kelas', 'kelas', 'Kela', 'Kelas', NULL, 'App\\Models\\Kela', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-21 20:32:15', '2021-09-22 06:42:10'),
-(12, 'newsslides', 'newsslides', 'Newsslide', 'Newsslides', NULL, 'App\\Models\\Newsslide', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-24 00:32:41', '2021-09-24 00:32:41');
+(12, 'newsslides', 'newsslides', 'Newsslide', 'Newsslides', NULL, 'App\\Models\\Newsslide', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-24 00:32:41', '2021-09-24 00:32:41'),
+(16, 'alumnis', 'alumnis', 'Alumni', 'Alumnis', NULL, 'App\\Models\\Alumni', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-29 21:41:44', '2021-09-29 21:41:44'),
+(17, 'categories_alumnis', 'categories-alumnis', 'Categories Alumni', 'Categories Alumnis', NULL, 'App\\Models\\CategoriesAlumni', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-09-29 21:51:04', '2021-09-29 23:51:34'),
+(19, 'partners', 'partners', 'Partner', 'Partners', NULL, 'App\\Models\\Partner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-29 21:52:12', '2021-09-29 21:52:12'),
+(20, 'jurusans', 'jurusans', 'Jurusan', 'Jurusans', NULL, 'App\\Models\\Jurusan', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2021-09-29 23:52:50', '2021-09-29 23:52:50');
 
 -- --------------------------------------------------------
 
@@ -232,6 +290,21 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nama_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_gallery` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -261,6 +334,30 @@ INSERT INTO `gurus` (`id`, `name`, `email`, `password`, `created_at`, `updated_a
 (3, 'Ana Susilowati', 'ana@gmail.com', '$2y$10$SM.PR6QOjpWPU27Cmac1TO/ezT5ZMRZ5v4bPFzbh0ZEHIIu1fN13.', '2021-09-24 07:05:00', '2021-09-26 01:30:31', 2012954223, NULL, 'sarpras'),
 (4, 'Tanzela Azizi', 'tanzela@gmail.com', '$2y$10$aYytyzZpncfOsTsevCdq6.E.27jMVcURVnMmFUVLAYZjxn1mJ6m5e', '2021-09-24 07:05:47', '2021-09-26 01:30:11', 2012957767, NULL, 'hubin'),
 (5, 'Agus Diana', 'agus@gmail.com', '$2y$10$szNhcnuVzdM9LqKX/jOnv.RYrGDRu5TzjKDoLycElODjRbb8O4Tpi', '2021-09-24 07:06:44', '2021-09-26 01:29:55', 99772029, NULL, 'kurikulum');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jurusans`
+--
+
+CREATE TABLE `jurusans` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `jurusan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `jurusans`
+--
+
+INSERT INTO `jurusans` (`id`, `jurusan`, `created_at`, `updated_at`) VALUES
+(1, 'Teknik Komputer Jaringan', '2021-09-29 23:55:01', '2021-09-29 23:55:01'),
+(2, 'Multimedia', '2021-09-29 23:55:13', '2021-09-29 23:55:13'),
+(3, 'Rekayasa Perangkat Lunak', '2021-09-29 23:55:28', '2021-09-29 23:55:28'),
+(4, 'Broadcast', '2021-09-29 23:58:07', '2021-09-29 23:58:07'),
+(5, 'Teknik Elektronik Industri', '2021-09-29 23:58:58', '2021-09-29 23:58:58');
 
 -- --------------------------------------------------------
 
@@ -378,7 +475,11 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (15, 1, 'Siswas', '', '_self', NULL, NULL, NULL, 16, '2021-09-21 20:12:15', '2021-09-21 20:12:15', 'voyager.siswas.index', NULL),
 (16, 1, 'Managers', '', '_self', NULL, NULL, NULL, 17, '2021-09-21 20:20:01', '2021-09-21 20:20:01', 'voyager.managers.index', NULL),
 (17, 1, 'Kelas', '', '_self', NULL, NULL, NULL, 18, '2021-09-21 20:32:17', '2021-09-21 20:32:17', 'voyager.kelas.index', NULL),
-(18, 1, 'Newsslides', '', '_self', NULL, NULL, NULL, 19, '2021-09-24 00:32:42', '2021-09-24 00:32:42', 'voyager.newsslides.index', NULL);
+(18, 1, 'Newsslides', '', '_self', NULL, NULL, NULL, 19, '2021-09-24 00:32:42', '2021-09-24 00:32:42', 'voyager.newsslides.index', NULL),
+(19, 1, 'Alumnis', '', '_self', NULL, NULL, NULL, 20, '2021-09-29 21:41:45', '2021-09-29 21:41:45', 'voyager.alumnis.index', NULL),
+(20, 1, 'Categories Alumnis', '', '_self', NULL, NULL, NULL, 21, '2021-09-29 21:51:04', '2021-09-29 21:51:04', 'voyager.categories-alumnis.index', NULL),
+(21, 1, 'Partners', '', '_self', NULL, NULL, NULL, 22, '2021-09-29 21:52:12', '2021-09-29 21:52:12', 'voyager.partners.index', NULL),
+(22, 1, 'Jurusans', '', '_self', NULL, NULL, NULL, 23, '2021-09-29 23:52:51', '2021-09-29 23:52:51', 'voyager.jurusans.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -606,7 +707,27 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (62, 'read_newsslides', 'newsslides', '2021-09-24 00:32:42', '2021-09-24 00:32:42'),
 (63, 'edit_newsslides', 'newsslides', '2021-09-24 00:32:42', '2021-09-24 00:32:42'),
 (64, 'add_newsslides', 'newsslides', '2021-09-24 00:32:42', '2021-09-24 00:32:42'),
-(65, 'delete_newsslides', 'newsslides', '2021-09-24 00:32:42', '2021-09-24 00:32:42');
+(65, 'delete_newsslides', 'newsslides', '2021-09-24 00:32:42', '2021-09-24 00:32:42'),
+(66, 'browse_alumnis', 'alumnis', '2021-09-29 21:41:44', '2021-09-29 21:41:44'),
+(67, 'read_alumnis', 'alumnis', '2021-09-29 21:41:44', '2021-09-29 21:41:44'),
+(68, 'edit_alumnis', 'alumnis', '2021-09-29 21:41:44', '2021-09-29 21:41:44'),
+(69, 'add_alumnis', 'alumnis', '2021-09-29 21:41:44', '2021-09-29 21:41:44'),
+(70, 'delete_alumnis', 'alumnis', '2021-09-29 21:41:44', '2021-09-29 21:41:44'),
+(71, 'browse_categories_alumnis', 'categories_alumnis', '2021-09-29 21:51:04', '2021-09-29 21:51:04'),
+(72, 'read_categories_alumnis', 'categories_alumnis', '2021-09-29 21:51:04', '2021-09-29 21:51:04'),
+(73, 'edit_categories_alumnis', 'categories_alumnis', '2021-09-29 21:51:04', '2021-09-29 21:51:04'),
+(74, 'add_categories_alumnis', 'categories_alumnis', '2021-09-29 21:51:04', '2021-09-29 21:51:04'),
+(75, 'delete_categories_alumnis', 'categories_alumnis', '2021-09-29 21:51:04', '2021-09-29 21:51:04'),
+(76, 'browse_partners', 'partners', '2021-09-29 21:52:12', '2021-09-29 21:52:12'),
+(77, 'read_partners', 'partners', '2021-09-29 21:52:12', '2021-09-29 21:52:12'),
+(78, 'edit_partners', 'partners', '2021-09-29 21:52:12', '2021-09-29 21:52:12'),
+(79, 'add_partners', 'partners', '2021-09-29 21:52:12', '2021-09-29 21:52:12'),
+(80, 'delete_partners', 'partners', '2021-09-29 21:52:12', '2021-09-29 21:52:12'),
+(81, 'browse_jurusans', 'jurusans', '2021-09-29 23:52:50', '2021-09-29 23:52:50'),
+(82, 'read_jurusans', 'jurusans', '2021-09-29 23:52:50', '2021-09-29 23:52:50'),
+(83, 'edit_jurusans', 'jurusans', '2021-09-29 23:52:50', '2021-09-29 23:52:50'),
+(84, 'add_jurusans', 'jurusans', '2021-09-29 23:52:50', '2021-09-29 23:52:50'),
+(85, 'delete_jurusans', 'jurusans', '2021-09-29 23:52:50', '2021-09-29 23:52:50');
 
 -- --------------------------------------------------------
 
@@ -688,7 +809,27 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (62, 1),
 (63, 1),
 (64, 1),
-(65, 1);
+(65, 1),
+(66, 1),
+(67, 1),
+(68, 1),
+(69, 1),
+(70, 1),
+(71, 1),
+(72, 1),
+(73, 1),
+(74, 1),
+(75, 1),
+(76, 1),
+(77, 1),
+(78, 1),
+(79, 1),
+(80, 1),
+(81, 1),
+(82, 1),
+(83, 1),
+(84, 1),
+(85, 1);
 
 -- --------------------------------------------------------
 
@@ -808,14 +949,18 @@ CREATE TABLE `settings` (
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
 (1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
 (2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
-(3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
-(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', '', '', 'text', 4, 'Site'),
+(3, 'site.logo', 'Site Logo', 'settings\\September2021\\lJFxi4rfxcAUmWdK50qz.png', '', 'image', 3, 'Site'),
+(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', NULL, '', 'text', 4, 'Site'),
 (5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
 (6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
 (7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
 (8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
-(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', '', '', 'text', 1, 'Admin');
+(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin'),
+(11, 'site.heading', 'heading', 'Learning Today, Leading Tomorrow', NULL, 'text', 6, 'Site'),
+(13, 'site.fitur_home_page', 'Fitur Home Page', 'settings\\September2021\\oItpbxYZcznBnyFfC4HI.png', NULL, 'image', 8, 'Site'),
+(14, 'site.sub_heading', 'Sub Heading', 'We are team of talented designers making websites with Bootstrap', NULL, 'text', 9, 'Site'),
+(15, 'site.virtual-tour', 'Virtual Tour', 'https://kuula.co/share/7tK9b/collection/7YQlT?fs=1&vr=1&sd=1&initload=0&thumbs=1&info=0&logo=1&logosize=40', NULL, 'text', 10, 'Site');
 
 -- --------------------------------------------------------
 
@@ -938,12 +1083,24 @@ CREATE TABLE `user_roles` (
 --
 
 --
+-- Indexes for table `alumnis`
+--
+ALTER TABLE `alumnis`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `categories_slug_unique` (`slug`),
   ADD KEY `categories_parent_id_foreign` (`parent_id`);
+
+--
+-- Indexes for table `categories_alumnis`
+--
+ALTER TABLE `categories_alumnis`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `data_rows`
@@ -968,9 +1125,21 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gurus`
 --
 ALTER TABLE `gurus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jurusans`
+--
+ALTER TABLE `jurusans`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1108,22 +1277,34 @@ ALTER TABLE `user_roles`
 --
 
 --
+-- AUTO_INCREMENT for table `alumnis`
+--
+ALTER TABLE `alumnis`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `categories_alumnis`
+--
+ALTER TABLE `categories_alumnis`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1132,9 +1313,21 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `gurus`
 --
 ALTER TABLE `gurus`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `jurusans`
+--
+ALTER TABLE `jurusans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
@@ -1159,7 +1352,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1189,7 +1382,7 @@ ALTER TABLE `partners`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1213,7 +1406,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `siswas`
