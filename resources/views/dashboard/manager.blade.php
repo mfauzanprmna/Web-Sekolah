@@ -13,14 +13,16 @@
         {{-- <div class="container-fluid"> --}}
             
         <div class="row">
- 
+            
+            <div class="container">
+
 
             <div class="col-12 ">
                 {{-- <center> --}}
                     {{-- //ini buat welcome nya smeisal make welcome --}}
                     {{-- //WELCOME --}}
                     <div class="d-flex justify-content-center">
-                            <div class="container mx-5 mr-5">
+                            <div class="container ">
                                 <div class="card mt-5 bg-welcome-dashboard " >
                                     <div class="card-body">
                                         <div class="row">
@@ -361,6 +363,7 @@
                     </div> <!-- end section -->
                 </div>
 
+            </div>
             </div>
         </div>
         {{-- </div> --}}

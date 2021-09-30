@@ -85,7 +85,7 @@
 <nav class="topnav navbar background-navbar-dashboard ">
 
     <a class="navbar-brand mx-5"  href="#" >
-        <img src="{{ asset('img/logo.svg') }}" alt="" width="75" height="75">
+        <img src="{{ asset('img/smktb.png ') }}" alt="" width="75" height="75" style="border-radius: 10px;">
       </a>
     <ul class="nav" style="">
       <li class="nav-item mt-1">
