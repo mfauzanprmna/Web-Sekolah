@@ -26,9 +26,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', function () {
     $article = App\Models\Post::all();
-    
+
     // dd($article);
-    return view('home',compact('article'));
+    return view('home', compact('article'));
 });
 Route::get('/profile', function () {
     return view('profile');
@@ -58,6 +58,7 @@ Route::get('/kesiswaan', function () {
 
 
 
+
 // Manager
 Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
     // Route::get('/Article/index', [ArticleController::class, 'index'])-all>name('article.index');
@@ -66,9 +67,9 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function
     Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::get('/dashboard', function () {
         $categories = App\Models\Category::all();
-        $article = App\Models\Post::where('author_id',Auth::guard('manager')->id())->get();
+        $article = App\Models\Post::where('author_id', Auth::guard('manager')->id())->get();
         // dd($article);
-        return view('dashboard.manager',compact('categories','article'));
+        return view('dashboard.manager', compact('categories', 'article'));
     })->name('dashboard.manager');
 });
 // Guru
@@ -76,14 +77,14 @@ Route::group(['prefix' => 'guru', 'middleware' => ['auth:guru']], function () {
     Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
 
     Route::get('/dashboard', function () {
-        return view('dashboard.guru');
+        return view('dashboard.dashboard');
     })->name('dashboard.guru');
 });
 
 // Siswa
 Route::group(['prefix' => 'siswa', 'middleware' => ['auth:siswa']], function () {
     Route::get('/dashboard', function () {
-        return view('dashboard.siswa');
+        return view('dashboard.dashboard');
     })->name('dashboard.siswa');
 });
 

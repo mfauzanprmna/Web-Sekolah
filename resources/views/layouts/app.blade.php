@@ -38,11 +38,9 @@
             @include('components.navbar')
 
             <!-- Main Content -->
-            <div class="main-content">
+            <div class="main-content" style="min-height: 651px;">
                 <section class="section">
-                    <div class="section-body">
-                        @yield('main')
-                    </div>
+                    @yield('main')
                 </section>
             </div>
         </div>
@@ -65,6 +63,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
     <!-- JS Libraies -->
     @yield('script')
+    @stack('js')
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
 
 </body>
