@@ -26,8 +26,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', function () {
     $article = App\Models\Post::all();
+    $news = App\Models\Newsslide::all();
     // dd($article);
-    return view('home',compact('article'));
+    return view('home',compact('article', 'news'));
 });
 Route::get('/profile', function () {
     return view('profile');

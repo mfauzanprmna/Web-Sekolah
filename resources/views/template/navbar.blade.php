@@ -56,7 +56,7 @@
             <li><a class="{{request()->is('sarpras*') ? 'active':''}}" href="/sarpras">Sarana Pra Sarana</a></li>
             <li><a class="{{request()->is('kesiswaan*') ? 'active':''}}" href="/kesiswaan">Kesiswaan</a></li>
             <li><a class="{{request()->is('kontakkami*') ? 'active':''}}" href="/kontakkami">Kontak Kami</a></li>
-            <a href="" class="active">Login</a>
+
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

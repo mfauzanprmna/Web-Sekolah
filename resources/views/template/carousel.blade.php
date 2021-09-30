@@ -41,44 +41,110 @@
 
   <body>
 
-  <div id="carouselExampleIndicators " class="carousel slide carosel" data-bs-ride="carousel">
+
+
+{{-- <div id="carouselExampleIndicators " class="carousel slide carosel" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
   <div class="carousel-inner pt-4 ">
-    <div class="carousel-item active">
-            <div class=" text-white  carosel mb-5">
+          @foreach ($news as $new)
+      @if ( $new->id == 1 )
+          <div class="carousel-item active">
+            <div class=" container text-white mb-5">
               <div class="row counters">
-                <div class="col-md-3 judulcarousel" style="margin-left: 10%;">
-                  <h2 style="color: white">Kegiatan Assesmen ANBK 2021</h2>
+                <div class="col-md-4 judul">
+                  <h2 style="color: white">Asessment ANBK 2020</h2>
                 </div>
                 <div class="col-md-4">
-                  <p style="font-weight: 100" class="mt-2 isicarousel">kegiatan ini di laksanakan pada tanggal 20 - 23 September 2021 di mulai pukul 07.40 sd 12.00 wib dengan lancar</p>
+                  <p style="font-weight: 100" class="mt-2 isi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum harum aut assumenda? Voluptate eveniet sequi perspiciatis aut ducimus ipsum enim at quaerat iste qui, ea nisi nostrum dolores fugit dolore.</p>
                 </div>
-                <div class="col-md-2 text-center tombolcarousel">
-                  <a href="#" style="background-color: #e39b0d; border-radius: 50px" class="btn  text-center fw-bold text-white pe-5 ps-5 mt-4">Selengkapnya</a>
+                <div class="col-md-4 text-center tombol">
+                  <a href="" style="background-color: #e39b0d; border-radius: 50px" class="btn  text-center fw-bold text-white pe-5 ps-5 mt-4">Selengkapnya</a>
                 </div>
               </div>
             </div>
           </div>
-
-    {{-- <div class="carousel-item">
-            <div class="  text-white  carosel mb-5">
+@else
+          <div class="carousel-item">
+            <div class=" container text-white mb-5">
               <div class="row counters">
                 <div class="col-md-4 judul">
-                  <h2 style="color: white">Kegiatan PTS 2021</h2>
+                  <h2 style="color: white">Asessment ANBK 2021</h2>
                 </div>
                 <div class="col-md-4">
-                  <p style="font-weight: 100" class="mt-2 isi">Kegiatan ini dilaksanakan pada tanggal 27 September - 2 Oktober 2021.</p>
+                  <p style="font-weight: 100" class="mt-2 isi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum harum aut assumenda? Voluptate eveniet sequi perspiciatis aut ducimus ipsum enim at quaerat iste qui, ea nisi nostrum dolores fugit dolore.</p>
                 </div>
                 <div class="col-md-4 text-center tombol">
-                  <a href="#" style="background-color: #e39b0d; border-radius: 50px" class="btn  text-center fw-bold text-white pe-5 ps-5 mt-4">Selengkapnya</a>
+                  <a href="" style="background-color: #e39b0d; border-radius: 50px" class="btn  text-center fw-bold text-white pe-5 ps-5 mt-4">Selengkapnya</a>
                 </div>
               </div>
             </div>
-          </div> --}}
+          </div>
+          @endif
+      @endforeach
+  </div>
+</div>
+
+    
+
   <div class="carousel-indicators skipback" >
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+
+  </div>
+        </div>
+    </div> --}}
+
+
+<div id="carouselExampleIndicators" class="carousel slide carosel" data-bs-ride="carousel">
+  <div class="carousel-inner pt-4">
+              @foreach ($news as $new)
+      @if ( $new->id == 1 )
+    <div class="carousel-item active">
+            <div class=" container text-white  carosel mb-5">
+              <div class="row counters">
+                <div class="col-md-4 judul">
+                  <h2 style="color: white">{{ $new->title }}</h2>
+                </div>
+                <div class="col-md-4">
+                  <p style="font-weight: 100" class="mt-2 isi">{{ $new->content }}</p>
+                </div>
+                <div class="col-md-4 text-center tombol">
+                  <a href="" style="background-color: #e39b0d; border-radius: 50px" class="btn  text-center fw-bold text-white pe-5 ps-5 mt-4">Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+@else
+          <div class="carousel-item">
+            <div class=" container text-white  carosel mb-5">
+              <div class="row counters">
+                <div class="col-md-4 judul">
+                  <h2 style="color: white">{{ $new->title }}</h2>
+                </div>
+                <div class="col-md-4">
+                  <p style="font-weight: 100" class="mt-2 isi">{{ $new->content }}</p>
+                </div>
+                <div class="col-md-4 text-center tombol">
+                  <a href="" style="background-color: #e39b0d; border-radius: 50px" class="btn  text-center fw-bold text-white pe-5 ps-5 mt-4">Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endif
+      @endforeach
+
+  <div class="carousel-indicators skipback" >
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
   </div>
         </div>
     </div>
