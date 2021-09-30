@@ -60,12 +60,12 @@ class AuthenticatedSessionController extends Controller
             'username' => 'required',
             'password' => 'required|string',
         ]);
-
         $data =  ["username" => $request->username, "password" => $request->password];
         $jwt = JWT::encode($data, "1342423424324324234"); // set cookie
-        //Session::set('user_data', $jwt);
+
         setcookie("user_data", $jwt, time() + (86400 * 30), "/"); // 86400 = 1 day
-    
+
+
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
@@ -124,7 +124,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function userProfile()
     {
-       // $userdata = JWT::decode($_COOKIE['user_data'],"1342423424324324234", array('HS256')); // take user & password
+        // $userdata = JWT::decode($_COOKIE['user_data'],"1342423424324324234", array('HS256')); // take user & password
 
         //hapus ini jika $_COOKIE['user_data'] sudah ada isinya
         $encode_cookies = JWT::encode(["username" => "1920100259" ,"password" =>"password"], "1342423424324324234"); // take user & password
