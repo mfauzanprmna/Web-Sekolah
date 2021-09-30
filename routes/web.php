@@ -24,12 +24,16 @@ Route::group(['prefix' => 'admin'], function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
+<<<<<<< HEAD
+Route::get('/', 'WebController@index');
+=======
 Route::get('/', function () {
     $article = App\Models\Post::all();
 
     // dd($article);
     return view('home', compact('article'));
 });
+>>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
 Route::get('/profile', function () {
     return view('profile');
 });
