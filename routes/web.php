@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', function () {
     $article = App\Models\Post::all();
+    
     // dd($article);
     return view('home',compact('article'));
 });
@@ -49,11 +50,12 @@ Route::get('/hubin', function () {
 Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
     // Route::get('/Article/index', [ArticleController::class, 'index'])-all>name('article.index');
     Route::post('/Article/post', [ArticleController::class, 'store'])->name('article.store');
-    Route::get('/Article/edit/{id}', [ArticleController::class, 'store'])->name('article.edit');
-    Route::delete('/Article/delete/{id}', [ArticleController::class, 'store'])->name('article.delete');
+    Route::get('/Article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
+    Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::get('/dashboard', function () {
         $categories = App\Models\Category::all();
         $article = App\Models\Post::where('author_id',Auth::guard('manager')->id())->get();
+        // dd($article);
         return view('dashboard.manager',compact('categories','article'));
     })->name('dashboard.manager');
 });

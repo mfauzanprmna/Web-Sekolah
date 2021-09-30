@@ -137,13 +137,14 @@
                     </div>
 
                     <h3><a href="course-details.html">{{$item->title}}</a></h3>
-                    <p>{{$item->meta_description}}</p>
+                    <p>{{$item->meta_description}}
+                    </p>
                   </div>
                 </div>
               </div>
             @endforeach
             <!-- End Course Item-->
-
+{{-- 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
               <div class="course-item">
                 <img src="{{asset('template/assets/img/course-2.jpg')}}" class="img-fluid" alt="..." />
@@ -173,7 +174,7 @@
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <!-- End Course Item-->
           </div>
         </div>
@@ -239,14 +240,11 @@
       {{-- </footer> --}}
     </main>
     <!-- End #main -->
-
     <!-- ======= Footer ======= -->
 
     <!-- End Footer -->
-
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
     <!-- Vendor JS Files -->
     <script src="{{asset('template/assets/vendor/aos/aos.js')}}"></script>
     <script src="{{asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

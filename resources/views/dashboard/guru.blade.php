@@ -162,7 +162,7 @@
                                             <div class="card-icon card-icon-large"><i class="fas fa-clipboard-list"></i>
                                             </div>
                                             <div class="mb-4">
-                                                <h5 class="card-title mb-0">Presensi Absensi SMK Taruna Bhakti</h5>
+                                                <h5 class="card-title mb-0">Refleksi Mengajar  SMK Taruna Bhakti</h5>
                                             </div>
                                             <div class="row align-items-center mb-2 d-flex">
 
@@ -182,7 +182,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6 d-flex">
+                            {{-- <div class="col-xl-3 col-lg-6 d-flex">
                                 <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-blue">
                                         <div class="card-statistic-3 p-4">
@@ -208,7 +208,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
