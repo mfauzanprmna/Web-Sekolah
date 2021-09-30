@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
 // })->name('dashboard');
 
 Route::get('/', function () {
-    
+
     return view('home');
 });
 Route::get('/profile', function () {
@@ -65,9 +65,9 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function
     Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::patch('/Article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
     Route::get('/dashboard', function () {
-        $article = App\Models\Post::where('author_id',Auth::guard('manager')->id())->get();
+        $article = App\Models\Post::where('author_id', Auth::guard('manager')->id())->get();
         // dd($article);
-        return view('dashboard.dashboard',compact('article'));
+        return view('dashboard.dashboard', compact('article'));
     })->name('dashboard.manager');
 });
 
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'guru', 'middleware' => ['auth:guru']], function () {
 // Siswa
 Route::group(['prefix' => 'siswa', 'middleware' => ['auth:siswa']], function () {
     Route::get('/dashboard', function () {
-        return view('dashboard.siswa');
+        return view('dashboard.dashboard');
     })->name('dashboard.siswa');
 });
 

@@ -37,10 +37,6 @@
             <!-- Main Content -->
             <div class="main-content position-relative">
                 <section class="section">
-                    <div class="section-header">
-                        <h1>@yield('judul')</h1>
-                    </div>
-
                     <div class="section-body">
                         @yield('main')
                     </div>

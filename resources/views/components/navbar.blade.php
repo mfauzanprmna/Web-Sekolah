@@ -1,6 +1,7 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <ul class="navbar-nav mr-auto">
+        <img alt="icon" src="{{ asset('img/logo.svg') }}" style="width: 76px">
     </ul>
     <ul class="navbar-nav navbar-right">
         </li>
@@ -30,4 +31,13 @@
             </div>
         </li>
     </ul>
+</nav>
+<nav class="navbar navbar-secondary navbar-expand-lg">
+    <div class="container">
+        <div class="text-dark my-auto">
+            <h3>Welcome to the
+                <span class="text-info">Bridge</span>
+            </h3>
+        </div>
+    </div>
 </nav>
