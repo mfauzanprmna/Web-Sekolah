@@ -102,6 +102,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </section>
         <!-- End Counts Section -->
 
@@ -111,6 +112,21 @@
                 <div class="text-center">
                     <a href="courses.html" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Virtual
                         Tour SMK Taruna Bhakti</a>
+=======
+            <!-- End Course Item-->
+{{-- 
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+              <div class="course-item">
+                <img src="{{asset('template/assets/img/course-2.jpg')}}" class="img-fluid" alt="..." />
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Website Kesiswaan</h4>
+                    <!-- <p class="price">$250</p> -->
+                  </div>
+
+                  <h3><a href="/artikel">Search Engine Optimization</a></h3>
+                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+>>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
                 </div>
                 <iframe class="mt-5"
                     src="https://kuula.co/share/7tK9b/collection/7YQlT?fs=1&vr=1&sd=1&initload=0&thumbs=1&info=0&logo=1&logosize=40"
@@ -129,9 +145,19 @@
                     <a href="#" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info
                         Sekolah</a>
                 </div>
+<<<<<<< HEAD
             </div>
         </section>
         <!-- End -->
+=======
+              </div>
+            </div> --}}
+            <!-- End Course Item-->
+          </div>
+        </div>
+      </section>
+      <!-- End Popular Courses Section -->
+>>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
 
         <!-- ======= Popular Courses Section ======= -->
         <section id="popular-courses" class="courses">
@@ -256,15 +282,17 @@
         {{-- </footer> --}}
     </main>
     <!-- End #main -->
-
     <!-- ======= Footer ======= -->
 
     <!-- End Footer -->
-
     <div id="preloader"></div>
+<<<<<<< HEAD
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
+=======
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+>>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
     <!-- Vendor JS Files -->
     <script src="{{ asset('template/assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

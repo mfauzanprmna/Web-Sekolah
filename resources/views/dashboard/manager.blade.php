@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6 d-flex">
+                            {{-- <div class="col-xl-3 col-lg-6 d-flex">
                                 <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-blue">
                                         <div class="card-statistic-3 p-4">
@@ -217,7 +217,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
@@ -241,6 +241,20 @@
                             </div>
                         </div>
                     @endif
+                    @if (session('fail'))
+                    <div id="alertt">
+                        <div class="alert alert-danger d-flex align-items-center "
+                            style="background-color: rgb(50, 255, 32);" role="alert">
+                            <i class="icon-checkmark4" style="color: white;"></i> &nbsp;
+                            <div class="text-dark" style="color: black;">
+                                <b>
+                                    {{ session('fail') }}
+
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                       </p>
                       <div class="collapse" id="collapseExample">
                           <div class="card card-body">
@@ -311,51 +325,71 @@
                         <div class="col-md-12 mb-4">
                             <div class="card shadow">
                                 <div class="card-header">
-                                    <strong class="card-title">Artikel Terbaru</strong>
+                                    <strong class="card-title">Artikel yang dibuat</strong>
                                     <a class="float-right small text-muted" href="#!">View all</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="list-group list-group-flush my-n3">
-                                        @foreach ($article as $item)
-                                        <div class="list-group-item" style="background: rgb(255, 255, 255);">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <img src="{{asset('article-img/'.$item->image)}}" style="width: 200px; height:200px;" alt="">
-                                                    {{-- <span class="circle circle-sm bg-warning"><i  class="fe fe-shield-off fe-16 text-white"></i></span> --}}
+                                        {{-- {{dd($article)}} --}}
+                                        @if (count($article) == 0 )
+                                        <div class="row d-flex justify-content-center" >
+                                            <center>
+                                                <div class="container"   >
+                                                    <h1 style="color: rgb(155, 154, 154)">Belum membuat Article</h1>
                                                 </div>
-                                                <div class="col">
-                                                    <small><strong> {{Carbon\Carbon::parse($item->created_at)->format('H:i')}} {{Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y')}}</strong></small>
-                                                    <div class="mb-2 text-muted small" >
-                                                        {{-- <textarea disabled  cols="100" rows="20"> --}}
-                                                      {!! $item->body !!}
-                                                        {{-- </textarea> --}}
-                                                    </div>
-                                                    <span class="badge badge-pill badge-success">{{$item->status}}</span>
-                                                </div>
-                                                <div class="col-auto pr-0 ">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-sm dropdown-toggle more-dropdown" 
-                                                            type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false" >
-                                                            <span class="sr-only"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right"
-                                                            aria-labelledby="dropdownMenuButton">
-                                                            
-                                                            {{-- <a class="dropdown-item" href="#"><i class="far fa-eye fa-lg mr-2" style="color: rgb(205, 203, 206)"></i>Show</a> --}}
-                                                            {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
-                                                            {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
+                                            </center>
+                                        </div>
+                                        @else
+                                            @foreach ($article as $item)
 
-                                                            <a class="dropdown-item" href="#"><small>Show</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Edit</small></a>
-                                                            <a class="dropdown-item" href="#"><small>Delete</small> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- / .row -->
-                                        </div><!-- / .list-group-item -->
-                                   
-                                        @endforeach
+                                                    <div class="list-group-item" style="background: rgb(255, 255, 255);">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto">
+                                                                <img src="{{asset('article-img/'.$item->image)}}" style="width: 200px; height:200px;" alt="">
+                                                                {{-- <span class="circle circle-sm bg-warning"><i  class="fe fe-shield-off fe-16 text-white"></i></span> --}}
+                                                            </div>
+                                                            <div class="col">
+                                                                <small><strong> {{Carbon\Carbon::parse($item->created_at)->format('H:i')}} {{Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y')}}</strong></small>
+                                                                <div class="mb-2 text-muted small" >
+                                                                    {{-- <textarea disabled  cols="100" rows="20"> --}}
+                                                                {!! $item->body !!}
+                                                                    {{-- </textarea> --}}
+                                                                </div>
+                                                                <span class="badge badge-pill badge-success">{{$item->status}}</span>
+                                                            </div>
+                                                            <div class="col-auto pr-0 ">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-sm dropdown-toggle more-dropdown" 
+                                                                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false" >
+                                                                        <span class="sr-only"></span>
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-right"
+                                                                        aria-labelledby="dropdownMenuButton">
+                                                                        {{-- <a class="dropdown-item" href="#"><i class="far fa-eye fa-lg mr-2" style="color: rgb(205, 203, 206)"></i>Show</a> --}}
+                                                                        {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
+                                                                        {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
+                                                                        <a class="dropdown-item" href="#"><small>Show</small></a>
+                                                                        <a class="dropdown-item" href="#"><small>Edit</small></a>
+                                                                        <form action="{{route('article.delete',$item->id)}}" method="POST">
+                                                                            @method('delete')
+                                                                            @csrf
+                                                                            <button class="dropdown-item" ><small>Delete</small> </button>
+                                                                            
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- / .row -->
+                                                    </div><!-- / .list-group-item -->
+                                      
+                                            @endforeach
+                                        @endif
+
+
+                                        
+
+                                     
                                     </div> <!-- / .list-group -->
                                 </div> <!-- / .card-body -->
                             </div> <!-- / .card -->
