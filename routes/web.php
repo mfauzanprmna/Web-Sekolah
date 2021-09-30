@@ -14,16 +14,22 @@ use App\Http\Controllers\WebController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[WebController::class,'index']);
+// Route::get('/',[WebController::class,'index']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
+Route::get('/', function () {
+    $article = App\Models\Post::all();
+    
+    // dd($article);
+    return view('home',compact('article'));
+});
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -36,6 +42,18 @@ Route::get('/kontakkami', function () {
 Route::get('/hubin', function () {
     return view('hubin');
 });
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+Route::get('/fotoguru', function () {
+    return view('fotoguru');
+});
+Route::get('/sarpras', function () {
+    return view('sarpras');
+});
+Route::get('/kesiswaan', function () {
+    return view('kesiswaan');
+});
 
 
 
@@ -44,9 +62,12 @@ Route::get('/hubin', function () {
 Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function () {
     // Route::get('/Article/index', [ArticleController::class, 'index'])-all>name('article.index');
     Route::post('/Article/post', [ArticleController::class, 'store'])->name('article.store');
+    Route::get('/Article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
+    Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::get('/dashboard', function () {
         $categories = App\Models\Category::all();
         $article = App\Models\Post::where('author_id',Auth::guard('manager')->id())->get();
+        // dd($article);
         return view('dashboard.manager',compact('categories','article'));
     })->name('dashboard.manager');
 });

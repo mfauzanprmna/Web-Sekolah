@@ -171,16 +171,14 @@
                                 <div class="card">
                                     <div class="card l-bg-green">
                                         <div class="card-statistic-3 p-4">
-                                            <a data-toggle="collapse" href="#collapse-3" aria-expanded="true"
-                                                aria-controls="collapse-3" id="heading-3" class="d-block">
-                                                <div class="card-icon card-icon-large"><i class="fas fa-clipboard-list"></i>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h5 class="card-title mb-0">Presensi Absensi SMK Taruna Bhakti</h5>
-                                                </div>
-                                                <div class="row align-items-center mb-2 d-flex">
-                                                </div>
-                                            </a>
+                                            <div class="card-icon card-icon-large"><i class="fas fa-clipboard-list"></i>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5 class="card-title mb-0">Refleksi Mengajar  SMK Taruna Bhakti</h5>
+                                            </div>
+                                            <div class="row align-items-center mb-2 d-flex">
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div id="collapse-3" class="collapse hide" aria-labelledby="heading-3">
@@ -196,8 +194,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6">
-                                <div class="card">
+                            {{-- <div class="col-xl-3 col-lg-6 d-flex">
+                                <div class="card" style="width: 18rem;" >
                                     <div class="card l-bg-blue">
                                         <div class="card-statistic-3 p-4">
                                             <a data-toggle="collapse" href="#collapse-4" aria-expanded="true"
@@ -223,7 +221,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
                         </div>
 
                     </div>

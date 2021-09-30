@@ -6,6 +6,7 @@
 <p>BIDANG KEAHIAN              : TEKNOLOGI INFORMASI DAN KOMUNIKASI</p>
 <p>PROGRAM KEAHLIAN       : TEKNIK KOMPUTER DAN INFORMATIKA</p>
 <p>PAKET KEAHLIAN              : TEKNIK KOMPUTER DAN JARINGAN</p>
+<div class="kekanan">
 <table class="table table-bordered" style="width: 100%;" border="1" width="100%">
 <caption> </caption>
 <tbody>
@@ -273,10 +274,13 @@
 </tr>
 </tbody>
 </table>
+
+</div>
 <p>&nbsp;</p>
 <p>BIDANG KEAHLIAN            : TEKNOLOGI INFORMASI DAN KOMUNIKASI</p>
 <p>PROGRAM KEAHLIAN       : TEKNIK KOMPUTER DAN INFORMATIKA</p>
 <p>PAKET KEAHLIAN              : MULTIMEDIA</p>
+<div class="kekanan">
 <table class="table table-bordered" style="width: 100%; height: 1056px;" border="1" width="100%">
 <caption> </caption>
 <tbody>
@@ -544,10 +548,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>&nbsp;</p>
 <p>BIDANG KEAHIAN              : TEKNOLOGI INFORMASI DAN KOMUNIKASI</p>
 <p>PROGRAM KEAHLIAN       : TEKNIK KOMPUTER DAN INFORMATIKA</p>
 <p>PAKET KEAHLIAN              : REKAYASA PERANGKAT LUNAK</p>
+<div class="kekanan">
 <table class="table table-bordered" style="height: 1056px; width: 100%;" border="1" width="100%">
 <caption> </caption>
 <tbody>
@@ -823,10 +829,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>&nbsp;</p>
 <p>BIDANG KEAHLIAN            : SENI RUPA</p>
 <p>PROGRAM KEAHLIAN       : SENI AUDIO VISUAL</p>
 <p>PAKET KEAHLIAN                 : PRODUKSI FILM DAN PROGRAM TELEVISI</p>
+<div class="kekanan">
 <table class="table table-bordered" style="height: 1158px; width: 100%;" border="1" width="100%">
 <caption> </caption>
 <thead>
@@ -1157,10 +1165,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>&nbsp;</p>
 <p>BIDANG KEAHLIAN             : TEKNOLOGI DAN REKAYASA</p>
 <p>PROGRAM KEAHLIAN       : TEKNIK ELEKTRONIKA</p>
 <p>PAKET KEAHLIAN              : TEKNIK ELEKTRONIKA INDUSTRI</p>
+<div class="kekanan">
 <table class="table table-bordered" style="width: 100%; height: 1091px;" border="1" width="100%">
 <caption> </caption>
 <thead>
@@ -1430,6 +1440,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
 
 </div>

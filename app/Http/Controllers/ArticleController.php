@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Auth;
+use File;
 class ArticleController extends Controller
 {
     public function index()
@@ -45,5 +46,27 @@ class ArticleController extends Controller
         // return view('article.index');
         return redirect()->back()->with('pesan','Berhasil Membuat Article ');
 
+    }
+
+
+
+    public function delete($id)
+    {
+       $img =  Post::where('id',$id)->first();
+        // dd($img->image);
+        
+        if(File::exists(public_path('article-img/'.$img->image))){
+            File::delete(public_path('article-img/'.$img->image));
+
+            Post::where('id',$id)->delete();
+            return redirect()->back()->with('pesan','Berhasil Hapus Article ');
+        }else{
+            // dd('File does not exists.');
+            return redirect()->back()->with('fail','Gagal di  Hapus  ');
+
+        }
+        
+
+            // dd($id);
     }
 }

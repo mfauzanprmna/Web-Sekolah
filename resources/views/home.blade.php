@@ -115,7 +115,7 @@
       <section id="counts" class="counts section-bg" style="background: #e39b0d">
         <div class="container">
           <div class="text-center">
-            <a href="courses.html" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info Sekolah</a>
+            <a href="#" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info Sekolah</a>
           </div>
         </div>
       </section>
@@ -134,13 +134,13 @@
                     <!-- <p class="price">$169</p> -->
                   </div>
 
-                  <h3><a href="course-details.html">Website Design</a></h3>
+                  <h3><a href="/artikel">Website Design</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
             </div>
             <!-- End Course Item-->
-
+{{-- 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
               <div class="course-item">
                 <img src="{{asset('template/assets/img/course-2.jpg')}}" class="img-fluid" alt="..." />
@@ -150,7 +150,7 @@
                     <!-- <p class="price">$250</p> -->
                   </div>
 
-                  <h3><a href="course-details.html">Search Engine Optimization</a></h3>
+                  <h3><a href="/artikel">Search Engine Optimization</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
@@ -166,11 +166,11 @@
                     <!-- <p class="price">$180</p> -->
                   </div>
 
-                  <h3><a href="course-details.html">Copy Writing</a></h3>
+                  <h3><a href="/artikel">Copy Writing</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <!-- End Course Item-->
           </div>
         </div>
@@ -236,14 +236,11 @@
       {{-- </footer> --}}
     </main>
     <!-- End #main -->
-
     <!-- ======= Footer ======= -->
 
     <!-- End Footer -->
-
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
     <!-- Vendor JS Files -->
     <script src="{{asset('template/assets/vendor/aos/aos.js')}}"></script>
     <script src="{{asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
