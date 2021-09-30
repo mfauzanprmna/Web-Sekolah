@@ -24,16 +24,7 @@ Route::group(['prefix' => 'admin'], function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-<<<<<<< HEAD
 Route::get('/', 'WebController@index');
-=======
-Route::get('/', function () {
-    $article = App\Models\Post::all();
-
-    // dd($article);
-    return view('home', compact('article'));
-});
->>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -73,7 +64,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function
         $categories = App\Models\Category::all();
         $article = App\Models\Post::where('author_id', Auth::guard('manager')->id())->get();
         // dd($article);
-        return view('dashboard.manager', compact('categories', 'article'));
+        return view('dashboard.dashboard', compact('categories', 'article'));
     })->name('dashboard.manager');
 });
 // Guru

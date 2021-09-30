@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,8 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-
     <title>STARBHAK - @yield('title')</title>
+
+    <!-- General CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!-- Fonts CSS -->
     {{-- <link
@@ -17,18 +20,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-
-    <!-- General CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
 
     @stack('css')
-
-    @yield('css')
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 
@@ -38,9 +34,15 @@
             @include('components.navbar')
 
             <!-- Main Content -->
-            <div class="main-content" style="min-height: 651px;">
+            <div class="main-content position-relative">
                 <section class="section">
-                    @yield('main')
+                    <div class="section-header">
+                        <h1>@yield('judul')</h1>
+                    </div>
+
+                    <div class="section-body">
+                        @yield('main')
+                    </div>
                 </section>
             </div>
         </div>
@@ -59,10 +61,8 @@
 
     <script src="{{ asset('assets/js/stisla.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
-    <script src="{{ asset('assets/js/apps.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-    <!-- JS Libraies -->
-    @yield('script')
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <!-- JS -->
     @stack('js')
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
 

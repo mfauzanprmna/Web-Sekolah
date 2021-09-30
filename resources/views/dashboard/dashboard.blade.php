@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Dashboard')
+@section('judul', 'Dashboard')
 @section('main')
     @if (Route::is('dashboard.siswa'))
         <div class="row">
             <div class="col">
-                <h1 class="section-title">Selamat Datang</h1>
                 <div class="card profile-widget">
                     <div class="profile-widget-header">
                         <img alt="image" src="{{ asset('img/avatar/avatar-1.png') }}"
@@ -314,7 +314,88 @@
                     </div>
                 </div>
             </div>
-        @elseif (Route::is('manager.dashboard'))
+        @elseif (Route::is('dashboard.manager'))
+            <div class="row">
+                <!-- Log -->
+                <div class="col-md-12 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <strong class="card-title">Artikel yang dibuat</strong>
+                            <a class="float-right small text-muted" href="#!">View all</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush my-n3">
+                                {{-- {{dd($article)}} --}}
+                                @if (count($article) == 0)
+                                    <div class="row d-flex justify-content-center">
+                                        <center>
+                                            <div class="container">
+                                                <h1 style="color: rgb(155, 154, 154)">Belum membuat Article</h1>
+                                            </div>
+                                        </center>
+                                    </div>
+                                @else
+                                    @foreach ($article as $item)
+
+                                        <div class="list-group-item" style="background: rgb(255, 255, 255);">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <img src="{{ asset('article-img/' . $item->image) }}"
+                                                        style="width: 200px; height:200px;" alt="">
+                                                    {{-- <span class="circle circle-sm bg-warning"><i  class="fe fe-shield-off fe-16 text-white"></i></span> --}}
+                                                </div>
+                                                <div class="col">
+                                                    <small><strong>
+                                                            {{ Carbon\Carbon::parse($item->created_at)->format('H:i') }}
+                                                            {{ Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y') }}</strong></small>
+                                                    <div class="mb-2 text-muted small">
+                                                        {{-- <textarea disabled  cols="100" rows="20"> --}}
+                                                        {!! $item->body !!}
+                                                        {{-- </textarea> --}}
+                                                    </div>
+                                                    <span
+                                                        class="badge badge-pill badge-success">{{ $item->status }}</span>
+                                                </div>
+                                                <div class="col-auto pr-0 ">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm dropdown-toggle more-dropdown"
+                                                            type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            <span class="sr-only"></span>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                            aria-labelledby="dropdownMenuButton">
+                                                            {{-- <a class="dropdown-item" href="#"><i class="far fa-eye fa-lg mr-2" style="color: rgb(205, 203, 206)"></i>Show</a> --}}
+                                                            {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
+                                                            {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
+                                                            <a class="dropdown-item" href="#"><small>Show</small></a>
+                                                            <a class="dropdown-item" href="#"><small>Edit</small></a>
+                                                            <form action="{{ route('article.delete', $item->id) }}"
+                                                                method="POST">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button class="dropdown-item"><small>Delete</small>
+                                                                </button>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- / .row -->
+                                        </div><!-- / .list-group-item -->
+
+                                    @endforeach
+                                @endif
+
+
+
+
+
+                            </div> <!-- / .list-group -->
+                        </div> <!-- / .card-body -->
+                    </div> <!-- / .card -->
+                </div> <!-- / .col -->
+            </div>
     @endif
 
 @endsection
