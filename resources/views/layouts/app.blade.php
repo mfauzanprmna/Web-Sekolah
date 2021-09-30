@@ -20,12 +20,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/components.css') }}">
-
+    <!-- Custom CSS -->
     @stack('css')
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+    <!-- Js -->
+    <script defer src="{{ mix('js/app.js') }}"></script>
 </head>
 
 <body class="layout-3">
