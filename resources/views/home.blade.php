@@ -146,10 +146,10 @@
             <div class="container" data-aos="fade-up">
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
                     @foreach ($article as $artikel)
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-4 col-md-6 mb-4 d-flex align-items-stretch" style="height: 450px;width:350px;">
                         <div class="course-item">
                             <img src="{{ asset('storage/' . $artikel->image) }}" class="img-fluid"
-                                alt="..." />
+                                alt="..." style="width:350px;height:300px;"/>
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h4>{{ $artikel->category->name }}</h4>

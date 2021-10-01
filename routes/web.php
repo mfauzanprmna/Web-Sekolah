@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', 'WebController@index');
 Route::get('/profile', 'WebController@profiletb');
+
 Route::get('/artikel', function () {
     $settings = App\Models\Setting::all();
     $article = App\Models\Post::all();
@@ -34,32 +35,46 @@ Route::get('/artikel', function () {
 
 Route::get('/kurikulum', function () {
     $settings = App\Models\Setting::all();
-    return view('kurikulum', compact('settings'));
+    $bgcontents = App\Models\Bgcontent::all();
+    $news = App\Models\Newsslide::all();
+    return view('kurikulum', compact('settings','bgcontents', 'news'));
 });
+// Route::get('/profile', function () {
+//     $settings = App\Models\Setting::all();
+//     $bgcontents = App\Models\Bgcontent::all();
+//     $news = App\Models\Newsslide::all();
+//     $profiles = App\Models\Profile::all();
+//     return view('profile', compact('settings','bgcontents', 'news','profiles'));
+// });
 Route::get('/kontakkami', function () {
     $settings = App\Models\Setting::all();
-
-    return view('kontakkami', compact('settings'));
+  $bgcontents = App\Models\Bgcontent::all();
+    $news = App\Models\Newsslide::all();
+    return view('kontakkami', compact('settings','bgcontents', 'news'));
 });
 Route::get('/hubin', function () {
     $settings = App\Models\Setting::all();
-
-    return view('hubin', compact('settings'));
+  $bgcontents = App\Models\Bgcontent::all();
+    $news = App\Models\Newsslide::all();
+    return view('hubin', compact('settings','bgcontents', 'news'));
 });
 Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
-
-    return view('fotoguru',compact('settings'));
+  $bgcontents = App\Models\Bgcontent::all();
+    $news = App\Models\Newsslide::all();
+    return view('fotoguru',compact('settings','bgcontents', 'news'));
 });
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
-
-    return view('sarpras', compact('settings'));
+  $bgcontents = App\Models\Bgcontent::all();
+    $news = App\Models\Newsslide::all();
+    return view('sarpras', compact('settings','bgcontents', 'news'));
 });
 Route::get('/kesiswaan', function () {
     $settings = App\Models\Setting::all();
-
-    return view('kesiswaan', compact('settings'));
+      $bgcontents = App\Models\Bgcontent::all();
+    $news = App\Models\Newsslide::all();
+    return view('kesiswaan', compact('settings','bgcontents', 'news'));
 });
 
 
