@@ -1,6 +1,27 @@
 @extends('layouts.app')
+
+@push('css')
+    <style>
+        .cardh {
+            transition: 0.4s ease-out;
+        }
+
+        .cardh:hover {
+            transform: translateY(-20px);
+            transition: 0.4s ease-out;
+        }
+
+        .cardh:hover~.cardh {
+            position: relative;
+            left: 50px;
+            transition: 0.4s ease-out;
+        }
+
+    </style>
+@endpush
 @section('title', 'Dashboard')
 @section('judul', 'Dashboard')
+
 @section('main')
     @if (Route::is('dashboard.siswa'))
         <div class="row">
@@ -511,12 +532,24 @@
 
                         <div class="row">
                             <!-- Log -->
-                            <div class="col-md-12 mb-4">
+                            <div class="col-md-12 mb-4 mt-3">
                                 <div class="card shadow">
-                                    <div class="card-header">
-                                        <strong class="card-title">Artikel yang dibuat</strong>
-                                        <a class="float-right small text-muted" href="#!">View all</a>
+
+                                    <div class="d-flex bd-highlight  mx-5 my-2">
+                                        <div class="p-2 flex-grow-1 bd-highlight">
+                                            <strong class="card-title">Artikel yang dibuat</strong>
+                                        </div>
+                                        <div class="p-2 bd-highlight"></div>
+                                        <div class="p-2 bd-highlight">
+                                            <strong>
+                                            <a class="float-right  text-muted" style="color: rgb(87, 84, 84); " href="#!">View all</a> 
+
+                                            </strong>
+                                        </div>
                                     </div>
+
+                                    
+
                                     <div class="card-body">
                                         <div class="list-group list-group-flush my-n3">
                                             {{-- {{dd($article)}} --}}
@@ -532,23 +565,35 @@
                                                 @foreach ($article as $item)
 
                                                     <div class="list-group-item" style="background: rgb(255, 255, 255);">
-                                                        <div class="row align-items-center">
-                                                            <div class="col-auto">
-                                                                <img src="{{ asset('article-img/' . $item->image) }}"
-                                                                    style="width: 200px; height:200px;" alt="">
-                                                                {{-- <span class="circle circle-sm bg-warning"><i  class="fe fe-shield-off fe-16 text-white"></i></span> --}}
-                                                            </div>
-                                                            <div class="col">
-                                                                <small><strong>
-                                                                        {{ Carbon\Carbon::parse($item->created_at)->format('H:i') }}
-                                                                        {{ Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y') }}</strong></small>
-                                                                <div class="mb-2 text-muted small">
-                                                                    {{-- <textarea disabled  cols="100" rows="20"> --}}
+                                                        <div class="row ">
+                                                                <div class="col-3 ">
+                                                                    <img src="{{ asset('article-img/' . $item->image) }}"
+                                                                        style="width: 200px; height:200px;" alt="">
+                                                                    {{-- <span class="circle circle-sm bg-warning"><i  class="fe fe-shield-off fe-16 text-white"></i></span> --}}
                                                                 </div>
-                                                                <span
-                                                                    class="badge badge-pill badge-success">{{ $item->status }}</span>
-                                                            </div>
-                                                            <div class="col-auto pr-0 ">
+                                                                <div class="col-7 " style="height: 200px; width: 300px;">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div>
+                                                                                <strong>
+                                                                                {{ Carbon\Carbon::parse($item->created_at)->format('H:i') }}
+                                                                                {{ Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y') }}
+                                                                                </strong>
+                                                                            </div>
+                                                                            {{-- <div class="mb-2 text-muted small" > {!! $result = substr($item->body, 0, 200);  !!} </div>  --}}
+                                                                            <div class="mb-2 text-muted medium" > {{  substr($item->meta_description, 0, 150);  }} </div> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-3">
+                                                                            <span class="badge badge-pill badge-success my-4">{{ $item->status }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    {{-- <div class="row"> --}}
+                                                                    {{-- </div> --}}
+
+                                                                </div>
+                                                            <div class="col-auto">
                                                                 <div class="dropdown">
                                                                     <button
                                                                         class="btn btn-sm dropdown-toggle more-dropdown"
@@ -562,20 +607,19 @@
                                                                         {{-- <a class="dropdown-item" href="#"><i class="far fa-eye fa-lg mr-2" style="color: rgb(205, 203, 206)"></i>Show</a> --}}
                                                                         {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
                                                                         {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
-                                                                        <a class="dropdown-item"
-                                                                            href="#"><small>Show</small></a>
-                                                                        <a class="dropdown-item"
-                                                                            href="{{ route('article.edit', $item->id) }}"><small>Edit</small></a>
+                                                                        <a class="dropdown-item small" href="#"><small>Show</small></a>
+                                                                        <a class="dropdown-item small" href="{{ route('article.edit', $item->id) }}"><small>Edit</small></a>
                                                                         <form
                                                                             action="{{ route('article.delete', $item->id) }}"
                                                                             method="POST">
                                                                             @method('delete')
                                                                             @csrf
-                                                                            <button
-                                                                                class="dropdown-item"><small>Delete</small>
-                                                                            </button>
-
+                                                                            <a style="cursor: pointer;"
+                                                                                class="dropdown-item small"><small>Delete</small>
+                                                                            </a>
                                                                         </form>
+                                                                        <a class="dropdown-item small"  href="#"><small>Draft</small></a>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -597,44 +641,5 @@
 
 
     @endif
-
-@endsection
-
-@push('css')
-    <style>
-        .cardh {
-            transition: 0.4s ease-out;
-        }
-
-        .cardh:hover {
-            transform: translateY(-20px);
-            transition: 0.4s ease-out;
-        }
-
-        .cardh:hover~.cardh {
-            position: relative;
-            left: 50px;
-            transition: 0.4s ease-out;
-        }
-
-    </style>
-@endpush
-
-@section('script')
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#task-textarea'))
-            .catch(error => {
-                console.error(error);
-            });
-
-        // ClassicEditor
-        // .create( document.querySelector( '#task-' ) )
-        // .catch( error => {
-        //     console.error( error );
-        // } );
-    </script>
-
 
 @endsection

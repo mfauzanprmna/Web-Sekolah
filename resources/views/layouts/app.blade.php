@@ -20,8 +20,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
     <!-- Custom CSS -->
     @stack('css')
+
+    <style>
+      #toast-container > .toast-custom {
+    content: "\f00C";
+}
+
+/* this will set the toastr style */
+.toast-custom-success {
+    background-color: rgb(117, 235, 88);
+}
+    </style>
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -63,6 +75,69 @@
     @stack('js')
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
 
+
+<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+
+
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#task-textarea'))
+        .catch(error => {
+            console.error(error);
+        });
+
+        var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+
+    // ClassicEditor
+    // .create( document.querySelector( '#task-' ) )
+    // .catch( error => {
+    //     console.error( error );
+    // } );
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+{{-- <script src="../node_modules/izitoast/dist/js/iziToast.min.js"></script> --}}
+
+
+
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script> --}}
+
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+        toastr.success("Click To Open", "more text",{iconClass:"toast-custom-success"});
+            // toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
+</script>
+
+
 </body>
+
+
 
 </html>
