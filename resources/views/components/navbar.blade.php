@@ -1,12 +1,13 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <ul class="navbar-nav mr-auto">
+        <img alt="icon" src="{{ asset('img/logo.svg') }}" style="width: 76px">
     </ul>
     <ul class="navbar-nav navbar-right">
         </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+                <img alt="image" src="{{ asset('img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">{{ Auth::guard(Auth::getDefaultDriver())->user()->name }}
                 </div>
             </a>
@@ -30,4 +31,13 @@
             </div>
         </li>
     </ul>
+</nav>
+<nav class="navbar navbar-secondary navbar-expand-lg">
+    <div class="container">
+        <div class="text-dark my-auto">
+            <h3>Welcome to the
+                <span class="text-info">Bridge</span>
+            </h3>
+        </div>
+    </div>
 </nav>
