@@ -75,8 +75,7 @@
                                             <h5 class="card-title mb-0">Sitakols SMK Taruna Bhakti</h5>
                                         </div>
                                         <div class="row align-items-center mb-2 d-flex">
-
-                                            <a href="#" class=" stretched-link" style="color: transparent"></a>
+                                            <a href="#" class=" stretched-link" id="sitakols" style="color: transparent"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -367,6 +366,18 @@
                     }).catch(erorr => {
 
                 });
+            });
+        });
+        $('#sitakols').click(function (e) {
+            e.preventDefault();
+            token = $('#token').data('token');
+            axios.get('/api/me', {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }).then(response => {
+                console.log(response.data.token);
+                    window.location.href="http://127.0.0.1:8080/api/prakerin/" + response.data.token;
             });
         });
     });

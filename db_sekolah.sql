@@ -252,7 +252,7 @@ CREATE TABLE `gurus` (
 --
 
 INSERT INTO `gurus` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`, `nik`, `remember_token`, `jabatan`) VALUES
-(1, 'Pak Dwi', 'dwi@gmail.com', '$2y$10$kVsqhx9OS9ZgoVeDzs85ReWIjBg9LCBBT76ZNplP8uViDn1suRfbS', '2021-09-22 06:44:25', '2021-09-22 06:44:25', 312314, NULL, NULL);
+(1, 'Pak Dwi', 'dwi@gmail.com', '$2y$10$kVsqhx9OS9ZgoVeDzs85ReWIjBg9LCBBT76ZNplP8uViDn1suRfbS', '2021-09-22 06:44:25', '2021-09-22 06:44:25', 312314, NULL, 'hubin');
 
 -- --------------------------------------------------------
 
