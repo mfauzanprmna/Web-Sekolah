@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_sekolah`
+-- Database: `db_portal`
 --
 
 -- --------------------------------------------------------
@@ -451,6 +451,7 @@ CREATE TABLE `kelas` (
   `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `categories_alumnis` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jurusan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

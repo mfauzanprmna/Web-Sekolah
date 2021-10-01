@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
+use App\Models\Alumni;
+use App\Models\Jurusan;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +54,9 @@ Route::get('/kurikulum', function () {
 // });
 Route::get('/kontakkami', function () {
     $settings = App\Models\Setting::all();
-  $bgcontents = App\Models\Bgcontent::all();
+    $bgcontents = App\Models\Bgcontent::all();
     $news = App\Models\Newsslide::all();
-    return view('kontakkami', compact('settings','bgcontents', 'news'));
+    return view('kontakkami', compact('settings', 'bgcontents', 'news'));
 });
 Route::get('/hubin', function () {
     $settings = App\Models\Setting::all();
@@ -64,13 +68,13 @@ Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
 
-    return view('fotoguru',compact('settings', 'bgcontents'));
+    return view('fotoguru', compact('settings', 'bgcontents'));
 });
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
-  $bgcontents = App\Models\Bgcontent::all();
+    $bgcontents = App\Models\Bgcontent::all();
     $news = App\Models\Newsslide::all();
-    return view('sarpras', compact('settings','bgcontents', 'news'));
+    return view('sarpras', compact('settings', 'bgcontents', 'news'));
 });
 Route::get('/kesiswaan', function () {
     $settings = App\Models\Setting::all();
