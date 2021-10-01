@@ -25,8 +25,7 @@ class WebController extends Controller
         $partners = Partner::all();
         $bgcontents = Bgcontent::all();
         $homefooters = Homefooter::all();
-        $profiles = Profile::all();
-        return view('home', compact('news', 'settings', 'article', 'whystarbhaks','partners','bgcontents','homefooters','profiles'));
+        return view('home', compact('news', 'settings', 'article', 'whystarbhaks','partners','bgcontents','homefooters'));
     }
 
     // public function page($id)

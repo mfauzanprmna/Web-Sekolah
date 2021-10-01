@@ -36,7 +36,7 @@ Route::get('/artikel', function () {
 Route::get('/kurikulum', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
-    $struktur = App\Models\Page::where('id', '17')->get(['body']);
+    $struktur = App\Models\Page::where('id', '17')->get(['body', 'title']);
     $kompetensi = App\Models\Page::where('id', '16')->get(['body', 'title']);
 
     return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi'));

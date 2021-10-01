@@ -99,14 +99,15 @@
 
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       @foreach($kompetensi as $p)
-    <h3 class="mt-5"><b>{{ $p->title }}</b></h3>
     <br>
     {!! $p->body !!}
     @endforeach
   </div>
 
     <div class="tab-pane fade" id="kurikulum" role="tabpanel" aria-labelledby="kurikulum-tab">
-      @include('struktur')
+      @foreach ($struktur as $item)
+        {!!  $item->body !!}
+      @endforeach
   </div>
 
 
