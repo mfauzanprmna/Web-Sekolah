@@ -36,22 +36,25 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
             integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
             crossorigin="anonymous" />
-        <!-- =======================================================
-  * Template Name: Mentor - v4.5.0
-  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
+
     </head>
 
     <body>
+        
+            
+        
         <section id="hero" class="d-flex justify-content-center align-items-center">
+            @foreach ($bgcontents as $bgcontent)
             <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-                <h1>Learning Today,<br />Leading Tomorrow</h1>
-                <h2>We are team of talented designers making websites with Bootstrap</h2>
+                <h1>{{$bgcontent->title}}<br />{{$bgcontent->subtitle}}</h1>
+                <h2>{{$bgcontent->conten}}</h2>
                 <a href="#" target="_blank" class="btn-get-started">Login</a>
             </div>
+            @endforeach
         </section>
+
+
 
         <script src="{{ asset('template/assets/vendor/aos/aos.js') }}"></script>
         <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

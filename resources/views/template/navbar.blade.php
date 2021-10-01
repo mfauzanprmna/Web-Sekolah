@@ -43,7 +43,12 @@
 <header id="header">
     <div class="container d-flex align-items-center">
 
-        <img src="{{asset('template/assets/img/logotb.png')}}" alt="" style="height: 70px; width: 70px" />
+      @foreach ($settings as $setting)
+        @if ($setting->display_name == 'Site Logo')
+            
+          <img src="{{asset('storage/' . $setting->value)}}" alt="" style="height: 70px; width: 70px" />
+        @endif
+      @endforeach
         <!-- Uncomment below if you prefer to use an image logo -->
         {{-- <a href="index.html" class="logo me-auto"><img src="{{asset('template/assets/img/logo.png')}}" alt="" class="img-fluid"></a> --}}
 
@@ -56,7 +61,7 @@
             <li><a class="{{request()->is('sarpras*') ? 'active':''}}" href="/sarpras">Sarana Pra Sarana</a></li>
             <li><a class="{{request()->is('kesiswaan*') ? 'active':''}}" href="/kesiswaan">Kesiswaan</a></li>
             <li><a class="{{request()->is('kontakkami*') ? 'active':''}}" href="/kontakkami">Kontak Kami</a></li>
-            <a href="" class="active">Login</a>
+
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

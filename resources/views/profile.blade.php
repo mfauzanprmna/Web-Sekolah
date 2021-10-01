@@ -1,23 +1,21 @@
 @include('template.navbar')
-@include('template.background')
-@include('template.carousel')
+{{-- @include('template.background') --}}
 <div class="container pt-5" >
 <nav class="nav nav-tabs flex-column flex-sm-row mt-1">
   <a class="flex-sm-fill text-sm-center nav-link active " aria-current="page" data-bs-toggle="tab" data-bs-target="#home">Sejarah</a>
   <a class="flex-sm-fill text-sm-center nav-link " data-bs-toggle="tab" data-bs-target="#profile">Visi dan Misi</a>
   <a class="flex-sm-fill text-sm-center nav-link " data-bs-toggle="tab" data-bs-target="#contact">Tujuan SMK Taruna Bhakti</a>
 </nav>
+
 <div class="tab-content mb-5" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><h3 class="mt-5"><b>SEJARAH SMK TARUNA BHAKTI</b></h3>
+  @foreach ($pages as $page)
+     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><h3 class="mt-5"><b>{{$page->title}}</b></h3>
       <br>
-    <p class="mt-3"> Untuk memenuhi kebutuhan akan sumber daya manusia yang berkualitas tinggi dalam penguasaan IPTEK yang didasari semangat iman dan taqwa,<b> SMK Taruna Bhakti Depok</b> dirancang untuk membekali siswa agar menguasai ilmu pengetahuan khususnya dalam bidang Teknologi Informasi dan Komunikasi  yang berkualitas, serta memiliki kecakapan hidup. Program pembelajaran SMK Taruna Bhakti  memberi perhatian khusus (ciri khas) pada penguasaan TIK khususnya bidang Teknik Komputer dan Jaringan (TKJ), Multimedia (MM) serta Rekaya Perangkat Lunak (RPL)  dengan menggunakan kurikulum Nasional yang secara inovatif diperkaya oleh SMK Taruna Bhakti berdasarkan VISI, MISI, TUJUAN serta TARGET SMK Taruna Bhakti. <br> <br>
-    Selain pembelajaran di kelas (intrakurikuler) dan pengembangan bakat/minat melalui ekstrakurikuler, siswa memperluas wawasan melalui berbagai macam program yang membekali siswa untuk memiliki kecakapan hidup antara lain: Character Building, Science Camp, Mendatangkan Guru Tamu dari Dunai Usaha/Industri yang relevan dll, serta memberi kesempatan luas kepada  siswa untuk berkompetisi dalam bidang akademis dan non-akademis baik tingkat Nasional, Regional, dan Internasional.
+    <p class="mt-3"> {{$page->body}}</p>
+    </div>
+   @endforeach
 
-    Proses dan efektifitas pembelajaran didukung oleh guru yang kompeten, bimbingan dan konseling, serta sarana pendidikan yang lengkap.
 
-    Sebagai salah satu sekolah Teknologi Informasi dan Komunikasi  bermutu di Depok, prestasi yang telah dicapai oleh SMK Taruna Bhakti Depok  ini memang sesuai dengn visi dan misi yang diembannya</p></div>
-  </div>
   <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <h3 class="mt-5 fw-bold">Visi</h3>
     <ol>
@@ -52,6 +50,8 @@
       <li><b>Our quality ask be different</b></li>
     </ul>
   </div>
+</div>
+</div>
 </div>
 </div>
 
