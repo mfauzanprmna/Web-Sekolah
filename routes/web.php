@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
+use App\Models\Alumni;
+use App\Models\Jurusan;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,15 +45,12 @@ Route::get('/kontakkami', function () {
 
     return view('kontakkami', compact('settings'));
 });
-Route::get('/hubin', function () {
-    $settings = App\Models\Setting::all();
-
-    return view('hubin', compact('settings'));
-});
+Route::get('/hubin', [HubinController::class, 'index']);
+// $settings = App\Models\Setting::all();
 Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
 
-    return view('fotoguru',compact('settings'));
+    return view('fotoguru', compact('settings'));
 });
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
