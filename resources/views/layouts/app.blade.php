@@ -1,40 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-
-        <!-- Scripts -->
-        <script src="{{ asset('assets/js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
-</html> --}}
-
 <!doctype html>
 <html lang="en">
 
@@ -47,135 +10,60 @@
 
     <title>STARBHAK - @yield('title')</title>
 
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/simplebar.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('assets/css/flash.css') }}">
-
     <!-- Fonts CSS -->
     {{-- <link
         href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet"> --}}
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
 
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/feather.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/select2.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/dropzone.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/uppy.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/jquery.steps.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/jquery.timepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/quill.snow.css') }}">
-
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/daterangepicker.css') }}">
+    <!-- General CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/app-light.css') }}" id="lightTheme">
-    <link rel="stylesheet" href="{{ asset('assets/css/app-dark.css') }}" id="darkTheme" disabled>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+
     @stack('css')
 
     @yield('css')
-    <link rel="stylesheet" href="{{asset('css/custome.css')}}" >
-
-   
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 
-<body class="light">
-    <div class="wrapper">
-        @include('components.navbar')
-        <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="defaultModalLabel">Notifications</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="list-group list-group-flush my-n3">
-                    <div class="list-group-item bg-transparent">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-                          <span class="fe fe-box fe-24"></span>
-                        </div>
-                        <div class="col">
-                          <small><strong>Package has uploaded successfull</strong></small>
-                          <div class="my-0 text-muted small">Package is zipped and uploaded</div>
-                          <small class="badge badge-pill badge-light text-muted">1m ago</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-group-item bg-transparent">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-                          <span class="fe fe-download fe-24"></span>
-                        </div>
-                        <div class="col">
-                          <small><strong>Widgets are updated successfull</strong></small>
-                          <div class="my-0 text-muted small">Just create new layout Index, form, table</div>
-                          <small class="badge badge-pill badge-light text-muted">2m ago</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-group-item bg-transparent">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-                          <span class="fe fe-inbox fe-24"></span>
-                        </div>
-                        <div class="col">
-                          <small><strong>Notifications have been sent</strong></small>
-                          <div class="my-0 text-muted small">Fusce dapibus, tellus ac cursus commodo</div>
-                          <small class="badge badge-pill badge-light text-muted">30m ago</small>
-                        </div>
-                      </div> <!-- / .row -->
-                    </div>
-                    <div class="list-group-item bg-transparent">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-                          <span class="fe fe-link fe-24"></span>
-                        </div>
-                        <div class="col">
-                          <small><strong>Link was attached to menu</strong></small>
-                          <div class="my-0 text-muted small">New layout has been attached to the menu</div>
-                          <small class="badge badge-pill badge-light text-muted">1h ago</small>
-                        </div>
-                      </div>
-                    </div> <!-- / .row -->
-                  </div> <!-- / .list-group -->
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Clear All</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        {{-- @include('components.sidebar') --}}
-        <main role="main" class="main-content container-fluid">
-            <div class="container-fluid">
-                @yield('main')
-            </div> <!-- .container-fluid -->
-        </main> <!-- main -->
+<body class="layout-3">
+    <div id="app">
+        <div class="main-wrapper container">
+            @include('components.navbar')
 
-    </div> <!-- .wrapper -->
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/simplebar.min.js') }}"></script>
-    <script src='{{ asset('assets/js/daterangepicker.js') }}'></script>
-    <script src='{{ asset('assets/js/jquery.stickOnScroll.js') }}'></script>
-    <script src="{{ asset('assets/js/tinycolor-min.js') }}"></script>
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+                        @yield('main')
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- General JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+
+    <script src="{{ asset('assets/js/stisla.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
     <script src="{{ asset('assets/js/apps.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-
-      
+    <!-- JS Libraies -->
     @yield('script')
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
 

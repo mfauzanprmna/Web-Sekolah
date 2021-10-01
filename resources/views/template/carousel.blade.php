@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -9,37 +10,40 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="{{asset('template/assets/img/favicon.png')}}" rel="icon" />
+    <link href="{{ asset('template/assets/img/favicon.png') }}" rel="icon" />
 
-    <link href="{{asset('template/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon" />
+    <link href="{{ asset('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
-    <link href="{{asset('template/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('template/assets/vendor/aos/aos.css')}}" rel="stylesheet" />
-    <link href="{{asset('template/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('template/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet" />
-    <link href="{{asset('template/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('template/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet" />
-    <link href="{{asset('template/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/aos/aos.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="{{asset('template/assets/css/style.css')}}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <!-- <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" /> -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- =======================================================
   * Template Name: Mentor - v4.5.0
   * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  </head>
+</head>
 
-  <body>
+<body>
 
 
 
@@ -135,6 +139,7 @@
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
           </div>
           @endif
       @endforeach
@@ -146,16 +151,29 @@
   </div>
 
   </div>
+=======
+          </div> --}}
+            <div class="carousel-indicators skipback">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+>>>>>>> e50c8166274f6c5e89af6b15e9c187c8b6beb9e5
         </div>
     </div>
+    </div>
 
-    <script src="{{asset('template/assets/vendor/aos/aos.js')}}"></script>
-    <script src="{{asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('template/assets/vendor/php-email-form/validate.js')}}"></script>
-    <script src="{{asset('template/assets/vendor/purecounter/purecounter.js')}}"></script>
-    <script src="{{asset('template/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ asset('template/assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('template/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('template/assets/vendor/purecounter/purecounter.js') }}"></script>
+    <script src="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="{{asset('template/assets/js/main.js')}}"></script>
-  </body>
+    <script src="{{ asset('template/assets/js/main.js') }}"></script>
+</body>
+
 </html>
