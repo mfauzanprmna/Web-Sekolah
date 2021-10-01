@@ -159,7 +159,7 @@
                               </div>
                               <div class="form-group">
                                  <label for="task-textarea">Deskripsi</label> 
-                                 <textarea type="text" name="description" class="form-control ck-editor_editable" id="task-textarea" placeholder="Tulis Deskripsi" cols="100" rows="10"></textarea> 
+                                 <textarea type="text" name="description" class="ck-editor_editable" id="task-textarea" placeholder="Tulis Deskripsi" cols="100" rows="10"></textarea> 
                                 {{-- <div class="card-body">
                                   <h5 class="card-title">Editor</h5>
                                   <p>Pages type scale includes a range of contrasting styles that support the needs of your product and its content.</p>
@@ -197,19 +197,18 @@
     </div>
 @endsection
 @push('js')
-<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 <script>
  
-    ClassicEditor
-        .create( document.querySelector( '#task-textarea' )
-        image: {
-            toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ]
-        }
-         )
-        .catch( error => {
-            console.error( error );
-        } );
+    // ClassicEditor
+    //     .create( document.querySelector( '#task-textarea' )
+    //     image: {
+    //         toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ]
+    //     }
+    //      )
+    //     .catch( error => {
+    //         console.error( error );
+    //     } );
 
 
         var loadFile = function(event) {
@@ -224,7 +223,4 @@
 </script>
 
 @endpush
-@section('script')
 
-    
-@endsection
