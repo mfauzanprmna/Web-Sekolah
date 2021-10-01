@@ -116,6 +116,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-2">Info Message</div>
+                    <button class="btn btn-primary" id="toastr-1">Launch</button>
+                </div>
+            </div>
+        </div>
 
     @elseif (Route::is('dashboard.guru'))
         <div class="row">
@@ -601,6 +609,7 @@
 @endsection
 
 @push('css')
+    <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
     <style>
         .cardh {
             transition: 0.4s ease-out;
@@ -620,8 +629,21 @@
     </style>
 @endpush
 
-@section('script')
+@push('js')
+    <script>
+        "use strict";
 
+        $("#toastr-1").click(function() {
+            iziToast.info({
+                title: 'Hello, world!',
+                message: 'This awesome plugin is made iziToast toastr',
+                position: 'topRight'
+            });
+        });
+    </script>
+@endpush
+
+@section('script')
     <script>
         ClassicEditor
             .create(document.querySelector('#task-textarea'))
@@ -635,6 +657,4 @@
         //     console.error( error );
         // } );
     </script>
-
-
 @endsection
