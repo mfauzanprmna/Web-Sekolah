@@ -43,4 +43,10 @@ class WebController extends Controller
         $pages = Page::all()->where('category_id', '1')->first();
         return view('profile', compact('categories', 'pages'));
     }
+
+    public function kurikulumtb(){
+        $struktur = DB::table('posts')->find(12);
+
+        return view('kurikulum', compact('struktur'));
+    }
 }

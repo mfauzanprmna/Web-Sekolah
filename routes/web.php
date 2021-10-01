@@ -34,7 +34,11 @@ Route::get('/artikel', function () {
 
 Route::get('/kurikulum', function () {
     $settings = App\Models\Setting::all();
-    return view('kurikulum', compact('settings'));
+    $bgcontents = App\Models\Bgcontent::all();
+    $struktur = App\Models\Page::where('id', '17')->get(['body']);
+    $kompetensi = App\Models\Page::where('id', '16')->get(['body', 'title']);
+
+    return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi'));
 });
 Route::get('/kontakkami', function () {
     $settings = App\Models\Setting::all();
@@ -43,13 +47,15 @@ Route::get('/kontakkami', function () {
 });
 Route::get('/hubin', function () {
     $settings = App\Models\Setting::all();
+    $bgcontents = App\Models\Bgcontent::all();
 
-    return view('hubin', compact('settings'));
+    return view('hubin', compact('settings', 'bgcontents'));
 });
 Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
+    $bgcontents = App\Models\Bgcontent::all();
 
-    return view('fotoguru',compact('settings'));
+    return view('fotoguru',compact('settings', 'bgcontents'));
 });
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
@@ -58,8 +64,9 @@ Route::get('/sarpras', function () {
 });
 Route::get('/kesiswaan', function () {
     $settings = App\Models\Setting::all();
-
-    return view('kesiswaan', compact('settings'));
+    $bgcontents = App\Models\Bgcontent::all();
+    $kegiatan_osis = App\Models\Page::where('id', '18')->get(['body', 'title']);
+    return view('kesiswaan', compact('settings', 'bgcontents', 'kegiatan_osis'));
 });
 
 
