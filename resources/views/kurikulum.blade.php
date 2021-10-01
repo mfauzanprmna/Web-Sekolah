@@ -1,6 +1,5 @@
 @include('template.navbar')
 @include('template.background')
-@include('template.carousel')
 <head>
   <style>
     .guru:hover{

@@ -22,4 +22,9 @@ class Post extends Model
         'featured',
     ];
     use HasFactory;
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -43,7 +43,12 @@
 <header id="header">
     <div class="container d-flex align-items-center">
 
-        <img src="{{asset('template/assets/img/logotb.png')}}" alt="" style="height: 70px; width: 70px" />
+      @foreach ($settings as $setting)
+        @if ($setting->display_name == 'Site Logo')
+            
+          <img src="{{asset('storage/' . $setting->value)}}" alt="" style="height: 70px; width: 70px" />
+        @endif
+      @endforeach
         <!-- Uncomment below if you prefer to use an image logo -->
         {{-- <a href="index.html" class="logo me-auto"><img src="{{asset('template/assets/img/logo.png')}}" alt="" class="img-fluid"></a> --}}
 

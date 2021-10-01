@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Bgcontent extends Model
 {
     use HasFactory;
 
-    protected $table = "Categories";
+    protected $table = 'bgcontents';
 
     protected $fillable = [
-        'name'
+        'title',
+        'subtitle',
+        'conten',
     ];
-
-        public function post()
-    {
-        return $this->hasMany(Post::class);
-    }
 }

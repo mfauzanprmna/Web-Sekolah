@@ -25,30 +25,41 @@ Route::group(['prefix' => 'admin'], function () {
 // })->name('dashboard');
 
 Route::get('/', 'WebController@index');
-
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/profile', 'WebController@profiletb');
+Route::get('/artikel', function () {
+    $settings = App\Models\Setting::all();
+    $article = App\Models\Post::all();
+    return view('artikel', compact('settings', 'article'));
 });
+
 Route::get('/kurikulum', function () {
-    return view('kurikulum');
+    $settings = App\Models\Setting::all();
+    return view('kurikulum', compact('settings'));
 });
 Route::get('/kontakkami', function () {
-    return view('kontakkami');
+    $settings = App\Models\Setting::all();
+
+    return view('kontakkami', compact('settings'));
 });
 Route::get('/hubin', function () {
-    return view('hubin');
-});
-Route::get('/artikel', function () {
-    return view('artikel');
+    $settings = App\Models\Setting::all();
+
+    return view('hubin', compact('settings'));
 });
 Route::get('/fotoguru', function () {
-    return view('fotoguru');
+    $settings = App\Models\Setting::all();
+
+    return view('fotoguru',compact('settings'));
 });
 Route::get('/sarpras', function () {
-    return view('sarpras');
+    $settings = App\Models\Setting::all();
+
+    return view('sarpras', compact('settings'));
 });
 Route::get('/kesiswaan', function () {
-    return view('kesiswaan');
+    $settings = App\Models\Setting::all();
+
+    return view('kesiswaan', compact('settings'));
 });
 
 

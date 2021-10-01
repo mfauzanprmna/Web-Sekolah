@@ -68,21 +68,25 @@
         <!-- End Counts Section -->
 
         <!-- ======= About Section ======= -->
+              @foreach ($whystarbhaks as $new)
+      @if ( $new->id == 1 )
         <section id="about" class="about" style="background-color: #d7efff; font-family: 'Poppins', sans-serif">
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 order-1 order-lg-2 text-end" data-aos="fade-left" data-aos-delay="100">
-                        <img src="{{ asset('template/assets/img/abouttb.jpg') }}" class="img-fluid whystarbak" alt=""
+                        <img src="{{asset('storage/'.$new->image)}}" class="img-fluid whystarbak" alt=""
                             style="height: 430px; width: 430px; border-radius: 20px; margin-left: auto" />
                     </div>
                     <div class="col-lg-6 col-md-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                        <h3>Why Starbhak?</h3>
-                        <p style="font-size: 20px">90% of graduating students already work before graduation, as either
-                            self-employed workers or young professionals.</p>
+                        <h3>{{$new->title}}</h3>
+                        <p style="font-size: 20px">{{$new->content}}
+                            </p>
                     </div>
                 </div>
             </div>
         </section>
+           @endif
+      @endforeach
         <!-- End About Section -->
 
         <!-- ======= Counts Section ======= -->
@@ -102,7 +106,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
         </section>
         <!-- End Counts Section -->
 
@@ -110,28 +113,17 @@
         <section id="why-us" class="why-us bg-dark">
             <div class="container" data-aos="fade-up">
                 <div class="text-center">
-                    <a href="courses.html" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Virtual
+                    <a class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Virtual
                         Tour SMK Taruna Bhakti</a>
-=======
-            <!-- End Course Item-->
-{{-- 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-              <div class="course-item">
-                <img src="{{asset('template/assets/img/course-2.jpg')}}" class="img-fluid" alt="..." />
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>Website Kesiswaan</h4>
-                    <!-- <p class="price">$250</p> -->
-                  </div>
-
-                  <h3><a href="/artikel">Search Engine Optimization</a></h3>
-                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
->>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
                 </div>
-                <iframe class="mt-5"
-                    src="https://kuula.co/share/7tK9b/collection/7YQlT?fs=1&vr=1&sd=1&initload=0&thumbs=1&info=0&logo=1&logosize=40"
-                    style="width:100%; height:500px; border-radius: 25px">
-                </iframe>
+                @foreach ($settings as $setting)
+                    @if ($setting->display_name == 'Virtual Tour')
+                    <iframe class="mt-5"
+                        src="{{ $setting->value }}"
+                        style="width:100%; height:500px; border-radius: 25px">
+                    </iframe>
+                    @endif
+                @endforeach
 
             </div>
             </div>
@@ -142,79 +134,34 @@
         <section id="counts" class="counts section-bg" style="background: #e39b0d">
             <div class="container">
                 <div class="text-center">
-                    <a href="#" class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info
+                    <a  class="btn btn-outline-light pe-5 ps-5" style="border-radius: 50px">Artikel dan Info
                         Sekolah</a>
                 </div>
-<<<<<<< HEAD
             </div>
         </section>
         <!-- End -->
-=======
-              </div>
-            </div> --}}
-            <!-- End Course Item-->
-          </div>
-        </div>
-      </section>
-      <!-- End Popular Courses Section -->
->>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
 
         <!-- ======= Popular Courses Section ======= -->
         <section id="popular-courses" class="courses">
             <div class="container" data-aos="fade-up">
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                    @foreach ($article as $artikel)
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="course-item">
-                            <img src="{{ asset('template/assets/img/course-1.jpg') }}" class="img-fluid"
+                            <img src="{{ asset('storage/' . $artikel->image) }}" class="img-fluid"
                                 alt="..." />
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4>Artikel</h4>
+                                    <h4>{{ $artikel->category->name }}</h4>
                                     <!-- <p class="price">$169</p> -->
                                 </div>
 
-                                <h3><a href="/artikel">Website Design</a></h3>
-                                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae
-                                    dolores dolorem tempore.</p>
+                                <h3><a href="/{{ $artikel->slug }}">{{ $artikel->title }}</a></h3>
+                                <p>{{ $artikel->excerpy }}</p>
                             </div>
                         </div>
                     </div>
-                    <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                        <div class="course-item">
-                            <img src="{{ asset('template/assets/img/course-2.jpg') }}" class="img-fluid"
-                                alt="..." />
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4>Website Kesiswaan</h4>
-                                    <!-- <p class="price">$250</p> -->
-                                </div>
-
-                                <h3><a href="/artikel">Search Engine Optimization</a></h3>
-                                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae
-                                    dolores dolorem tempore.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                        <div class="course-item">
-                            <img src="{{ asset('template/assets/img/course-3.jpg') }}" class="img-fluid"
-                                alt="..." />
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4>Kurikulum</h4>
-                                    <!-- <p class="price">$180</p> -->
-                                </div>
-
-                                <h3><a href="/artikel">Copy Writing</a></h3>
-                                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae
-                                    dolores dolorem tempore.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     <!-- End Course Item-->
                 </div>
             </div>
@@ -223,7 +170,7 @@
 
         <div class="container">
             <div class="text-center">
-                <a href="courses.html" class="btn btn-outline-primary pe-5 ps-5" style="border-radius: 50px">Load More
+                <a href="/artikel" class="btn btn-outline-primary pe-5 ps-5" style="border-radius: 50px">Load More
                     ...</a>
             </div>
         </div>
@@ -231,49 +178,47 @@
         <section id="counts" class="counts section-bg mt-4" style="background-color: #fff9f9">
             <div class="container text-center">
                 <div class="row counters kebawah">
+                    @foreach ($partners as $partner)
                     <div class="col-md-3 mt-2">
-                        <img src="{{ asset('template/assets/img/loper4.png') }}" alt="" />
+                        <img src="{{ asset('storage/' . $partner->logo_perusahaan) }}" alt=""/>
+                        <br><br>
+                        <h5 class="fw-bold">{{$partner->nama_perusahaan}}</h5>
                     </div>
-                    <div class="col-md-3 mt-2">
-                        <img src="{{ asset('template/assets/img/loper3.png') }}" alt="" />
-                    </div>
-                    <div class="col-md-3 mt-2">
-                        <img src="{{ asset('template/assets/img/loper2.png') }}" alt="" />
-                    </div>
-                    <div class="col-md-3 mt-2">
-                        <img src="{{ asset('template/assets/img/loper1.png') }}" alt="" />
-                    </div>
+                    
+                    @endforeach
                 </div>
             </div>
         </section>
 
         <!-- ======= Trainers Section ======= -->
         <section id="counts" class="counts section-bg " style="background-color: #3b4850">
+            @foreach ($homefooters as $homefooter)
+                
+            
             <div class="container text-white">
                 <div class="row counters mt-4 mb-5">
                     <div class="col-md-7" style="font-family: poppins">
                         <h1>
-                            STARBHAK <br />
-                            <h1 class="mt-2">LATEST</h1>
+                            {{$homefooter->title}} <br />
+                            <h1 class="mt-2">{{$homefooter->subtitle}}</h1>
                         </h1>
                         <br />
-                        <h1 style="font-size: 50px; font-weight: bolder"><b>ACTIVITIES.</b></h1>
+                        <h1 style="font-size: 50px; font-weight: bolder"><b>{{$homefooter->activities}}</b></h1>
                     </div>
                     <div class="col-md-3 mt-5">
-                        <i class="fab fa-instagram" style="font-size: 40px"></i>
-                        <p style="font-size: 18px"><b> INSTAGRAM</b></p>
+                        <i class="{{$homefooter->imginstagram}}" style="font-size: 40px"></i>
+                        <p style="font-size: 18px"><b> {{$homefooter->instagram}}</b></p>
                         <p style="font-size: 13px; font-weight: lighter">
-                            Check out the latest photos <br />
-                            on starbhak.offcial Instagram
+                           {{$homefooter->subinstagram}}
                         </p>
                     </div>
                     <div class="col-md-2 mt-5">
-                        <i class="fab fa-facebook" style="font-size: 40px"></i>
-                        <p style="font-size: 18px"><b> Facebook Page</b></p>
-                        <p style="font-size: 13px; font-weight: lighter">Check out the latest photos on starbhak.offcial
-                            Facebook</p>
+                        <i class="{{$homefooter->imgfacebook}}" style="font-size: 40px"></i>
+                        <p style="font-size: 18px"><b> {{$homefooter->facebook}}</b></p>
+                        <p style="font-size: 13px; font-weight: lighter">{{$homefooter->subfacebook}}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </section>
         <!-- End Trainers Section -->
@@ -286,13 +231,9 @@
 
     <!-- End Footer -->
     <div id="preloader"></div>
-<<<<<<< HEAD
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-=======
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
->>>>>>> 1b302f146d05c808eef05466e0c178787f8586ac
     <!-- Vendor JS Files -->
     <script src="{{ asset('template/assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
