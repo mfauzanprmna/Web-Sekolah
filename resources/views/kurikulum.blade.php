@@ -98,18 +98,11 @@
 
 
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-    <h3 class="mt-5"><b>Kompetensi Keahlian</b></h3>
+      @foreach($kompetensi as $p)
+    <h3 class="mt-5"><b>{{ $p->title }}</b></h3>
     <br>
-    <p><b>Pembelajaran di smk menggabungan antara teori dan praktek dengan orientasi pada kesiapan kerja lulusannya. </b> Kurikulum dalam pendidikan smk terkonsentrasi pada sistem pembelajaran keahlian pada kejuruan-kejuruan khusus. karena itu dalam persaingan  global saat ini lulusan smk dipersiapkan menjadi tenaga yang siap terjun ke dunia usaha dan industri</p>
-<br>
-    <p> SMK Taruna Bhakti Memiliki 5 Kompetensi keahlian yang Terdiri dari :</p>
-    <ol>
-      <li>Teknik Komputer Dan Jaringan</li>
-      <li>Multimedia</li>
-      <li>Rekayasa Perangkat Lunak</li>
-      <li>Teknik Elektronika Industri</li>
-      <li>Broadcasting</li>
-    </ol>
+    {!! $p->body !!}
+    @endforeach
   </div>
 
     <div class="tab-pane fade" id="kurikulum" role="tabpanel" aria-labelledby="kurikulum-tab">

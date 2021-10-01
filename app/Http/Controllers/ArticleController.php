@@ -23,6 +23,8 @@ class ArticleController extends Controller
     }
     public function store(Request $request)
     {
+        // dd($request);
+
         $description = strip_tags($request->description);
         $str = str_replace('&nbsp;','',$description);
         $meta_description = html_entity_decode($str);
@@ -53,8 +55,13 @@ class ArticleController extends Controller
             'featured' => 1,
         ]);
 
-        // return view('article.index');
-        return redirect()->route('dashboard.manager')->with('pesan','Berhasil Membuat Article ');
+        $notification = array(
+            'message' => 'Post created successfully!',
+            'alert-type' => 'success'
+        );
+        
+        // return Redirect::to('/')->with($notification);
+        return redirect()->route('dashboard.manager')->with($notification);
 
     }
     public function edit($id)
@@ -71,55 +78,115 @@ class ArticleController extends Controller
     }
     public function update(Request $request,$id)
     {
-        // dd($request);
+        // dd($request->image);
+
+                     if ($request->image == null) {
+                              
+                                $img =  Post::where('id',$id)->first();
+                                // dd($img->image);
+                                
+                                $description = strip_tags($request->description);
+                                $str = str_replace('&nbsp;','',$description);
+                                $meta_description = html_entity_decode($str);
+                        
+                                // $string = str_replace(' ', '', $string);
+                                $slug = str_replace(' ', '-',$request->title);
+                        
+                                    
+                                // dd($request,$description,$meta_description,$slug);
+                                
+                        
+                                // $nm = $request->image;
+                                // $namafile = $nm->getClientOriginalName();
+                                // $nm->move(public_path().'/article-img',$namafile);
+                        
+                        
+                                Post::where('id',$id)->update([
+                                    'author_id'        => Auth::guard('manager')->id(),
+                                    'category_id'      => $request->category,
+                                    'title'            => $request->title,
+                                    'seo_title'        => $request->seo_title,
+                                    'excerpt'          => null,
+                                    'body'             => $request->description,
+                                    // 'image'            => $namafile,
+                                    'slug'             => $slug,
+                                    'meta_description' => $meta_description,
+                                    'meta_keywords'    => 'default',
+                                    'status'           => 'PUBLISHED',
+                                    'featured'         => 1,
+                                ]);
+                                
+                        
+                                $notification = array(
+                                    'message' => 'Article telah di update ',
+                                    'alert-type' => 'success'
+                                );
+                        
+                                return redirect()->route('dashboard.manager')->with($notification);
+                        
+                    
+                                // dd('File does not exists.');
+                                // return redirect()->back()->with('fail','Gagal di  Hapus  ');
+                            
+                    }else{
+
+                        $img =  Post::where('id',$id)->first();
+
+                                            if(File::exists(public_path('article-img/'.$img->image))){
+                                                File::delete(public_path('article-img/'.$img->image));
+                                    
+                                                
+                                        $img =  Post::where('id',$id)->first();
+                                        // dd($img->image);
+                                        
+                                        $description = strip_tags($request->description);
+                                        $str = str_replace('&nbsp;','',$description);
+                                        $meta_description = html_entity_decode($str);
+                                    
+                                        // $string = str_replace(' ', '', $string);
+                                        $slug = str_replace(' ', '-',$request->title);
+                                    
+                                            
+                                        // dd($request,$description,$meta_description,$slug);
+                                        
+                                    
+                                        $nm = $request->image;
+                                $namafile = $nm->getClientOriginalName();
+                                $nm->move(public_path().'/article-img',$namafile);
+                                    
+                                    
+                                        Post::where('id',$id)->update([
+                                            'author_id'        => Auth::guard('manager')->id(),
+                                            'category_id'      => $request->category,
+                                            'title'            => $request->title,
+                                            'seo_title'        => $request->seo_title,
+                                            'excerpt'          => null,
+                                            'body'             => $request->description,
+                                            'image'            => $namafile,
+                                            'slug'             => $slug,
+                                            'meta_description' => $meta_description,
+                                            'meta_keywords'    => 'default',
+                                            'status'           => 'PUBLISHED',
+                                            'featured'         => 1,
+                                        ]);
+                                        
+                                    
+                                        $notification = array(
+                                            'message' => 'Article telah di update ',
+                                            'alert-type' => 'success'
+                                        );
+                                    
+                                        return redirect()->route('dashboard.manager')->with($notification);
+                                    
+                                                // Post::where('id',$id)->delete();
+                                                // return redirect()->back()->with('pesan','Berhasil Hapus Article ');
+                                    }
+                    
+                    }
 
 
-
-        if(File::exists(public_path('article-img/'.$request->image))){
-            File::delete(public_path('article-img/'.$request->image));
-
-            // Post::where('id',$id)->delete();
-            return redirect()->back()->with('pesan','Berhasil Hapus Article ');
-        }else{
-            // dd('File does not exists.');
-            return redirect()->back()->with('fail','Gagal di  Hapus  ');
-        }
-        
-       $img =  Post::where('id',$id)->first();
-        // dd($img->image);
-        
-        $description = strip_tags($request->description);
-        $str = str_replace('&nbsp;','',$description);
-        $meta_description = html_entity_decode($str);
-
-        // $string = str_replace(' ', '', $string);
-        $slug = str_replace(' ', '-',$request->title);
-
-            
-        // dd($request,$description,$meta_description,$slug);
-        
-
-        $nm = $request->image;
-        $namafile = $nm->getClientOriginalName();
-        $nm->move(public_path().'/article-img',$namafile);
-
-
-        Post::where('id',$id)->update([
-            'author_id'        => Auth::guard('manager')->id(),
-            'category_id'      => $request->category,
-            'title'            => $request->title,
-            'seo_title'        => $request->seo_title,
-            'excerpt'          => null,
-            'body'             => $request->description,
-            'image'            => $namafile,
-            'slug'             => $slug,
-            'meta_description' => $meta_description,
-            'meta_keywords'    => 'default',
-            'status'           => 'PUBLISHED',
-            'featured'         => 1,
-        ]);
-        
-
+       
+     
             // dd($id);
     }
 
@@ -133,10 +200,20 @@ class ArticleController extends Controller
             File::delete(public_path('article-img/'.$img->image));
 
             Post::where('id',$id)->delete();
-            return redirect()->back()->with('pesan','Berhasil Hapus Article ');
+
+            $notification = array(
+                'message' => 'Post Berhasil Di  Hapus!',
+                'alert-type' => 'danger'
+            );
+            
+            // return Redirect::to('/')->with($notification);
+            // return redirect()->route('dashboard.manager')->;
+            return redirect()->back()->with($notification);
         }else{
             // dd('File does not exists.');
-            return redirect()->back()->with('fail','Gagal di  Hapus  ');
+            Post::where('id',$id)->delete();
+
+            return redirect()->back()->with('pesan','Berhasil  di  Hapus  ');
 
         }
         

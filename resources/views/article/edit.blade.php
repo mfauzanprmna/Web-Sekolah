@@ -154,10 +154,9 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label for="seo">Image</label>
-
                                         <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="customFile" name="image" onchange="loadFile(event)" accept="image/*" >
-                                          <label class="custom-file-label" for="customFile">Add image file</label>
+                                          <input type="file" class="custom-file-input"  name="image" onchange="loadFile(event)" accept="image/*" >
+                                          <label class="custom-file-label" >Add image file</label>
                                         </div>
                                     </div>
                                    
@@ -200,7 +199,7 @@
 
                                 </div>
                                 <div class="col-2">
-                                    <button type="submit" class="btn btn-primary">Buat</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                               </div>
                               
@@ -229,15 +228,6 @@
             console.error( error );
         } );
 
-
-        var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('output');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
 
 </script>
 

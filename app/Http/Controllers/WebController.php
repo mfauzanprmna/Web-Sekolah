@@ -46,4 +46,10 @@ class WebController extends Controller
             $settings = Setting::all();
             return view('profile', compact('settings', 'pages'));
     }
+
+    public function kurikulumtb(){
+        $struktur = DB::table('posts')->find(12);
+
+        return view('kurikulum', compact('struktur'));
+    }
 }

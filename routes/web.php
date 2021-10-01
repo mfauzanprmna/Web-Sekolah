@@ -36,8 +36,10 @@ Route::get('/artikel', function () {
 Route::get('/kurikulum', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
-    $news = App\Models\Newsslide::all();
-    return view('kurikulum', compact('settings','bgcontents', 'news'));
+    $struktur = App\Models\Page::where('id', '17')->get(['body']);
+    $kompetensi = App\Models\Page::where('id', '16')->get(['body', 'title']);
+
+    return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi'));
 });
 // Route::get('/profile', function () {
 //     $settings = App\Models\Setting::all();
@@ -54,15 +56,15 @@ Route::get('/kontakkami', function () {
 });
 Route::get('/hubin', function () {
     $settings = App\Models\Setting::all();
-  $bgcontents = App\Models\Bgcontent::all();
-    $news = App\Models\Newsslide::all();
-    return view('hubin', compact('settings','bgcontents', 'news'));
+    $bgcontents = App\Models\Bgcontent::all();
+
+    return view('hubin', compact('settings', 'bgcontents'));
 });
 Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
-  $bgcontents = App\Models\Bgcontent::all();
-    $news = App\Models\Newsslide::all();
-    return view('fotoguru',compact('settings','bgcontents', 'news'));
+    $bgcontents = App\Models\Bgcontent::all();
+
+    return view('fotoguru',compact('settings', 'bgcontents'));
 });
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
@@ -72,9 +74,9 @@ Route::get('/sarpras', function () {
 });
 Route::get('/kesiswaan', function () {
     $settings = App\Models\Setting::all();
-      $bgcontents = App\Models\Bgcontent::all();
-    $news = App\Models\Newsslide::all();
-    return view('kesiswaan', compact('settings','bgcontents', 'news'));
+    $bgcontents = App\Models\Bgcontent::all();
+    $kegiatan_osis = App\Models\Page::where('category_id', '3')->get(['body', 'title']);
+    return view('kesiswaan', compact('settings', 'bgcontents', 'kegiatan_osis'));
 });
 
 
