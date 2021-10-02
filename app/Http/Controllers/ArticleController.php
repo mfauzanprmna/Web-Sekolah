@@ -26,7 +26,7 @@ class ArticleController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
 
 
       
@@ -72,7 +72,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
 
-       $article =  Post::where('id',$id)->first();
+       $article =  Post::where('slug',$id)->first();
        $categories = Category::all();
 
         return view('article.edit',compact('article','categories'));

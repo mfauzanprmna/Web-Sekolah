@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\ImageController;
 use App\Models\Alumni;
 use App\Models\Jurusan;
 use App\Models\Post;
