@@ -44,7 +44,12 @@
         <div class="container text-white" >
           <div class="row counters mt-4">
             <div class="col-md-2" style="font-family: poppins">
-              <img src="{{asset('template/assets/img/logotb.png')}}" alt="" style="width: 95px; height: 95px" />
+            @foreach ($settings as $setting)
+              @if ($setting->display_name == 'Site Logo')
+            
+              <img src="{{asset('storage/' . $setting->value)}}" alt=""style="width: 95px; height: 95px"  />
+              @endif
+            @endforeach
             </div>
             <div class="col-md-4 mt-3">
               <p style="font-size: 20px">

@@ -11,7 +11,7 @@
 <section class="our-webcoderskull padding-lg">
   <div class="container">
     <div class="row heading heading-icon">
-        <h2>Our Team</h2>
+        <h1 class="text-primary text-center">Our Team</h1>
     </div>
     <ul class="row">
       <li class="col-12 col-md-6 col-lg-3">

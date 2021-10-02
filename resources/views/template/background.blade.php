@@ -37,21 +37,32 @@
             integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
             crossorigin="anonymous" />
 
-
+        <style>
+            #hero{
+                background: url('http://localhost:8000/template/assets/img/backgroundtb.png') top center; 
+                width: 100%;
+                height: 530px;
+                background-size: cover;
+                position: relative;
+            }
+        </style>
     </head>
 
     <body>
-        
+
             
-        
         <section id="hero" class="d-flex justify-content-center align-items-center">
-            @foreach ($bgcontents as $bgcontent)
-            <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-                <h1>{{$bgcontent->title}}<br />{{$bgcontent->subtitle}}</h1>
-                <h2>{{$bgcontent->conten}}</h2>
+            <div class="container position-relative" style="margin-bottom: 10%;" data-aos="zoom-in" data-aos-delay="100">
+                @foreach ($settings as $item)
+                @if ( $item->display_name == 'Heading' )
+                    
+                <h1>{!!$item->value!!}</h1>
+                @elseif( $item->display_name == 'Sub Heading' )
+                <h2>{{$item->value}}</h2>
+                @endif
+                @endforeach
                 <a href="#" target="_blank" class="btn-get-started">Login</a>
             </div>
-            @endforeach
         </section>
 
 

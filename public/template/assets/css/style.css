@@ -58,10 +58,10 @@ ul {
     display: inline-block;
 }
 
-.our-webcoderskull {
+/* .our-webcoderskull {
     background: url("http://www.webcoderskull.com/img/right-sider-banner.png")
         no-repeat center top / cover;
-}
+} */
 .our-webcoderskull .cnt-block {
     float: left;
     width: 100%;
@@ -540,7 +540,6 @@ h6 {
 #hero {
     width: 100%;
     height: 530px;
-    background: url("../img/backgroundtb.png") top center;
     background-size: cover;
     position: relative;
 }
