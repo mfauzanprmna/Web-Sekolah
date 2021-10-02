@@ -32,11 +32,18 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', 'WebController@index');
 Route::get('/profile', 'WebController@profiletb');
 
+
 Route::get('/artikel', function () {
     $settings = App\Models\Setting::all();
     $article = App\Models\Post::all();
     return view('artikel', compact('settings', 'article'));
 });
+// Route::get('/profile', function () {
+//     $settings = App\Models\Setting::all();
+//     $bgcontents = App\Models\Bgcontent::all();
+//     $homefooters = App\Models\Homefooter::all();
+//     return view('profile', compact('settings', 'bgcontents','homefooters'));
+// });
 
 Route::get('/kurikulum', function () {
     $settings = App\Models\Setting::all();
@@ -48,26 +55,31 @@ Route::get('/kurikulum', function () {
 
     return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi', 'fotoguru'));
 });
-// Route::get('/profile', function () {
-//     $settings = App\Models\Setting::all();
-//     $bgcontents = App\Models\Bgcontent::all();
-//     $news = App\Models\Newsslide::all();
-//     $profiles = App\Models\Profile::all();
-//     return view('profile', compact('settings','bgcontents', 'news','profiles'));
-// });
+
 Route::get('/kontakkami', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
     $news = App\Models\Newsslide::all();
     return view('kontakkami', compact('settings', 'bgcontents', 'news'));
 });
-Route::get('/hubin', function () {
+Route::get('/hubin', [HubinController::class, 'index']);
+Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
 
-    return view('hubin', compact('settings', 'bgcontents'));
+    return view('fotoguru', compact('settings', 'bgcontents'));
 });
+
 Route::get('/{kategori:slug}', 'WebController@fotoguru');
+
+
+Route::get('/showartikel', function () {
+    $settings = App\Models\Setting::all();
+    $bgcontents = App\Models\Bgcontent::all();
+
+    return view('showartikel', compact('settings', 'bgcontents'));
+});
+
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
