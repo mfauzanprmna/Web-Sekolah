@@ -60,12 +60,7 @@ Route::get('/kontakkami', function () {
     $news = App\Models\Newsslide::all();
     return view('kontakkami', compact('settings', 'bgcontents', 'news'));
 });
-Route::get('/hubin', function () {
-    $settings = App\Models\Setting::all();
-    $bgcontents = App\Models\Bgcontent::all();
-    $news = App\Models\Newsslide::all();
-    return view('hubin', compact('settings', 'bgcontents','news'));
-});
+Route::get('/hubin', [HubinController::class, 'index']);
 Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();

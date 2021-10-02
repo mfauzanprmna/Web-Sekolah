@@ -614,7 +614,7 @@
                     <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
                 @endforeach
-            <tr>
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -649,7 +649,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </div>
@@ -803,7 +803,7 @@
                     <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
                 @endforeach
-            <tr>
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -838,7 +838,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </div>
