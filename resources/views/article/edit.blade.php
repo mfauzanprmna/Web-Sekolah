@@ -222,11 +222,11 @@
 @section('script')
 <script>
  
-    ClassicEditor
-        .create( document.querySelector( '#task-textarea' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    // ClassicEditor
+    //     .create( document.querySelector( '#task-textarea' ) )
+    //     .catch( error => {
+    //         console.error( error );
+    //     } );
 
 
 </script>

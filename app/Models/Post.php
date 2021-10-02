@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+class Post extends Model implements HasMedia 
 {
+
+    use HasFactory, InteractsWithMedia;
+
     protected $fillable = [
         'author_id',
         'category_id',
@@ -21,8 +26,14 @@ class Post extends Model
         'status',
         'featured',
     ];
-    use HasFactory;
 
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+              ->width(600);
+    }
+        
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -16,15 +16,20 @@ class ArticleController extends Controller
 
     public function tambah()
     {
+
         $categories = Category::all();
+            // dd($categories->page);
+        // $pages = Page::has('category')->where('')
 
         return view('article.tambah',compact('categories'));
         
     }
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
 
+
+      
         $description = strip_tags($request->description);
         $str = str_replace('&nbsp;','',$description);
         $meta_description = html_entity_decode($str);
@@ -67,7 +72,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
 
-       $article =  Post::where('id',$id)->first();
+       $article =  Post::where('slug',$id)->first();
        $categories = Category::all();
 
         return view('article.edit',compact('article','categories'));

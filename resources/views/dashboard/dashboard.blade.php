@@ -616,7 +616,7 @@
                                                                         {{-- <a class="dropdown-item" href="#"><i class="far fa-edit fa-lg mr-2" style="color: rgb(255, 225, 58)"></i>Edit</a> --}}
                                                                         {{-- <a class="dropdown-item" href="#"><i class="fas fa-trash-alt fa-lg mr-2" style="color: rgb(202, 65, 65)"></i>Delete </a> --}}
                                                                         <a class="dropdown-item small" href="#"><small>Show</small></a>
-                                                                        <a class="dropdown-item small" href="{{ route('article.edit', $item->id) }}"><small>Edit</small></a>
+                                                                        <a class="dropdown-item small" href="{{ route('article.edit', $item->slug) }}"><small>Edit</small></a>
                                                                         <form
                                                                             action="{{ route('article.delete', $item->id) }}"
                                                                             method="POST">
