@@ -16,7 +16,10 @@ class ArticleController extends Controller
 
     public function tambah()
     {
+
         $categories = Category::all();
+            // dd($categories->page);
+        // $pages = Page::has('category')->where('')
 
         return view('article.tambah',compact('categories'));
         
@@ -25,6 +28,8 @@ class ArticleController extends Controller
     {
         // dd($request);
 
+
+      
         $description = strip_tags($request->description);
         $str = str_replace('&nbsp;','',$description);
         $meta_description = html_entity_decode($str);

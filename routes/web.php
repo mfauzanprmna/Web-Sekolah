@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function
     Route::get('/Article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
     Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::patch('/Article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
+    Route::POST('/image/store', [ImageController::class, 'store'])->name('admin.image');
     Route::get('/dashboard', function () {
         $article = App\Models\Post::where('author_id', Auth::guard('manager')->id())->get();
         // dd($article);

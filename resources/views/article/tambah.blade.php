@@ -197,7 +197,7 @@
     </div>
 @endsection
 @push('js')
-<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script> --}}
 <script>
  
     // ClassicEditor
