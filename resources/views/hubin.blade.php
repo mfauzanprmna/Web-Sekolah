@@ -1,16 +1,19 @@
-@include('template.navbar')
-@include('template.background')
+{{-- @include('template.navbar') --}}
+{{-- @include('template.background') --}}
 
 <div class="container pt-5">
 <h2 class="text-center"><b>Data Tamatan SMK Taruna Bhakti</b></h2>
 <hr>
 <br>
 <nav class="nav nav-tabs flex-column flex-sm-row mt-1">
-  <a class="flex-sm-fill text-sm-center nav-link active " aria-current="page" data-bs-toggle="tab" data-bs-target="#tkj"><b>Teknik Komputer Jaringan</b></a>
-  <a class="flex-sm-fill text-sm-center nav-link " data-bs-toggle="tab" data-bs-target="#mm"><b>Multimedia</b></a>
-  <a class="flex-sm-fill text-sm-center nav-link " data-bs-toggle="tab" data-bs-target="#rpl"><b>Rekayasa Perangkat Lunak</b></a>
-  <a class="flex-sm-fill text-sm-center nav-link " data-bs-toggle="tab" data-bs-target="#bc"><b>Broadcasting</b></a>
-  <a class="flex-sm-fill text-sm-center nav-link " data-bs-toggle="tab" data-bs-target="#tei"><b>Teknik Elektronika Industri</b></a>
+    @foreach ($jurusan as $item)
+     @if ($item->id == 1)
+         
+     <a class="flex-sm-fill text-sm-center nav-link active " aria-current="page" data-bs-toggle="tab" data-bs-target="#{{ $item->singkatan }}"><b>{{ $item->jurusan }}</b></a>
+     @else
+     <a class="flex-sm-fill text-sm-center nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#{{ $item->singkatan }}"><b>{{ $item->jurusan }}</b></a>
+     @endif
+    @endforeach
 </nav>
 <div class="tab-content mb-5" id="myTabContent">
   <div class="tab-pane kekanan fade show active " id="tkj" role="tabpanel" aria-labelledby="home-tab">
@@ -32,16 +35,18 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($tkjKerja as $id => $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Agung Hartono</td>
-                    <td>2008</td>
-                    <td>PT. Evi Asia Tenggara</td>
-                    <td>Network Engineer</td>
-                    <td>2018</td>
-                    <td>diatas 5.000.000</td>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                    <td>{{ $item->tahun_kerja }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
-                <tr>
+                @endforeach
+                {{-- <tr>
                     <th scope="row">2</th>
                     <td>Arvi Dwi Septian</td>
                     <td>2008</td>
@@ -76,7 +81,7 @@
                     <td>Kasir</td>
                     <td>2018</td>
                     <td>3.000.000 - 4.000.000</td>
-                </tr>
+                </tr> --}}
                 
             </tbody>
         </table>
@@ -98,14 +103,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($tkjKuliah as $id => $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Dahana Pamungkas</td>
-                    <td>2011</td>
-                    <td>Bina Sarana Informatika</td>
-                    <td>Teknik Komputer</td>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
                 </tr>
-                <tr>
+                @endforeach
+                {{-- <tr>
                     <th scope="row">2</th>
                     <td>Achmat Sudaryanto</td>
                     <td>2016</td>
@@ -132,7 +139,7 @@
                     <td>2018</td>
                     <td>Universitas Gunadarma</td>
                     <td>Sistem Informasi</td>
-                </tr>
+                </tr> --}}
                 
             </tbody>
         </table>
@@ -154,14 +161,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($tkjWira as $id => $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Teddi Warsito</td>
-                    <td>2008</td>
-                    <td>Agen Aqua Galon</td>
-                    <td>15.000.000</td>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
-                <tr>
+                @endforeach
+                {{-- <tr>
                     <th scope="row">2</th>
                     <td>Siti Rahmah</td>
                     <td>2010</td>
@@ -188,7 +197,7 @@
                     <td>2016</td>
                     <td>Pengadaan Barang</td>
                     <td>300.000</td>
-                </tr>
+                </tr> --}}
                 
                 
             </tbody>
@@ -216,16 +225,18 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($mmKerja as $id => $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Lilis Sakdiyah</td>
-                    <td>2013</td>
-                    <td>CV. Arya Duta</td>
-                    <td>Setter</td>
-                    <td>2015</td>
-                    <td>2.000.000 - 3.000.000</td>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                    <td>{{ $item->tahun_kerja }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
-                <tr>
+                @endforeach
+                {{-- <tr>
                     <th scope="row">2</th>
                     <td>Rochaeti Widayanti</td>
                     <td>2016</td>
@@ -260,7 +271,7 @@
                     <td>SPG</td>
                     <td>2018</td>
                     <td>1.000.000 - 2.000.000</td>
-                </tr>
+                </tr> --}}
                 
             </tbody>
         </table>
@@ -282,13 +293,15 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($mmKuliah as $id => $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Maya Nirwana</td>
-                    <td>2014</td>
-                    <td>Universitas Indraprasta PGRI (UNINDRA) Jakarta Timur</td>
-                    <td>Bimbingan Dan Konseling</td>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
                 </tr>
+                @endforeach
                 <tr>
                     <th scope="row">2</th>
                     <td></td>
@@ -338,14 +351,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Novi Lutfi Yanti</td>
-                <td>2015</td>
-                <td>Karpet, Tas, Sepatu, Makeup online</td>
-                <td>4.000.000</td>
-            </tr>
-            <tr>
+            @foreach ($mmWira as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -372,7 +387,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>
@@ -399,16 +414,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Yasser Sultan Bayduri</td>
-                <td>2017</td>
-                <td>Sada Technology</td>
-                <td>Head Backend Devel</td>
-                <td>2018</td>
-                <td>diatas 5.000.000</td>
-            </tr>
-            <tr>
+             @foreach ($rplKerja as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                    <td>{{ $item->tahun_kerja }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -443,7 +460,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </div>
@@ -464,14 +481,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Agung Prabowo</td>
-                <td>2018</td>
-                <td>Universitas Nasional</td>
-                <td>Sistem Informasi</td>
-            </tr>
-            <tr>
+             @foreach ($rplKuliah as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                </tr>
+            @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -498,7 +517,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>
@@ -521,14 +540,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
+            @foreach ($rplWira as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -555,7 +576,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>
@@ -582,15 +603,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Aura Nur Zaqiah Putri</td>
-                <td>2018</td>
-                <td>Televisi Republik Indonesia (TVRI)</td>
-                <td>Karyawan</td>
-                <td>2018</td>
-                <td>1.000.000 - 2.000.000</td>
-            </tr>
+            @foreach ($bcKerja as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                    <td>{{ $item->tahun_kerja }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
             <tr>
                 <th scope="row">2</th>
                 <td></td>
@@ -647,14 +670,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Maghfirotu Syakinah</td>
-                <td>2018</td>
-                <td>Universitas Pancasila</td>
-                <td>Manajemen</td>
-            </tr>
-            <tr>
+            @foreach ($bcKuliah as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                </tr>
+            @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -681,7 +706,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>
@@ -704,14 +729,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
+            @foreach ($bcWira as $id => $item)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -738,7 +765,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>
@@ -765,15 +792,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Rifalsi</td>
-                <td>2018</td>
-                <td>PT. Sempana Jaya Agung</td>
-                <td>Operator Finishing</td>
-                <td>2018</td>
-                <td>2.000.000 - 3.000.000</td>
-            </tr>
+            @foreach ($teiKerja as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                    <td>{{ $item->tahun_kerja }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
             <tr>
                 <th scope="row">2</th>
                 <td></td>
@@ -830,14 +859,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Maulana Yusuf Ibrahim</td>
-                <td>2018</td>
-                <td>Perguruan Tinggi Jakarta</td>
-                <td>Teknik Elektronika</td>
-            </tr>
-            <tr>
+            @foreach ($teiKuliah as $id => $item)
+                <tr>
+                    <th scope="row">{{ ++$id }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ $item->posisi }}</td>
+                </tr>
+            @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -864,7 +895,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>
@@ -887,14 +918,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
+            @foreach ($teiWira as $id => $item)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->tahun_lulus }}</td>
+                    <td>{{ $item->nama_perusahaan }}</td>
+                    <td>{{ number_format($item->penghasilan) }}</td>
+                </tr>
+                @endforeach
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -921,7 +954,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
             
         </tbody>
     </table>

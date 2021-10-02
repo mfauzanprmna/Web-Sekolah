@@ -70,9 +70,6 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 
-    <script src="{{ asset('assets/js/stisla.js') }}"></script>
-    <script src="{{ asset('assets/js/config.js') }}"></script>
-    <script src="{{ asset('assets/js/app.js') }}"></script>
     <!-- JS -->
     @stack('js')
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}

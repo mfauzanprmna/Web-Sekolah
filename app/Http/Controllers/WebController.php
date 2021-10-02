@@ -12,6 +12,7 @@ use App\Models\Whystarbhak;
 use App\Models\Partner;
 use App\Models\Bgcontent;
 use App\Models\Homefooter;
+use App\Models\Profile;
 
 class WebController extends Controller
 {
@@ -39,8 +40,15 @@ class WebController extends Controller
     //     $categories = Category::where('name','profile'),
     //     $pages = Page::all()->where('category_id', '1')->first();
     //    , compact('categories', 'pages'));
-        $categories = Category::all()->where('name','profile');
-        $pages = Page::all()->where('category_id', '1')->first();
-        return view('profile', compact('categories', 'pages'));
+
+            $pages = Page::all()->where('category_id', '7')->where('status', 'ACTIVE');
+            $settings = Setting::all();
+            return view('profile', compact('settings', 'pages'));
+    }
+
+    public function kurikulumtb(){
+        $struktur = DB::table('posts')->find(12);
+
+        return view('kurikulum', compact('struktur'));
     }
 }
