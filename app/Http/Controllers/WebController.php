@@ -13,6 +13,9 @@ use App\Models\Partner;
 use App\Models\Bgcontent;
 use App\Models\Homefooter;
 use App\Models\Profile;
+use App\Models\Kategori;
+use App\Models\Gallery;
+use App\Models\GuruRole;
 
 class WebController extends Controller
 {
@@ -50,5 +53,14 @@ class WebController extends Controller
         $struktur = DB::table('posts')->find(12);
 
         return view('kurikulum', compact('struktur'));
+    }
+
+    public function fotoguru(Kategori $kategori)
+    {
+        $foto = Gallery::all()->where('kategori_guru', $kategori->id);
+        $settings = Setting::all();
+        $bgcontents = Bgcontent::all();
+
+        return view('fotoguru', compact('foto', 'settings', 'bgcontents', 'kategori'));
     }
 }

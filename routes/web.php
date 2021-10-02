@@ -8,7 +8,6 @@ use App\Http\Controllers\ImageController;
 use App\Models\Alumni;
 use App\Models\Jurusan;
 use App\Models\Post;
-use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +43,10 @@ Route::get('/kurikulum', function () {
     $bgcontents = App\Models\Bgcontent::all();
     $struktur = App\Models\Page::where('id', '17')->get(['body', 'title']);
     $kompetensi = App\Models\Page::where('id', '16')->get(['body', 'title']);
+    $fotoguru = App\Models\Kategori::all();
 
-    return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi'));
+
+    return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi', 'fotoguru'));
 });
 // Route::get('/profile', function () {
 //     $settings = App\Models\Setting::all();
@@ -66,12 +67,7 @@ Route::get('/hubin', function () {
 
     return view('hubin', compact('settings', 'bgcontents'));
 });
-Route::get('/fotoguru', function () {
-    $settings = App\Models\Setting::all();
-    $bgcontents = App\Models\Bgcontent::all();
-
-    return view('fotoguru', compact('settings', 'bgcontents'));
-});
+Route::get('/{kategori:slug}', 'WebController@fotoguru');
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
