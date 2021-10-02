@@ -6,6 +6,7 @@ use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
 use App\Models\Alumni;
 use App\Models\Jurusan;
+use App\Models\Post;
 use Illuminate\Support\Facades\App;
 
 /*
@@ -96,7 +97,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function
     Route::patch('/Article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
     Route::POST('/image/store', [ImageController::class, 'store'])->name('admin.image');
     Route::get('/dashboard', function () {
-        $article = App\Models\Post::where('author_id', Auth::guard('manager')->id())->get();
+        $article = Post::where('author_id', Auth::guard('manager')->id())->get();
         // dd($article);
         return view('dashboard.dashboard', compact('article'));
     })->name('dashboard.manager');
