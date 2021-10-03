@@ -22,7 +22,7 @@ class WebController extends Controller
     public function index()
     {
         $news = Newsslide::all();
-        $article = Post::latest()->paginate(6);
+        $article = Post::where('status','PUBLISHED')->latest()->paginate(6);
         $settings = Setting::all();
         $whystarbhaks = Whystarbhak::all();
         $partners = Partner::all();

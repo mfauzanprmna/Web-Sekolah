@@ -247,7 +247,10 @@
                 </div>
             </div>
         </div>
-    @elseif (Route::is('dashboard.manager'))
+    {{-- @elseif (Route::is('dashboard.manager')) --}}
+     
+        @else 
+
         <div class="row">
             <div class="col">
                 <div class="card card-info profile-widget">
@@ -409,7 +412,21 @@
                                                         <div class="bullet"></div>
                                                         <a href="{{ route('article.edit', $item->id) }}">Edit</a>
                                                         <div class="bullet"></div>
-                                                        <a href="#" class="text-warning">Draft</a>
+                                                        <form 
+                                                        action="{{ route('article.draft', $item->id) }}"
+                                                        method="POST">
+                                                        @method('PUT')
+                                                        @csrf
+                                                                @if ($item->status == 'PUBLISHED')
+                                                                <button type="submit" class="btn px-0 ">
+                                                                    <a class="text-warning">Draft</a>
+                                                                </button>
+                                                                @else
+                                                                <button type="submit" class="btn px-0 ">
+                                                                    <a class="text-primary">Published</a>
+                                                                </button>
+                                                                @endif
+                                                    </form>
                                                         <div class="bullet"></div>
                                                         <form id="deleteForm"
                                                             action="{{ route('article.delete', $item->id) }}"
@@ -424,7 +441,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    {{-- {{ $item->category->name }} --}}
+                                                    {{ $item->category->name }}
                                                 </td>
                                                 <td>
                                                     {{ Carbon\Carbon::parse($item->created_at)->format('H:i') }}
@@ -432,8 +449,13 @@
                                                     {{ Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y') }}
                                                 </td>
                                                 <td>
+                                                        @if ($item->status == 'DRAFT')
+                                                                <div class="badge badge-warning">{{ $item->status }}</div>
+                                                        @else 
                                                     <div class="badge badge-primary">{{ $item->status }}</div>
-                                                </td>
+
+                                                            @endif
+                                                    </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -444,6 +466,8 @@
                 </div>
             </div>
         </div>
+
+
     @endif
 @endsection
 

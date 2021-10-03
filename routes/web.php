@@ -5,7 +5,6 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
-use App\Http\Controllers\ImageController;
 use App\Models\Alumni;
 use App\Models\Jurusan;
 use App\Models\Post;
@@ -26,9 +25,9 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 
 Route::get('/', 'WebController@index');
 Route::get('/profile', 'WebController@profiletb');
@@ -36,7 +35,7 @@ Route::get('/profile', 'WebController@profiletb');
 
 Route::get('/artikel', function () {
     $settings = App\Models\Setting::all();
-    $article = App\Models\Post::all();
+    $article = App\Models\Post::where('status','PUBLISHED')->get();
     return view('artikel', compact('settings', 'article'));
 });
 // Route::get('/profile', function () {
@@ -74,12 +73,17 @@ Route::get('/fotoguru', function () {
 Route::get('/{kategori:slug}', 'WebController@fotoguru');
 
 
-Route::get('/showartikel', function () {
+
+Route::get('/showartikel/{id}', function ($id) {
+    // dd($id);
+    $articleShow = App\Models\Post::where('slug',$id)->first();
+    $author = App\Models\Manager::where('id',$articleShow->author_id)->first();
+    // dd($author);
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
+    return view('showartikel',compact('articleShow','settings', 'bgcontents','author'));
+})->name('showartikel');
 
-    return view('showartikel', compact('settings', 'bgcontents'));
-});
 
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
@@ -105,6 +109,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth:manager']], function
     Route::get('/Article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
     Route::delete('/Article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::patch('/Article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
+    Route::put('/Article/draft/{id}', [ArticleController::class, 'draftOrPublised'])->name('article.draft');
     Route::POST('/image/store', [ImageController::class, 'store'])->name('admin.image');
     Route::get('/dashboard', function () {
         $article = Post::where('author_id', Auth::guard('manager')->id())->get();

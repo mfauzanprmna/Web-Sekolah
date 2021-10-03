@@ -18,22 +18,29 @@
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('article.store') }}" method="POST"
-                                        enctype="multipart/form-data">
+                                        enctype="multipart/form-data" id="form">
                                         @csrf
                                         <div class="form-row">
 
                                             <div class="form-group col-md-6">
                                                 <label for="categories">Kategori</label>
                                                 <select name="category" id="categories" class="form-control">
+                                                    <option value="" selected>--Pilih Kategori--</option>
                                                     @foreach ($categories as $item)
                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('category')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="title">Judul</label>
                                                 <input type="text" class="form-control" id="title" name="title"
                                                     placeholder="Masukkan judul untuk artikel" autocomplete="off">
+                                                    @error('title')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -41,21 +48,27 @@
                                                 <label for="seo">Judul SEO</label>
                                                 <input type="text" class="form-control" id="seo" name="seo_title"
                                                     autocomplete="off" placeholder="Masukkan judul SEO">
+                                                    @error('seo_title')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="seo">Gambar Thumbnail</label>
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="customFile"
                                                         name="image" onchange="loadFile(event)" accept="image/*">
-                                                    <label class="custom-file-label" for="customFile">
-                                                        Masukkan gambar
-                                                    </label>
+                                                        <label class="custom-file-label" for="customFile">
+                                                            Masukkan gambar
+                                                        </label>
+                                                    </div>
+                                                    @error('image')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
-                                            </div>
                                         </div>
                                         <div class="row my-2">
                                             <div class="container d-flex justify-content-center">
-                                                <img id="output" style="width: 250px; height:200px;" />
+                                                <img id="output" style="width: 450px; height:210px;" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -63,6 +76,9 @@
                                             <textarea type="text" name="description" class="ck-editor_editable"
                                                 id="task-textarea" placeholder="Tulis Deskripsi" cols="100"
                                                 rows="10"></textarea>
+                                                @error('description')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                         </div>
 
                                         <div class="row">
