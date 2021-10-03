@@ -24,7 +24,10 @@ class ArticleController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
+
+
+      
         $description = strip_tags($request->description);
         $str = str_replace('&nbsp;', '', $description);
         $meta_description = html_entity_decode($str);
@@ -60,28 +63,15 @@ class ArticleController extends Controller
     }
     public function edit($id)
     {
-
         $article =  Post::where('id', $id)->first();
         $categories = Category::all();
-
-        return view('article.edit', compact('article', 'categories'));
-    }
-    public function update(Request $request, $id)
-    {
-        // dd($request->image);
-
-        if ($request->image == null) {
-            $img =  Post::where('id', $id)->first();
-            // dd($img->image);
             $description = strip_tags($request->description);
             $str = str_replace('&nbsp;', '', $description);
             $meta_description = html_entity_decode($str);
-            // $string = str_replace(' ', '', $string);
             $slug = str_replace(' ', '-', $request->title);
             // dd($request,$description,$meta_description,$slug);
             // $nm = $request->image;
             // $namafile = $nm->getClientOriginalName();
-            // $nm->move(public_path().'/article-img',$namafile);
             Post::where('id', $id)->update([
                 'author_id'        => Auth::guard('manager')->id(),
                 'category_id'      => $request->category,

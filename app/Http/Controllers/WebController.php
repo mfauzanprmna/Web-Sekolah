@@ -13,6 +13,9 @@ use App\Models\Partner;
 use App\Models\Bgcontent;
 use App\Models\Homefooter;
 use App\Models\Profile;
+use App\Models\Kategori;
+use App\Models\Gallery;
+use App\Models\GuruRole;
 
 class WebController extends Controller
 {
@@ -42,13 +45,25 @@ class WebController extends Controller
     //    , compact('categories', 'pages'));
 
             $pages = Page::all()->where('category_id', '7')->where('status', 'ACTIVE');
+    $bgcontents = Bgcontent::all();
+        $news = Newsslide::all();
+
             $settings = Setting::all();
-            return view('profile', compact('settings', 'pages'));
+            return view('profile', compact('settings', 'pages', 'bgcontents', 'news'));
     }
 
     public function kurikulumtb(){
         $struktur = DB::table('posts')->find(12);
 
         return view('kurikulum', compact('struktur'));
+    }
+
+    public function fotoguru(Kategori $kategori)
+    {
+        $foto = Gallery::all()->where('kategori_guru', $kategori->id);
+        $settings = Setting::all();
+        $bgcontents = Bgcontent::all();
+
+        return view('fotoguru', compact('foto', 'settings', 'bgcontents', 'kategori'));
     }
 }

@@ -76,9 +76,9 @@ class HubinController extends Controller
 
 
         $jurusan = Jurusan::all();
-        // $bgcontents = Bgcontent::all();
+        $bgcontents = Bgcontent::all();
         $settings = Setting::all();
 
-        return view('hubin', compact('tkjKuliah', 'tkjWira', 'tkjKerja', 'mmKuliah', 'mmWira', 'mmKerja', 'bcKuliah', 'bcWira', 'bcKerja', 'teiKerja', 'teiWira', 'teiKuliah', 'rplKerja', 'rplWira', 'rplKuliah', 'jurusan', 'settings'));
+        return view('hubin', compact('tkjKuliah', 'tkjWira', 'tkjKerja', 'mmKuliah', 'mmWira', 'mmKerja', 'bcKuliah', 'bcWira', 'bcKerja', 'teiKerja', 'teiWira', 'teiKuliah', 'rplKerja', 'rplWira', 'rplKuliah', 'jurusan', 'settings', 'bgcontents'));
     }
 }

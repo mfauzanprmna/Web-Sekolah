@@ -1,5 +1,5 @@
-{{-- @include('template.navbar') --}}
-{{-- @include('template.background') --}}
+@include('template.navbar')
+@include('template.background')
 
 <div class="container pt-5">
 <h2 class="text-center"><b>Data Tamatan SMK Taruna Bhakti</b></h2>
@@ -16,7 +16,7 @@
     @endforeach
 </nav>
 <div class="tab-content mb-5" id="myTabContent">
-  <div class="tab-pane kekanan fade show active " id="tkj" role="tabpanel" aria-labelledby="home-tab">
+  <div class="tab-pane kekanan fade show active " id="TKJ" role="tabpanel" aria-labelledby="home-tab">
 
     <!-- Kerja -->
     <h5 class="mt-5"><b>DATA TAMATAN Teknik Komputer Jaringan YANG BEKERJA</b></h5>
@@ -206,7 +206,7 @@
     <br>
 
   </div>
-  <div class="tab-pane kekanan fade" id="mm" role="tabpanel" aria-labelledby="profile-tab">
+  <div class="tab-pane kekanan fade" id="MM" role="tabpanel" aria-labelledby="profile-tab">
     
     <!-- Kerja -->
     <h5 class="mt-5"><b>DATA TAMATAN Multimedia YANG BEKERJA</b></h5>
@@ -395,7 +395,7 @@
  <br>
 
   </div>
-  <div class="tab-pane kekanan fade" id="rpl" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane kekanan fade" id="RPL" role="tabpanel" aria-labelledby="contact-tab">
     
     <!-- Kerja -->
 <h5 class="mt-5"><b>DATA TAMATAN Rekayasa Perangkat Lunak YANG BEKERJA</b></h5>
@@ -584,7 +584,7 @@
  <br>
 
   </div>
-  <div class="tab-pane kekanan fade" id="bc" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane kekanan fade" id="BC" role="tabpanel" aria-labelledby="contact-tab">
     
     <!-- Kerja -->
 <h5 class="mt-5"><b>DATA TAMATAN Broadcasting YANG BEKERJA</b></h5>
@@ -613,43 +613,7 @@
                     <td>{{ $item->tahun_kerja }}</td>
                     <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
-                @endforeach
-            <tr>
-                <th scope="row">2</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
@@ -773,7 +737,7 @@
  <br>
 
   </div>
-  <div class="tab-pane kekanan fade" id="tei" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane kekanan fade" id="TEI" role="tabpanel" aria-labelledby="contact-tab">
     
     <!-- Kerja -->
 <h5 class="mt-5"><b>DATA TAMATAN Teknik Elekrtonika Industri YANG BEKERJA</b></h5>
@@ -803,7 +767,7 @@
                     <td>{{ number_format($item->penghasilan) }}</td>
                 </tr>
                 @endforeach
-            <tr>
+            {{-- <tr>
                 <th scope="row">2</th>
                 <td></td>
                 <td></td>
@@ -838,7 +802,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </div>

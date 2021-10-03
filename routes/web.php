@@ -5,10 +5,10 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\ImageController;
 use App\Models\Alumni;
 use App\Models\Jurusan;
 use App\Models\Post;
-use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,45 +33,54 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', 'WebController@index');
 Route::get('/profile', 'WebController@profiletb');
 
+
 Route::get('/artikel', function () {
     $settings = App\Models\Setting::all();
     $article = App\Models\Post::all();
     return view('artikel', compact('settings', 'article'));
 });
+// Route::get('/profile', function () {
+//     $settings = App\Models\Setting::all();
+//     $bgcontents = App\Models\Bgcontent::all();
+//     $homefooters = App\Models\Homefooter::all();
+//     return view('profile', compact('settings', 'bgcontents','homefooters'));
+// });
 
 Route::get('/kurikulum', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
     $struktur = App\Models\Page::where('id', '17')->get(['body', 'title']);
     $kompetensi = App\Models\Page::where('id', '16')->get(['body', 'title']);
+    $fotoguru = App\Models\Kategori::all();
 
-    return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi'));
+
+    return view('kurikulum', compact('settings', 'bgcontents', 'struktur', 'kompetensi', 'fotoguru'));
 });
-// Route::get('/profile', function () {
-//     $settings = App\Models\Setting::all();
-//     $bgcontents = App\Models\Bgcontent::all();
-//     $news = App\Models\Newsslide::all();
-//     $profiles = App\Models\Profile::all();
-//     return view('profile', compact('settings','bgcontents', 'news','profiles'));
-// });
+
 Route::get('/kontakkami', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
     $news = App\Models\Newsslide::all();
     return view('kontakkami', compact('settings', 'bgcontents', 'news'));
 });
-Route::get('/hubin', function () {
-    $settings = App\Models\Setting::all();
-    $bgcontents = App\Models\Bgcontent::all();
-
-    return view('hubin', compact('settings', 'bgcontents'));
-});
+Route::get('/hubin', 'HubinController@index');
 Route::get('/fotoguru', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
 
     return view('fotoguru', compact('settings', 'bgcontents'));
 });
+
+Route::get('/{kategori:slug}', 'WebController@fotoguru');
+
+
+Route::get('/showartikel', function () {
+    $settings = App\Models\Setting::all();
+    $bgcontents = App\Models\Bgcontent::all();
+
+    return view('showartikel', compact('settings', 'bgcontents'));
+});
+
 Route::get('/sarpras', function () {
     $settings = App\Models\Setting::all();
     $bgcontents = App\Models\Bgcontent::all();
