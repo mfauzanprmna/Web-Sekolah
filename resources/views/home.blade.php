@@ -40,7 +40,7 @@
   * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    ======================================================== -->
 </head>
 
 <body>
@@ -60,16 +60,14 @@
         <!-- ======= Counts Section ======= -->
         <!-- Carousel -->
 
-        {{-- <div id="carouselExampleControls" class="carousel slide counts section-bg" data-bs-ride="carousel"> --}}
-
         @include('template.carousel')
-        {{-- </div> --}}
+
         <!-- End Carousel -->
         <!-- End Counts Section -->
 
         <!-- ======= About Section ======= -->
-              @foreach ($whystarbhaks as $new)
-      @if ( $new->id == 1 )
+    @foreach ($whystarbhaks as $new)
+        @if ( $new->id == 1 )
         <section id="about" class="about" style="background-color: #d7efff; font-family: 'Poppins', sans-serif">
             <div class="container" data-aos="fade-up">
                 <div class="row">
