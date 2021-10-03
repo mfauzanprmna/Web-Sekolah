@@ -22,19 +22,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
     <!-- Custom CSS -->
     @stack('css')
 
     <style>
-      #toast-container > .toast-custom {
-    content: "\f00C";
-}
+        #toast-container>.toast-custom {
+            content: "\f00C";
+        }
 
-/* this will set the toastr style */
-.toast-custom-success {
-    background-color: rgb(117, 235, 88);
-}
+        /* this will set the toastr style */
+        .toast-custom-success {
+            background-color: rgb(117, 235, 88);
+        }
+
     </style>
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -75,203 +76,199 @@
     {{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
 
 
-<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
 
 
 
-<script>
- 
-
-    // ClassicEditor
-    // .create( document.querySelector( '#task-' ) )
-    // .catch( error => {
-    //     console.error( error );
-    // } );
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-{{-- <script src="../node_modules/izitoast/dist/js/iziToast.min.js"></script> --}}
+    <script>
+        // ClassicEditor
+        // .create( document.querySelector( '#task-' ) )
+        // .catch( error => {
+        //     console.error( error );
+        // } );
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    {{-- <script src="../node_modules/izitoast/dist/js/iziToast.min.js"></script> --}}
 
 
 
-{{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script> --}}
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script> --}}
 
-<script>
-    @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type', 'info') }}";
-    switch(type){
-        case 'info':
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}";
+            switch(type){
+            case 'info':
             toastr.info("{{ Session::get('message') }}");
-            
+        
             break;
-
-        case 'warning':
+        
+            case 'warning':
             toastr.warning("{{ Session::get('message') }}");
             break;
-
-        case 'success':
-        toastr.success("Click To Open", "more text",{iconClass:"toast-custom-success"});
+        
+            case 'success':
+            toastr.success("Click To Open", "more text",{iconClass:"toast-custom-success"});
             // toastr.success("{{ Session::get('message') }}");
             break;
-
-        case 'error':
+        
+            case 'error':
             toastr.error("{{ Session::get('message') }}");
             break;
-    }
-  @endif
-
- 
-  
-
-
-  class MyUploadAdapter {
-
-    constructor( loader ) {
-        // The file loader instance to use during the upload. It sounds scary but do not
-        // worry — the loader will be passed into the adapter later on in this guide.
-        this.loader = loader;
-    }
-
-    // ...
-
-    // Starts the upload process.
-    upload() {
-        return this.loader.file
-            .then( file => new Promise( ( resolve, reject ) => {
-                this._initRequest();
-                this._initListeners( resolve, reject, file );
-                this._sendRequest( file );
-            } ) );
-    }
-
-    // Aborts the upload process.
-    abort() {
-        if ( this.xhr ) {
-            this.xhr.abort();
-        }
-    }
-
-    _initRequest() {
-        const xhr = this.xhr = new XMLHttpRequest();
-
-        // Note that your request may look different. It is up to you and your editor
-        // integration to choose the right communication channel. This example uses
-        // a POST request with JSON as a data structure but your configuration
-        // could be different.
-        xhr.open( 'POST', '{{ route('admin.image') }}', true );
-        xhr.setRequestHeader('x-csrf-token', '{{ csrf_token() }}');
-        xhr.responseType = 'json';
-    }
+            }
+        @endif
 
 
 
 
-    // Initializes XMLHttpRequest listeners.
-    _initListeners( resolve, reject, file ) {
-        const xhr = this.xhr;
-        const loader = this.loader;
-        const genericErrorText = `Couldn't upload file: ${ file.name }.`;
 
-        xhr.addEventListener( 'error', () => reject( genericErrorText ) );
-        xhr.addEventListener( 'abort', () => reject() );
-        xhr.addEventListener( 'load', () => {
-            const response = xhr.response;
+        class MyUploadAdapter {
 
-            // This example assumes the XHR server's "response" object will come with
-            // an "error" which has its own "message" that can be passed to reject()
-            // in the upload promise.
-            //
-            // Your integration may handle upload errors in a different way so make sure
-            // it is done properly. The reject() function must be called when the upload fails.
-            if ( !response || response.error ) {
-                return reject( response && response.error ? response.error.message : genericErrorText );
+            constructor(loader) {
+                // The file loader instance to use during the upload. It sounds scary but do not
+                // worry — the loader will be passed into the adapter later on in this guide.
+                this.loader = loader;
             }
 
-            // If the upload is successful, resolve the upload promise with an object containing
-            // at least the "default" URL, pointing to the image on the server.
-            // This URL will be used to display the image in the content. Learn more in the
-            // UploadAdapter#upload documentation.
-            resolve( {
-                default: response.url
-            } );
-        } );
+            // ...
 
-        // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
-        // properties which are used e.g. to display the upload progress bar in the editor
-        // user interface.
-        if ( xhr.upload ) {
-            xhr.upload.addEventListener( 'progress', evt => {
-                if ( evt.lengthComputable ) {
-                    loader.uploadTotal = evt.total;
-                    loader.uploaded = evt.loaded;
+            // Starts the upload process.
+            upload() {
+                return this.loader.file
+                    .then(file => new Promise((resolve, reject) => {
+                        this._initRequest();
+                        this._initListeners(resolve, reject, file);
+                        this._sendRequest(file);
+                    }));
+            }
+
+            // Aborts the upload process.
+            abort() {
+                if (this.xhr) {
+                    this.xhr.abort();
                 }
-            } );
+            }
+
+            _initRequest() {
+                const xhr = this.xhr = new XMLHttpRequest();
+
+                // Note that your request may look different. It is up to you and your editor
+                // integration to choose the right communication channel. This example uses
+                // a POST request with JSON as a data structure but your configuration
+                // could be different.
+                xhr.open('POST', '{{ route('admin.image') }}', true);
+                xhr.setRequestHeader('x-csrf-token', '{{ csrf_token() }}');
+                xhr.responseType = 'json';
+            }
+
+
+
+
+            // Initializes XMLHttpRequest listeners.
+            _initListeners(resolve, reject, file) {
+                const xhr = this.xhr;
+                const loader = this.loader;
+                const genericErrorText = `Couldn't upload file: ${ file.name }.`;
+
+                xhr.addEventListener('error', () => reject(genericErrorText));
+                xhr.addEventListener('abort', () => reject());
+                xhr.addEventListener('load', () => {
+                    const response = xhr.response;
+
+                    // This example assumes the XHR server's "response" object will come with
+                    // an "error" which has its own "message" that can be passed to reject()
+                    // in the upload promise.
+                    //
+                    // Your integration may handle upload errors in a different way so make sure
+                    // it is done properly. The reject() function must be called when the upload fails.
+                    if (!response || response.error) {
+                        return reject(response && response.error ? response.error.message : genericErrorText);
+                    }
+
+                    // If the upload is successful, resolve the upload promise with an object containing
+                    // at least the "default" URL, pointing to the image on the server.
+                    // This URL will be used to display the image in the content. Learn more in the
+                    // UploadAdapter#upload documentation.
+                    resolve({
+                        default: response.url
+                    });
+                });
+
+                // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
+                // properties which are used e.g. to display the upload progress bar in the editor
+                // user interface.
+                if (xhr.upload) {
+                    xhr.upload.addEventListener('progress', evt => {
+                        if (evt.lengthComputable) {
+                            loader.uploadTotal = evt.total;
+                            loader.uploaded = evt.loaded;
+                        }
+                    });
+                }
+
+
+            }
+
+
+            // Prepares the data and sends the request.
+            _sendRequest(file) {
+                // Prepare the form data.
+                const data = new FormData();
+
+
+                data.append('upload', file);
+
+                // Important note: This is the right place to implement security mechanisms
+                // like authentication and CSRF protection. For instance, you can use
+                // XMLHttpRequest.setRequestHeader() to set the request headers containing
+                // the CSRF token generated earlier by your application.
+
+                // Send the request.
+                this.xhr.send(data);
+            }
+
+
+
+
+
+
+
+
+            // ...
         }
 
 
-    }
-
-
-    // Prepares the data and sends the request.
-    _sendRequest( file ) {
-        // Prepare the form data.
-        const data = new FormData();
-
-
-        data.append( 'upload', file );
-
-        // Important note: This is the right place to implement security mechanisms
-        // like authentication and CSRF protection. For instance, you can use
-        // XMLHttpRequest.setRequestHeader() to set the request headers containing
-        // the CSRF token generated earlier by your application.
-
-        // Send the request.
-        this.xhr.send( data );
-    }
-
-
-
-
- 
-
-
-      
-    // ...
-}
 
 
 
 
 
+        function SimpleUploadAdapterPlugin(editor) {
+            editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                // Configure the URL to the upload script in your back-end here!
+                return new MyUploadAdapter(loader);
+            };
+
+        }
+
+        ClassicEditor
+            .create(document.querySelector('#task-textarea'), {
+                extraPlugins: [SimpleUploadAdapterPlugin],
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
 
-function SimpleUploadAdapterPlugin( editor ) {
-    editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-        // Configure the URL to the upload script in your back-end here!
-        return new MyUploadAdapter( loader );
-    };
-
-    }
-
-ClassicEditor
-        .create(document.querySelector('#task-textarea'), {
-        extraPlugins: [ SimpleUploadAdapterPlugin ],
-      } )
-       .catch( error => {
-        console.log( error );
-    } );
-
-
-  var loadFile = function(event) {
-      var reader = new FileReader();
-      reader.onload = function(){
-        var output = document.getElementById('output');
-        output.src = reader.result;
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    };
-
-
-</script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
 
 
 </body>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HubinController;
 use App\Http\Controllers\WebController;
@@ -108,7 +109,7 @@ Route::group(['prefix' => 'guru', 'middleware' => ['auth:guru']], function () {
     Route::get('/Article/index', [ArticleController::class, 'index'])->name('article.index');
 
     Route::get('/dashboard', function () {
-        return view('dashboard.guru');
+        return view('dashboard.dashboard');
     })->name('dashboard.guru');
 });
 
