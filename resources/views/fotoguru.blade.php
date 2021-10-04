@@ -17,7 +17,7 @@
       @foreach ($foto as $ft)
       <li class="col-12 col-md-6 col-lg-3">
           <div class="cnt-block equal-hight text-center" style="height: 349px;">
-            <img src="{{ asset('storage/'. $ft->foto) }}" class="img-responsive" alt="" style="width:200px;height:200px;">
+            <img src="{{ asset('storage/'. $ft->foto) }}" class="img-responsive" alt="" style="width:200px;height:200px; object-fit: cover;">
             <h3 style="margin-top:10%;"><a href="http://www.webcoderskull.com/">{{ $ft->nama_guru }}</a></h3>
           </div>
         </li>

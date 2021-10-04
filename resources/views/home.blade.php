@@ -97,15 +97,51 @@
                     <br />
                     <div>
                         <p>
-                            Protokol Kesehatan di Lingkungan Sekolah <a href="#"
-                                class="btn btn-transparent text-white hover"><i class="far fa-arrow-alt-circle-right"
-                                    style="font-size: 25px"></i></a>
+                            Protokol Kesehatan di Lingkungan Sekolah
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="far fa-arrow-alt-circle-right" style="font-size: 25px"></i>
+                              </button>
                         </p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Counts Section -->
+
+
+        <!-- Modal -->
+        {{-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                
+                
+                    <img src="https://pbs.twimg.com/media/EdBuXXUVcAA9clO.jpg" data-bs-dismiss="modal" aria-label="Close" alt="">
+                    
+                
+            </div>
+            </div>
+        </div> --}}
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://pbs.twimg.com/media/EdBuXXUVcAA9clO.jpg" data-bs-dismiss="modal" aria-label="Close" alt="">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
 
         <!-- ======= Why Us Section ======= -->
         <section id="why-us" class="why-us bg-dark">
