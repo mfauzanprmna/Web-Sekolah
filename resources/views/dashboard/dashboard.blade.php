@@ -247,10 +247,9 @@
                 </div>
             </div>
         </div>
-    {{-- @elseif (Route::is('dashboard.manager')) --}}
-     
-        @else 
+        {{-- @elseif (Route::is('dashboard.manager')) --}}
 
+    @else
         <div class="row">
             <div class="col">
                 <div class="card card-info profile-widget">
@@ -374,7 +373,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <h2 class="section-title">Artikel Anda</h2>
+                <h2 class="section-title">
+                    Artikel Anda
+                </h2>
                 <a class="btn btn-primary" href="{{ route('article.tambah') }}">
                     <i class="fa fa-plus fa-lg"></i> Tambah Artikel
                 </a>
@@ -393,7 +394,7 @@
                                         <tr role="row">
                                             <th scope="col">Judul</th>
                                             <th scope="col">Kategori</th>
-                                            <th scope="col">Tanggal dibuat</th>
+                                            <th scope="col">Waktu dan Tanggal dibuat</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
@@ -407,26 +408,25 @@
                                                         {{ asset('article-img/' . $item->image) }}" alt="">
                                                 </td> --}}
                                                 <td>{{ $item->title }}
-                                                    <div class="table-links">
+                                                    <div class="table-links d-flex align-items-center">
                                                         <a href="#">View</a>
                                                         <div class="bullet"></div>
                                                         <a href="{{ route('article.edit', $item->id) }}">Edit</a>
                                                         <div class="bullet"></div>
-                                                        <form 
-                                                        action="{{ route('article.draft', $item->id) }}"
-                                                        method="POST">
-                                                        @method('PUT')
-                                                        @csrf
-                                                                @if ($item->status == 'PUBLISHED')
+                                                        <form action="{{ route('article.draft', $item->id) }}"
+                                                            method="POST">
+                                                            @method('PUT')
+                                                            @csrf
+                                                            @if ($item->status == 'PUBLISHED')
                                                                 <button type="submit" class="btn px-0 ">
                                                                     <a class="text-warning">Draft</a>
                                                                 </button>
-                                                                @else
+                                                            @else
                                                                 <button type="submit" class="btn px-0 ">
                                                                     <a class="text-primary">Published</a>
                                                                 </button>
-                                                                @endif
-                                                    </form>
+                                                            @endif
+                                                        </form>
                                                         <div class="bullet"></div>
                                                         <form id="deleteForm"
                                                             action="{{ route('article.delete', $item->id) }}"
@@ -449,13 +449,13 @@
                                                     {{ Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMMM Y') }}
                                                 </td>
                                                 <td>
-                                                        @if ($item->status == 'DRAFT')
-                                                                <div class="badge badge-warning">{{ $item->status }}</div>
-                                                        @else 
-                                                    <div class="badge badge-primary">{{ $item->status }}</div>
+                                                    @if ($item->status == 'DRAFT')
+                                                        <div class="badge badge-warning">{{ $item->status }}</div>
+                                                    @else
+                                                        <div class="badge badge-primary">{{ $item->status }}</div>
 
-                                                            @endif
-                                                    </td>
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -474,7 +474,6 @@
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
     <style>
         .cardh {
             transition: 0.4s ease-out;
@@ -492,6 +491,7 @@
         }
 
     </style>
+
 @endpush
 
 @push('js')
