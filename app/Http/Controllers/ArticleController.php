@@ -81,26 +81,17 @@ class ArticleController extends Controller
         // dd($request->image);
 
         if ($request->image == null) {
-
             $img =  Post::where('id', $id)->first();
             // dd($img->image);
-
             $description = strip_tags($request->description);
             $str = str_replace('&nbsp;', '', $description);
             $meta_description = html_entity_decode($str);
-
             // $string = str_replace(' ', '', $string);
             $slug = str_replace(' ', '-', $request->title);
-
-
             // dd($request,$description,$meta_description,$slug);
-
-
             // $nm = $request->image;
             // $namafile = $nm->getClientOriginalName();
             // $nm->move(public_path().'/article-img',$namafile);
-
-
             Post::where('id', $id)->update([
                 'author_id'        => Auth::guard('manager')->id(),
                 'category_id'      => $request->category,
@@ -115,39 +106,24 @@ class ArticleController extends Controller
                 'status'           => 'PUBLISHED',
                 'featured'         => 1,
             ]);
-            return redirect()->route('dashboard.manager')->with($notification);
-
-
+            return redirect()->route('dashboard.manager')->with('message', 'Berhasil update Artikel');
             // dd('File does not exists.');
             // return redirect()->back()->with('fail','Gagal di  Hapus  ');
-
         } else {
-
             $img =  Post::where('id', $id)->first();
-
             if (File::exists(public_path('article-img/' . $img->image))) {
                 File::delete(public_path('article-img/' . $img->image));
-
-
                 $img =  Post::where('id', $id)->first();
                 // dd($img->image);
-
                 $description = strip_tags($request->description);
                 $str = str_replace('&nbsp;', '', $description);
                 $meta_description = html_entity_decode($str);
-
                 // $string = str_replace(' ', '', $string);
                 $slug = str_replace(' ', '-', $request->title);
-
-
                 // dd($request,$description,$meta_description,$slug);
-
-
                 $nm = $request->image;
                 $namafile = $nm->getClientOriginalName();
                 $nm->move(public_path() . '/article-img', $namafile);
-
-
                 Post::where('id', $id)->update([
                     'author_id'        => Auth::guard('manager')->id(),
                     'category_id'      => $request->category,
@@ -162,17 +138,11 @@ class ArticleController extends Controller
                     'status'           => 'PUBLISHED',
                     'featured'         => 1,
                 ]);
-
-                return redirect()->route('dashboard.manager')->with($notification);
-
+                return redirect()->route('dashboard.manager')->with('message', 'Berhasil update Artikel');
                 // Post::where('id',$id)->delete();
                 // return redirect()->back()->with('pesan','Berhasil Hapus Article ');
             }
         }
-
-
-
-
         // dd($id);
     }
 
@@ -189,11 +159,10 @@ class ArticleController extends Controller
             Post::where('id', $id)->delete();
             // return Redirect::to('/')->with($notification);
             // return redirect()->route('dashboard.manager')->;
-            return redirect()->back()->with('message', 'Berhasil menghapus Artikel');;
+            return redirect()->back()->with('message', 'Berhasil menghapus Artikel');
         } else {
             // dd('File does not exists.');
             Post::where('id', $id)->delete();
-
             return redirect()->back();
         }
 
@@ -210,12 +179,12 @@ class ArticleController extends Controller
             Post::where('id', $id)->update([
                 'status'           => 'DRAFT',
             ]);
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Berhasil menjadi Draft');
         } else {
             Post::where('id', $id)->update([
                 'status'           => 'PUBLISHED',
             ]);
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Berhasil Publish');
         }
     }
 }
